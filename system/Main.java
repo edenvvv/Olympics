@@ -1,126 +1,196 @@
 package system;
-import Olympics.*;
-import mobility.*;
 import animals.*;
 
+import java.security.InvalidParameterException;
 import java.util.Scanner;
 
 /**
  * eden dadon id:207279183
  * Eliran Dagan id: 208061580
  * Main
+ *
  */
 public class Main {
 
     public static void main(String[] args) {
+        try {
 
-        System.out.println("num of animals");
-        Scanner input = new Scanner(System.in);
-        int num_of_animals = input.nextInt();
+            System.out.println("Enter the num of  the animals:");
+            Scanner input = new Scanner(System.in);
+            int num_of_animals = input.nextInt();
 
-        Animal[] arr = new Animal[num_of_animals];
+            Animal[] array = new Animal[num_of_animals];
 
-        for(int i=0; i < num_of_animals; ++i){
-            
+            for (int i = 0; i < num_of_animals; ++i) {
+                Choose_Menu(array, i);
+            }
+            System.out.println("this is all the animal's you chose:");
+            for (int i = 0; i < num_of_animals; ++i) {
+                System.out.println("(" + (i + 1) + ")" + " is a " + array[i].getClass().getName());
+            }
+            Actions_Menu(array);
         }
+        catch(NegativeArraySizeException e)
+        {
+            System.out.println("you entered negative value to your amount of animals. Please try again, with positive number.");
+            main(args);
+        }
+    }
 
+    public static void Actions_Menu(Animal[] array)
+    {
+        Scanner input = new Scanner(System.in);
+        while(true) {
+            System.out.println("What do you want to do with your animals? 1 - info about the animal, 2 - animal sound, 3 - exit");
+            try {
+                int option = input.nextInt();
+                if (option == 1) {
+                    for(int i =0; i< array.length; ++i) {
+                        System.out.println("(" + (i+1) + ") " + array[i].getClass().getName() + " - " + array[i].toString());
+                    }
+                }
+                else if (option == 2) {
+                    for(int i =0; i< array.length; ++i) {
+                        array[i].makeSound();
+                    }
+                }
+                else if (option == 3)
+                    break;
+                else
+                    throw new InvalidParameterException();
+            }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        Medal medal = new Medal();
-        System.out.println(medal.toString());
-        /*
-        mobility.Point p = new mobility.Point(1,3);
-        mobility.Mobile mobile = new mobility.Mobile(p);
-        System.out.println(mobile.toString());
-        mobility.Point point = new mobility.Point(5,8);
-        mobile.move(point);
-        System.out.println(mobile.toString());
-        point.setX(10);
-        point.setY(10);
-        mobile.move(point);
-        System.out.println(mobile.toString());
-        */
-        /*
-        Animal x = new Animal();
-        System.out.println(x.toString());
-        */
-
-        Medal[] arr = new Medal[] {new Medal()};
-        Dog d = new Dog();
-        System.out.println(d.toString());
-        d.makeSound();
-
-        Dog s1 = new Dog("nini",Animal.gender.Male, 3.1, 8, arr, new Point(1,8), 4, "blob");
-        System.out.println(s1.toString());
-        s1.makeSound();
-
-        Cat c = new Cat();
-        System.out.println(c.toString());
-        c.makeSound();
-
-        Cat s2 = new Cat("nini",Animal.gender.Male, 3.1, 8, arr, new Point(1,8), 4, true);
-        System.out.println(s2.toString());
-        s2.makeSound();
-
-        Snake s = new Snake("nini",Animal.gender.Male, 3.1, 8, arr, new Point(1,8), 4, 3);
-        System.out.println(s.toString());
-        s.makeSound();
-
-        Alligator a = new Alligator();
-        System.out.println(a.toString());
-        a.makeSound();
-
-        Alligator s3 = new Alligator("nini",Animal.gender.Male, 3.1, 8, arr, new Point(1,8), 4, "blob");
-        System.out.println(s3.toString());
-        s3.makeSound();
-
-        Whale w = new Whale();
-        System.out.println(w.toString());
-        w.makeSound();
-
-        Whale s4 = new Whale("nini",Animal.gender.Male, 3.1, 8, arr, new Point(1,8), 4, "blob");
-        System.out.println(s4.toString());
-        s4.makeSound();
-
-        Dolphin dolphin = new Dolphin();
-        System.out.println(dolphin.toString());
-        dolphin.makeSound();
-
-        Dolphin s5 = new Dolphin("nini",Animal.gender.Male, 3.1, 8, arr, new Point(1,8), 4, Dolphin.WaterType.Sea);
-        System.out.println(s5.toString());
-        s5.makeSound();
-
-        Eagle e = new Eagle();
-        System.out.println(e.toString());
-        e.makeSound();
-
-        Eagle s6 = new Eagle("nini",Animal.gender.Male, 3.1, 8, arr, new Point(1,8), 4, 5.5);
-        System.out.println(s6.toString());
-        s6.makeSound();
-
-        Pigeon pi = new Pigeon();
-        System.out.println(pi.toString());
-        pi.makeSound();
-
-        Pigeon s7 = new Pigeon("nini",Animal.gender.Male, 3.1, 8, arr, new Point(1,8), 4, "Blob");
-        System.out.println(s7.toString());
-        s7.makeSound();
-
+            catch(InvalidParameterException e)
+            {
+                System.out.println("the option you chose isn't from the available options. Please, try again.");
+                Actions_Menu(array);
+            }
+        }
     }
 
 
+    public static void Choose_Menu(Animal[] array, int i)
+    {
+        System.out.println("insert which kind of animal do you want: (Air, Water, Terrestrial)");
+        Scanner input_type = new Scanner(System.in);
+        String option = input_type.nextLine().toLowerCase();
+
+        try {
+            switch (option) {
+                case "air":
+                    Air_Menu(array, i);
+                    break;
+
+                case "water":
+                    Water_Menu(array, i);
+                    break;
+
+                case "terrestrial":
+                    Terrestrial_Menu(array, i);
+                    break;
+                default:
+                    throw new InvalidParameterException();
+            }
+        }
+
+        catch (InvalidParameterException e)
+        {
+            System.out.println("we cant found the Type-Animal you chose, please try again. ");
+            Choose_Menu(array,i);
+        }
+    }
+
+    public static void Air_Menu(Animal[] array, int i)
+    {
+        System.out.println("Which Air-Animal do you want to choose: (Eagle, Pigeon)");
+        Scanner input = new Scanner(System.in);
+        String option = input.next().toLowerCase();
+
+        try
+        {
+            switch (option)
+            {
+                case "eagle":
+                    array[i] = new Eagle();
+                    break;
+
+                case "pigeon":
+                    array[i] = new Pigeon();
+                    break;
+
+                default:
+                    throw new InvalidParameterException();
+
+            }
+
+        }
+        catch (InvalidParameterException e)
+        {
+            System.out.println("we cant found the animal you chose, please try again. ");
+            Air_Menu(array,i);
+        }
+
+
+    }
+
+    public static void Water_Menu(Animal[] array, int i)
+    {
+        System.out.println("Which Water-Animal do you want to choose: (Alligator, Whale, Dolphin)");
+        Scanner input = new Scanner(System.in);
+        String option = input.next().toLowerCase();
+        try {
+            switch (option) {
+                case "alligator":
+                    array[i] = new Alligator();
+                    break;
+
+                case "whale":
+                    array[i] = new Whale();
+                    break;
+
+                case "dolphin":
+                    array[i] = new Dolphin();
+                    break;
+                default:
+                    throw new InvalidParameterException();
+            }
+        }
+        catch (InvalidParameterException e)
+        {
+            System.out.println("we cant found the animal you chose, please try again. ");
+            Water_Menu(array,i);
+        }
+
+
+    }
+
+    public static void Terrestrial_Menu(Animal[] array, int i)
+    {
+        System.out.println("Which Terrestrial-Animal do you want to choose: (Dog , Cat, Snake)");
+        Scanner input = new Scanner(System.in);
+        String option = input.next().toLowerCase();
+        try {
+            switch (option) {
+                case "dog":
+                    array[i] = new Dog();
+                    break;
+
+                case "cat":
+                    array[i] = new Cat();
+                    break;
+
+                case "snake":
+                    array[i] = new Snake();
+                    break;
+                default:
+                    throw new InvalidParameterException();
+            }
+        }
+        catch (InvalidParameterException e)
+        {
+            System.out.println("we cant found the animal you chose, please try again. ");
+            Terrestrial_Menu(array,i);
+        }
+
+    }
 }
