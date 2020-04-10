@@ -8,7 +8,6 @@ import java.util.Scanner;
  * eden dadon id:207279183
  * Eliran Dagan id: 208061580
  * Main
- * bla
  */
 public class Main {
 
