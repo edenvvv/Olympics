@@ -24,9 +24,33 @@ public abstract class TerrestrialAnimals extends Animal{
      */
     public TerrestrialAnimals(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position, int noLegs){
         super(name, my_genders, weight, speed, medals, position);
-        this.noLegs = noLegs;
+        if(noLegs > 0) {
+            this.noLegs = noLegs;
+        }
+        else {
+            System.out.println("You have entered incorrect value. It's okay, we provided a default value");
+            this.noLegs = 4;
+        }
     }
 
+
+    /**
+     *
+     */
+    public double get_num_of_legs(){
+        return this.noLegs;
+    }
+
+    /**
+     *
+     */
+    public boolean set_num_of_legs(int new_noLegs){
+        if(new_noLegs > 0){
+            this.noLegs = new_noLegs;
+            return true;
+        }
+        return false;
+    }
 
     /**
      * Returns the attributes as a string

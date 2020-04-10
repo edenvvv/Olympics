@@ -35,6 +35,24 @@ public class Eagle extends AirAnimal{
     }
 
     /**
+     *
+     */
+    public double get_altitudeOfFlight(){
+        return this.altitudeOfFlight;
+    }
+
+    /**
+     *
+     */
+    public boolean set_weight(double new_altitudeOfFlight){
+        if(new_altitudeOfFlight <= MAX_ALTITUDE){
+            this.altitudeOfFlight = new_altitudeOfFlight;
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Returns the attributes as a string
      */
     public String toString()

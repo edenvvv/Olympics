@@ -28,8 +28,32 @@ public class Snake extends TerrestrialAnimals implements IReptile {
         if(speed > MAX_SPEED){
             super.set_speed(MAX_SPEED);
         }
-        this.length = length;
+        if(length > 0) {
+            this.length = length;
+        }
+        else {
+            System.out.println("You have entered incorrect value. It's okay, we provided a default value");
+            this.length = 2.5;
+        }
         this.sound = "ssssssss";
+    }
+
+    /**
+     *
+     */
+    public double get_length(){
+        return this.length;
+    }
+
+    /**
+     *
+     */
+    public boolean set_length(double new_length){
+        if(new_length > 0){
+            this.length = new_length;
+            return true;
+        }
+        return false;
     }
 
     /**

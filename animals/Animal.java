@@ -35,12 +35,69 @@ public abstract class Animal extends Mobile{
      */
     public Animal(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position){
         super();
-        this.name = name;
+        if(name.length() > 0){
+            this.name = name;
+        }
+        else {
+            System.out.println("You have entered incorrect value. It's okay, we provided a default value");
+            this.name = "brownie";
+        }
         this.my_genders = my_genders;
         this.weight = weight;
         this.speed = speed;
         this.medals = medals;
         set_position(position);
+    }
+
+    /**
+     *
+     */
+    public gender get_gender(){
+        return this.my_genders;
+    }
+
+    /**
+     *
+     */
+    public boolean set_gender(gender new_genders){
+        this.my_genders = new_genders;
+        return true;
+    }
+
+    /**
+     *
+     */
+    public String get_name(){
+        return this.name;
+    }
+
+    /**
+     *
+     */
+    public boolean set_name(String new_name){
+        if(new_name.length() > 0){
+            this.name = new_name;
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     */
+    public double get_weight(){
+        return this.weight;
+    }
+
+    /**
+     *
+     */
+    public boolean set_weight(double new_weight){
+        if(new_weight > 0){
+            this.weight = new_weight;
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -86,9 +143,12 @@ public abstract class Animal extends Mobile{
     /**
      *
      */
-    protected boolean set_speed(double speed){
-        this.speed = speed;
-        return true;
+    protected boolean set_speed(double new_speed){
+        if(new_speed > 0){
+            this.speed = new_speed;
+            return true;
+        }
+        return false;
     }
 
     /**

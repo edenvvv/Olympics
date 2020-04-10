@@ -28,6 +28,22 @@ public class Dolphin extends WaterAnimal {
         this.sound = "Click-click";
     }
 
+
+    /**
+     *
+     */
+    public WaterType get_Water_Type(){
+        return this.Water_Type;
+    }
+
+    /**
+     *
+     */
+    public boolean set_gender(WaterType new_Water_Type){
+        this.Water_Type = new_Water_Type;
+        return true;
+    }
+
     /**
      * Returns the attributes as a string
      */

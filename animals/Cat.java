@@ -28,6 +28,22 @@ public class Cat extends TerrestrialAnimals{
         this.sound = "Meow";
     }
 
+
+    /**
+     *
+     */
+    public boolean get_Castrated(){
+        return this.Castrated;
+    }
+
+    /**
+     *
+     */
+    public boolean set_Castrated(boolean Castrated){
+        this.Castrated = Castrated;
+        return true;
+    }
+
     /**
      * Returns the attributes as a string
      */

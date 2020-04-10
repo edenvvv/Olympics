@@ -32,8 +32,31 @@ public abstract class WaterAnimal extends Animal {
             this.diveDept = diveDept;
         }
         else {
+            System.out.println("You have entered incorrect value. It's okay, we provided a default value (MAX = -800)");
             this.diveDept = MAX_DIVE;
         }
+    }
+
+
+    /**
+     *
+     */
+    public double get_diveDept(){
+        return this.diveDept;
+    }
+
+    /**
+     *
+     */
+    public boolean set_wingspan(double diveDept){
+        if(diveDept > 0){
+            diveDept = -diveDept;
+        }
+        if(diveDept > MAX_DIVE) {
+            this.diveDept = diveDept;
+            return true;
+        }
+        return false;
     }
 
     /**

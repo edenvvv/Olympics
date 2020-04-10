@@ -23,8 +23,33 @@ public class Alligator extends WaterAnimal{
      */
     public Alligator(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position, double diveDept, String AreaOfLiving){
         super(name, my_genders, weight, speed, medals, position,diveDept);
-        this.AreaOfLiving = AreaOfLiving;
+        if(AreaOfLiving.length() > 0) {
+            this.AreaOfLiving = AreaOfLiving;
+        }
+        else {
+            System.out.println("You have entered incorrect value. It's okay, we provided a default value");
+            this.AreaOfLiving = "Lake";
+        }
         this.sound = "Roar";
+    }
+
+
+    /**
+     *
+     */
+    public String get_AreaOfLiving(){
+        return this.AreaOfLiving;
+    }
+
+    /**
+     *
+     */
+    public boolean set_AreaOfLiving(String new_AreaOfLiving){
+        if(new_AreaOfLiving.length() > 0){
+            this.AreaOfLiving = new_AreaOfLiving;
+            return true;
+        }
+        return false;
     }
 
     /**
