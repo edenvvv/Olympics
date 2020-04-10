@@ -3,6 +3,8 @@ import Olympics.*;
 import mobility.*;
 import animals.*;
 
+import java.util.Scanner;
+
 /**
  * eden dadon id:207279183
  * Eliran Dagan id: 208061580
@@ -11,6 +13,33 @@ import animals.*;
 public class Main {
 
     public static void main(String[] args) {
+
+        System.out.println("num of animals");
+        Scanner input = new Scanner(System.in);
+        int num_of_animals = input.nextInt();
+
+        Animal[] arr = new Animal[num_of_animals];
+
+        for(int i=0; i < num_of_animals; ++i){
+            
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         Medal medal = new Medal();
         System.out.println(medal.toString());
         /*
@@ -92,5 +121,6 @@ public class Main {
         s7.makeSound();
 
     }
+
 
 }
