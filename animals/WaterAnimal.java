@@ -4,8 +4,9 @@ import Olympics.Medal;
 import mobility.Point;
 
 /**
- * eden dadon id:207279183
- * Eliran Dagan id: 208061580
+ * Class that describes an Water Animal Animals attributes
+ * @author eden dadon id:207279183
+ * @author Eliran Dagan id: 208061580
  */
 public abstract class WaterAnimal extends Animal {
     static final int MAX_DIVE = -800;
@@ -22,6 +23,13 @@ public abstract class WaterAnimal extends Animal {
 
     /**
      * constructor that initializes according to the attributes it received
+     * @param name
+     * @param my_genders
+     * @param weight
+     * @param speed
+     * @param medals
+     * @param position
+     * @param diveDept
      */
     public WaterAnimal(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position, double diveDept){
         super(name, my_genders, weight, speed, medals, position);
@@ -39,14 +47,17 @@ public abstract class WaterAnimal extends Animal {
 
 
     /**
-     *
+     * Get the diving dept of the water animal
+     * @return dept
      */
     public double get_diveDept(){
         return this.diveDept;
     }
 
     /**
-     *
+     * Set the wing span of the water animal
+     * @param diveDept
+     * @return true if succeed, false if isn't
      */
     public boolean set_wingspan(double diveDept){
         if(diveDept > 0){
@@ -60,7 +71,8 @@ public abstract class WaterAnimal extends Animal {
     }
 
     /**
-     *
+     * order the animal to dive not if tis greater than the Maximum dive limit
+     * @param dive
      */
     public void Dive(double dive){
         if(dive > 0){
@@ -76,7 +88,8 @@ public abstract class WaterAnimal extends Animal {
     }
 
     /**
-     * Returns the attributes as a string
+     * returns the attributes as a string
+     * @return string with the attributes
      */
     public String toString()
     {

@@ -1,9 +1,9 @@
 package mobility;
 
 /**
- * eden dadon id:207279183
- * Eliran Dagan id: 208061580
- * Represents point attributes
+ * Class that describes an Point attributes
+ * @author eden dadon id:207279183
+ * @author Eliran Dagan id: 208061580
  */
 public class Point {
     private int x;
@@ -19,6 +19,8 @@ public class Point {
 
     /**
      * constructor that initializes according to the attributes it received
+     * @param x
+     * @param y
      */
     public Point(int x ,int y){
         if ((x < 0) || (y < 0)){
@@ -32,6 +34,7 @@ public class Point {
 
     /**
      * Returns the attributes as a string
+     * @return string with the attributes
      */
     public String toString(){
         return "x: " + this.x + " y: " + this.y;
@@ -39,6 +42,7 @@ public class Point {
 
     /**
      * get X value
+     * @return x
      */
     public int getX(){
         return this.x;
@@ -46,6 +50,7 @@ public class Point {
 
     /**
      * get Y value
+     * @return y
      */
     public int getY(){
         return this.y;
@@ -53,6 +58,8 @@ public class Point {
 
     /**
      * set X value
+     * @param x
+     * @return true if succeed, false if isn't
      */
     public boolean setX(int x){
         if (x < 0){
@@ -64,6 +71,8 @@ public class Point {
 
     /**
      * set Y value
+     * @param y
+     * @return true if succeed, false if isn't
      */
     public boolean setY(int y){
         if (y < 0){

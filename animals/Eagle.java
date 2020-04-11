@@ -4,8 +4,9 @@ import Olympics.Medal;
 import mobility.Point;
 
 /**
- * eden dadon id:207279183
- * Eliran Elder Dagan id: 208061580
+ * Class that describes an Eagle attributes
+ * @author eden dadon id:207279183
+ * @author Eliran Dagan id: 208061580
  */
 public class Eagle extends AirAnimal{
     private double altitudeOfFlight;
@@ -17,11 +18,19 @@ public class Eagle extends AirAnimal{
     public Eagle(){
         super();
         this.altitudeOfFlight = 8.8;
-        this.sound = "Clack-wack-chack";
+        super.set_sound("Clack-wack-chack");
     }
 
     /**
      * constructor that initializes according to the attributes it received
+     * @param name
+     * @param my_genders
+     * @param weight
+     * @param speed
+     * @param medals
+     * @param position
+     * @param wingspan
+     * @param altitudeOfFlight
      */
     public Eagle(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position, double wingspan,double altitudeOfFlight){
         super(name, my_genders, weight, speed, medals, position,wingspan);
@@ -31,18 +40,21 @@ public class Eagle extends AirAnimal{
         else {
             this.altitudeOfFlight = altitudeOfFlight;
         }
-        this.sound = "Clack-wack-chack";
+        super.set_sound("Clack-wack-chack");
     }
 
     /**
-     *
+     * Get the altitude of the flight of the eagle
+     * @return altitude
      */
     public double get_altitudeOfFlight(){
         return this.altitudeOfFlight;
     }
 
     /**
-     *
+     * Set the Weight of the eagle
+     * @param new_altitudeOfFlight
+     * @return true if succeed, false if isn't
      */
     public boolean set_weight(double new_altitudeOfFlight){
         if(new_altitudeOfFlight <= MAX_ALTITUDE){
@@ -54,6 +66,7 @@ public class Eagle extends AirAnimal{
 
     /**
      * Returns the attributes as a string
+     * @return string with the attributes
      */
     public String toString()
     {

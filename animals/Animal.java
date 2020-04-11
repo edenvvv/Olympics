@@ -4,9 +4,9 @@ import mobility.Point;
 import Olympics.Medal;
 
 /**
- * eden dadon id:207279183
- * Eliran Dagan id: 208061580
- * Represents Animal attributes
+ * Class that describes an Animal attributes
+ * @author Eden dadon id:207279183
+ * @author Eliran Dagan id: 208061580
  */
 public abstract class Animal extends Mobile{
     public enum gender {Male, Female, Hermaphrodite}
@@ -16,7 +16,7 @@ public abstract class Animal extends Mobile{
     private double speed;
     private Medal[] medals;
     private Point position = new Point();
-    protected String sound; //
+    private String sound; //
 
     /**
      * Default constructor (with proper values)
@@ -32,6 +32,12 @@ public abstract class Animal extends Mobile{
 
     /**
      * constructor that initializes according to the attributes it received
+     * @param name
+     * @param my_genders
+     * @param weight
+     * @param speed
+     * @param medals
+     * @param position
      */
     public Animal(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position){
         super();
@@ -50,14 +56,17 @@ public abstract class Animal extends Mobile{
     }
 
     /**
-     *
+     * Return the gender of the animal
+     * @return gender
      */
     public gender get_gender(){
         return this.my_genders;
     }
 
     /**
-     *
+     * Set the gender of the animal
+     * @param new_genders
+     * @return if it succeed or failed
      */
     public boolean set_gender(gender new_genders){
         this.my_genders = new_genders;
@@ -65,14 +74,17 @@ public abstract class Animal extends Mobile{
     }
 
     /**
-     *
+     * Get the name of the animal
+     * @return name
      */
     public String get_name(){
         return this.name;
     }
 
     /**
-     *
+     * Set the name of the animal
+     * @param new_name
+     * @return if it succeed or failed
      */
     public boolean set_name(String new_name){
         if(new_name.length() > 0){
@@ -83,14 +95,17 @@ public abstract class Animal extends Mobile{
     }
 
     /**
-     *
+     * Get the weight of the animal
+     * @return weight
      */
     public double get_weight(){
         return this.weight;
     }
 
     /**
-     *
+     * Set the weight of the animal
+     * @param new_weight
+     * @return if it succeed or failed
      */
     public boolean set_weight(double new_weight){
         if(new_weight > 0){
@@ -101,7 +116,9 @@ public abstract class Animal extends Mobile{
     }
 
     /**
-     *
+     * protected: set the position of the animal
+     * @param nuw_Point
+     * @return if it succeed or failed
      */
     protected boolean set_position(Point nuw_Point){
         super.setLocation(nuw_Point);
@@ -110,7 +127,8 @@ public abstract class Animal extends Mobile{
     }
 
     /**
-     *
+     * Private: get the medals of the aninal as string
+     * @return string of medals
      */
     private String printMedals()
     {
@@ -125,6 +143,7 @@ public abstract class Animal extends Mobile{
 
     /**
      * Returns the attributes as a string
+     * @return the attributes as a string
      */
     public String toString()
     {
@@ -134,14 +153,16 @@ public abstract class Animal extends Mobile{
 
 
     /**
-     *
+     * prints the the name of the class and the sound of the animal
      */
     public void makeSound(){
         System.out.println(this.getClass().getName() + " " + this.name + " said " + this.sound);
     }
 
     /**
-     *
+     * protected: set the speed of the animal
+     * @param new_speed
+     * @return if it succeed or failed
      */
     protected boolean set_speed(double new_speed){
         if(new_speed > 0){
@@ -152,9 +173,31 @@ public abstract class Animal extends Mobile{
     }
 
     /**
-     *
+     * Protected: get the speed of the animal
+     * @return speed of animal
      */
     protected double get_speed(){
         return this.speed;
+    }
+
+
+    /**
+     * get the sound of the animal
+     * @return animal's sound
+     */
+    protected String get_sound() {return this.sound;}
+
+
+    /**
+     * Set the sound of the animal
+     * @param sound
+     * @return if it succeed or failed
+     */
+    protected boolean set_sound(String sound){
+        if(sound.length() > 0){
+            this.sound = sound;
+            return true;
+        }
+        return false;
     }
 }

@@ -1,9 +1,9 @@
 package Olympics;
 
 /**
- * eden dadon id:207279183
- * Eliran Dagan id: 208061580
- * Represents medal attributes
+ * Class that describes an Point attributes
+ * @author eden dadon id:207279183
+ * @author Eliran Dagan id: 208061580
  */
 public class Medal {
     public enum types {bronze, silver, gold}
@@ -22,6 +22,9 @@ public class Medal {
 
     /**
      * constructor that initializes according to the attributes it received
+     * @param type
+     * @param tournament
+     * @param year
      */
     public Medal(types type, String tournament, int year) {
         if (year < 0){
@@ -35,6 +38,7 @@ public class Medal {
 
     /**
      * Returns the attributes as a string
+     * @return string with the attributes
      */
     public String toString(){
         return "type: " + this.type + " tournament: " + this.tournament + " year: " +this.year;

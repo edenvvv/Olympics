@@ -4,8 +4,9 @@ import Olympics.Medal;
 import mobility.Point;
 
 /**
- * eden dadon id:207279183
- * Eliran Dagan id: 208061580
+ * Class that describes an Terrestrial Animals attributes
+ * @author eden dadon id:207279183
+ * @author Eliran Dagan id: 208061580
  */
 public abstract class TerrestrialAnimals extends Animal{
     private int noLegs;
@@ -21,6 +22,13 @@ public abstract class TerrestrialAnimals extends Animal{
 
     /**
      * constructor that initializes according to the attributes it received
+     * @param name
+     * @param my_genders
+     * @param weight
+     * @param speed
+     * @param medals
+     * @param position
+     * @param noLegs
      */
     public TerrestrialAnimals(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position, int noLegs){
         super(name, my_genders, weight, speed, medals, position);
@@ -35,14 +43,17 @@ public abstract class TerrestrialAnimals extends Animal{
 
 
     /**
-     *
+     * Get the num of the legs of the TerrestrialAnimals
+     * @return number of legs
      */
     public double get_num_of_legs(){
         return this.noLegs;
     }
 
     /**
-     *
+     * Set the num of the legs of the TerrestrialAnimals
+     * @param new_noLegs
+     * @return true if succeed, false if isn't
      */
     public boolean set_num_of_legs(int new_noLegs){
         if(new_noLegs > 0){
@@ -53,7 +64,8 @@ public abstract class TerrestrialAnimals extends Animal{
     }
 
     /**
-     * Returns the attributes as a string
+     * returns the attributes as a string
+     * @return string with the attributes
      */
     public String toString()
     {

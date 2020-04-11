@@ -5,12 +5,16 @@ import java.security.InvalidParameterException;
 import java.util.Scanner;
 
 /**
- * eden dadon id:207279183
- * Eliran Dagan id: 208061580
- * Main
+ * Main Class
+ *  * @author eden dadon id:207279183
+ *  * @author Eliran Dagan id: 208061580
  */
 public class Main {
 
+    /**
+     * main method
+     * @param args
+     */
     public static void main(String[] args) {
         try {
 
@@ -36,11 +40,21 @@ public class Main {
         }
     }
 
+    /**
+     * Once all the animals are selected by the user, a menu will open which has 3 options:
+     * 1 - Information on each animal selected.
+     * 2 - The sound the animal makes.
+     * 3 - Exit the system.
+     * If the user chooses an option that is not from the list -
+     * an exception is thrown and the option is repeated.
+     * @param array
+     * @throws InvalidParameterException
+     */
     public static void Actions_Menu(Animal[] array)
     {
         Scanner input = new Scanner(System.in);
         while(true) {
-            System.out.println("What do you want to do with your animals? 1 - info about the animal, 2 - animal sound, 3 - exit");
+            System.out.println("What do you want to do with your animals? (1) - info about the animal, (2) - animal sound, (3) - exit");
             try {
                 int option = input.nextInt();
                 if (option == 1) {
@@ -68,6 +82,17 @@ public class Main {
     }
 
 
+    /**
+     * A menu where the user can choose what type of animal they want from 3 families:
+     * 1 - air
+     * 2 - water
+     * 3 - terrestrial.
+     * If the user chooses an option that is not from the list -
+     * an exception is thrown and given them another option.
+     * @param array
+     * @param i - counter (the location in the Animal array - "array[i]")
+     * @throws InvalidParameterException
+     */
     public static void Choose_Menu(Animal[] array, int i)
     {
         System.out.println("insert which kind of animal do you want: (Air, Water, Terrestrial)");
@@ -99,6 +124,18 @@ public class Main {
         }
     }
 
+    /**
+     * Specific menu of the Air-Animal Family.
+     * Where two animals can be selected:
+     *  - Eagle
+     *  - Pigeon
+     * If the user chooses not an option from the list -
+     * exception is thrown and given another choice.
+     *
+     * @param array
+     * @param i - counter (the location in the Animal array - "array[i]")
+     * @throws InvalidParameterException
+     */
     public static void Air_Menu(Animal[] array, int i)
     {
         System.out.println("Which Air-Animal do you want to choose: (Eagle, Pigeon)");
@@ -132,6 +169,20 @@ public class Main {
 
     }
 
+    /**
+     * Specific menu of the Water-Animal Family.
+     * Where three animals can be selected:
+     *  - Alligator
+     *  - Whale
+     *  - Dolphin
+     * If the user chooses not an option from the list -
+     * exception is thrown and given another choice.
+     *
+     * @param array
+     * @param i - counter (the location in the Animal array - "array[i]")
+     * @throws InvalidParameterException
+     *
+     */
     public static void Water_Menu(Animal[] array, int i)
     {
         System.out.println("Which Water-Animal do you want to choose: (Alligator, Whale, Dolphin)");
@@ -163,6 +214,19 @@ public class Main {
 
     }
 
+    /**
+     * * Specific menu of the Terrestrial-Animal Family.
+     * Where three animals can be selected:
+     *  - Dog
+     *  - Cat
+     *  - Snake
+     * If the user chooses not an option from the list -
+     * exception is thrown and given another choice.
+     *
+     * @param array
+     * @param i - counter (the location in the Animal array - "array[i]")
+     * @throws InvalidParameterException
+     */
     public static void Terrestrial_Menu(Animal[] array, int i)
     {
         System.out.println("Which Terrestrial-Animal do you want to choose: (Dog , Cat, Snake)");

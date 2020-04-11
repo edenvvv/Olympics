@@ -1,9 +1,9 @@
 package mobility;
 
 /**
- * eden dadon id:207279183
- * Eliran Dagan id: 208061580
- * Locatable interface
+ * Class that describes an ILocatable attributes
+ *  * @author eden dadon id:207279183
+ *  * @author Eliran Dagan id: 208061580
  */
 public interface ILocatable {
     Point getLocation();
