@@ -17,7 +17,6 @@ public class Dog extends TerrestrialAnimals{
     public Dog(){
         super();
         this.breed = "None";
-        super.set_sound("Woof Woof");
     }
 
     /**
@@ -40,7 +39,6 @@ public class Dog extends TerrestrialAnimals{
             System.out.println("You have entered incorrect value. It's okay, we provided a default value");
             this.breed = "None";
         }
-        super.set_sound("Woof Woof");
     }
 
 
@@ -72,6 +70,13 @@ public class Dog extends TerrestrialAnimals{
     public String toString()
     {
         return "breed: " + this.breed + ", " + super.toString() ;
+    }
+
+    /**
+     * prints the the name of the class and the sound of the animal
+     */
+    public void makeSound(){
+        System.out.println("Dog "  + super.get_name() + " said: Woof Woof");
     }
 
 }

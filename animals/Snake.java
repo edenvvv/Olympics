@@ -9,7 +9,8 @@ import mobility.Point;
  * @author Eliran Dagan id: 208061580
  */
 public class Snake extends TerrestrialAnimals implements IReptile {
-    public enum Poisonous {}; //
+    public enum Poisonous {poisonous, non_poisonous}; //
+    private Poisonous poisonous;
     private double length;
 
     /**
@@ -17,8 +18,8 @@ public class Snake extends TerrestrialAnimals implements IReptile {
      */
     public Snake(){
         super();
+        this.poisonous = Poisonous.non_poisonous;
         this.length = 2.5;
-        super.set_sound("ssssssss");
     }
 
     /**
@@ -31,8 +32,9 @@ public class Snake extends TerrestrialAnimals implements IReptile {
      * @param position
      * @param noLegs
      * @param length
+     * @param pois
      */
-    public Snake(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position, int noLegs, double length){
+    public Snake(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position, int noLegs, double length, Poisonous pois){
         super(name, my_genders, weight, speed, medals, position,noLegs);
         if(speed > MAX_SPEED){
             super.set_speed(MAX_SPEED);
@@ -44,7 +46,7 @@ public class Snake extends TerrestrialAnimals implements IReptile {
             System.out.println("You have entered incorrect value. It's okay, we provided a default value");
             this.length = 2.5;
         }
-        super.set_sound("ssssssss");
+        this.poisonous = pois;
     }
 
     /**
@@ -74,7 +76,7 @@ public class Snake extends TerrestrialAnimals implements IReptile {
      */
     public String toString()
     {
-        return "length: " + this.length  + ", " + super.toString();
+        return "length: " + this.length + ", Poisonous: "  + this.poisonous + ", " + super.toString();
     }
 
     /**
@@ -89,5 +91,12 @@ public class Snake extends TerrestrialAnimals implements IReptile {
         else {
             super.set_speed(new_speed);
         }
+    }
+
+    /**
+     * prints the the name of the class and the sound of the animal
+     */
+    public void makeSound(){
+        System.out.println("Snake "  + super.get_name() + " said: ssssssss");
     }
 }

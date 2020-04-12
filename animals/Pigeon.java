@@ -17,7 +17,6 @@ public class Pigeon extends AirAnimal {
     public Pigeon(){
         super();
         this.family = "poultry";
-        super.set_sound("Arr-rar-rar-rar-raah");
     }
 
     /**
@@ -40,7 +39,6 @@ public class Pigeon extends AirAnimal {
             System.out.println("You have entered incorrect value. It's okay, we provided a default value");
             this.family = "poultry";
         }
-        super.set_sound("Arr-rar-rar-rar-raah");
     }
 
     /**
@@ -71,5 +69,12 @@ public class Pigeon extends AirAnimal {
     public String toString()
     {
         return "family: " + this.family  + ", " + super.toString();
+    }
+
+    /**
+     * prints the the name of the class and the sound of the animal
+     */
+    public void makeSound(){
+        System.out.println("Pigeon "  + super.get_name() + " said: Arr-rar-rar-rar-raah");
     }
 }

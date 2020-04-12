@@ -18,7 +18,6 @@ public class Eagle extends AirAnimal{
     public Eagle(){
         super();
         this.altitudeOfFlight = 8.8;
-        super.set_sound("Clack-wack-chack");
     }
 
     /**
@@ -40,7 +39,6 @@ public class Eagle extends AirAnimal{
         else {
             this.altitudeOfFlight = altitudeOfFlight;
         }
-        super.set_sound("Clack-wack-chack");
     }
 
     /**
@@ -71,5 +69,12 @@ public class Eagle extends AirAnimal{
     public String toString()
     {
         return "altitudeOfFlight: " + this.altitudeOfFlight  + ", " + super.toString();
+    }
+
+    /**
+     * prints the the name of the class and the sound of the animal
+     */
+    public void makeSound(){
+        System.out.println("Eagle "  + super.get_name() + " said: Clack-wack-chack");
     }
 }

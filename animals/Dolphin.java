@@ -17,7 +17,6 @@ public class Dolphin extends WaterAnimal {
     public Dolphin(){
         super();
         this.Water_Type = WaterType.Sea;
-        super.set_sound("Click-click");
     }
 
     /**
@@ -34,7 +33,6 @@ public class Dolphin extends WaterAnimal {
     public Dolphin(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position, double diveDept, WaterType Water_Type){
         super(name, my_genders, weight, speed, medals, position,diveDept);
         this.Water_Type = Water_Type;
-        super.set_sound("Click-click");
     }
 
 
@@ -63,5 +61,12 @@ public class Dolphin extends WaterAnimal {
     public String toString()
     {
         return "WaterType: " + this.Water_Type  + ", " + super.toString();
+    }
+
+    /**
+     * prints the the name of the class and the sound of the animal
+     */
+    public void makeSound(){
+        System.out.println("Dolphin "  + super.get_name() + " said: Click-click");
     }
 }

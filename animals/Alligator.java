@@ -16,7 +16,6 @@ public class Alligator extends WaterAnimal{
     public Alligator(){
         super();
         this.AreaOfLiving = "Lake";
-        super.set_sound("Roar");
     }
 
     /**
@@ -39,7 +38,6 @@ public class Alligator extends WaterAnimal{
             System.out.println("You have entered incorrect value. It's okay, we provided a default value");
             this.AreaOfLiving = "Lake";
         }
-        super.set_sound("Roar");
 
     }
 
@@ -72,5 +70,12 @@ public class Alligator extends WaterAnimal{
     public String toString()
     {
         return "AreaOfLiving: " + this.AreaOfLiving  + ", " + super.toString();
+    }
+
+    /**
+     * prints the the name of the class and the sound of the animal
+     */
+    public void makeSound(){
+        System.out.println("Alligator "  + super.get_name() + " said: Roar");
     }
 }

@@ -16,7 +16,6 @@ public class Cat extends TerrestrialAnimals{
      */
     public Cat(){
         super();
-        super.set_sound("Meow");
         this.Castrated = true;
 
     }
@@ -34,7 +33,6 @@ public class Cat extends TerrestrialAnimals{
      */
     public Cat(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position, int noLegs, boolean Castrated){
         super(name, my_genders, weight, speed, medals, position,noLegs);
-        super.set_sound("Meow");
         this.Castrated = Castrated;
     }
 
@@ -64,5 +62,12 @@ public class Cat extends TerrestrialAnimals{
     public String toString()
     {
         return "castrated: " + this.Castrated  + ", " + super.toString();
+    }
+
+    /**
+     * prints the the name of the class and the sound of the animal
+     */
+    public void makeSound(){
+        System.out.println("Cat "  + super.get_name() + " said: Meow");
     }
 }

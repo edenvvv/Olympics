@@ -16,7 +16,8 @@ public abstract class Animal extends Mobile{
     private double speed;
     private Medal[] medals;
     private Point position = new Point();
-    private String sound; //
+
+    public abstract void makeSound();
 
     /**
      * Default constructor (with proper values)
@@ -152,12 +153,6 @@ public abstract class Animal extends Mobile{
     }
 
 
-    /**
-     * prints the the name of the class and the sound of the animal
-     */
-    public void makeSound(){
-        System.out.println(this.getClass().getName() + " " + this.name + " said " + this.sound);
-    }
 
     /**
      * protected: set the speed of the animal
@@ -180,24 +175,4 @@ public abstract class Animal extends Mobile{
         return this.speed;
     }
 
-
-    /**
-     * get the sound of the animal
-     * @return animal's sound
-     */
-    protected String get_sound() {return this.sound;}
-
-
-    /**
-     * Set the sound of the animal
-     * @param sound
-     * @return if it succeed or failed
-     */
-    protected boolean set_sound(String sound){
-        if(sound.length() > 0){
-            this.sound = sound;
-            return true;
-        }
-        return false;
-    }
 }

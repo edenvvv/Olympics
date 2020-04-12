@@ -1,7 +1,7 @@
 package Olympics;
 
 /**
- * Class that describes an Point attributes
+ * Class that describes an Medal attributes
  * @author eden dadon id:207279183
  * @author Eliran Dagan id: 208061580
  */

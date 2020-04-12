@@ -17,7 +17,6 @@ public class Whale extends WaterAnimal{
     public Whale(){
         super();
         this.foodType = "plankton";
-        super.set_sound("Splash");
     }
 
     /**
@@ -41,7 +40,6 @@ public class Whale extends WaterAnimal{
             System.out.println("You have entered incorrect value. It's okay, we provided a default value");
             this.foodType = "plankton";
         }
-        super.set_sound("Splash");
 
     }
 
@@ -74,5 +72,12 @@ public class Whale extends WaterAnimal{
     public String toString()
     {
         return "foodType: " + this.foodType  + ", " + super.toString();
+    }
+
+    /**
+     * prints the the name of the class and the sound of the animal
+     */
+    public void makeSound(){
+        System.out.println("Whale "  + super.get_name() + " said: Splash");
     }
 }
