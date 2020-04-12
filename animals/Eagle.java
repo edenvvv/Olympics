@@ -72,9 +72,10 @@ public class Eagle extends AirAnimal{
     }
 
     /**
-     * prints the the name of the class and the sound of the animal
+     * prints the sound of the animal
      */
-    public void makeSound(){
-        System.out.println("Eagle "  + super.get_name() + " said: Clack-wack-chack");
+    protected String getsound()
+    {
+        return "Clack-wack-chack";
     }
 }

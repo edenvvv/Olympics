@@ -73,10 +73,11 @@ public class Dog extends TerrestrialAnimals{
     }
 
     /**
-     * prints the the name of the class and the sound of the animal
+     * prints the sound of the animal
      */
-    public void makeSound(){
-        System.out.println("Dog "  + super.get_name() + " said: Woof Woof");
+    protected String getsound()
+    {
+        return "Woof Woof";
     }
 
 }

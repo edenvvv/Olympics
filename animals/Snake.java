@@ -94,9 +94,10 @@ public class Snake extends TerrestrialAnimals implements IReptile {
     }
 
     /**
-     * prints the the name of the class and the sound of the animal
+     * prints the sound of the animal
      */
-    public void makeSound(){
-        System.out.println("Snake "  + super.get_name() + " said: ssssssss");
+    protected String getsound()
+    {
+        return "ssssssss";
     }
 }

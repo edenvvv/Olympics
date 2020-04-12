@@ -17,7 +17,8 @@ public abstract class Animal extends Mobile{
     private Medal[] medals;
     private Point position = new Point();
 
-    public abstract void makeSound();
+    protected abstract String getsound();
+
 
     /**
      * Default constructor (with proper values)
@@ -173,6 +174,14 @@ public abstract class Animal extends Mobile{
      */
     protected double get_speed(){
         return this.speed;
+    }
+
+    /**
+     * show the sound of the animal
+     */
+    public void makeSound()
+    {
+        System.out.println(this.getClass().getName() + " " + this.get_name() +  " said " + this.getsound());
     }
 
 }

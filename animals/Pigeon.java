@@ -72,9 +72,12 @@ public class Pigeon extends AirAnimal {
     }
 
     /**
-     * prints the the name of the class and the sound of the animal
+     * prints the sound of the animal
      */
-    public void makeSound(){
-        System.out.println("Pigeon "  + super.get_name() + " said: Arr-rar-rar-rar-raah");
+    protected String getsound()
+    {
+        return "Arr-rar-rar-rar-raah";
     }
 }
+
+

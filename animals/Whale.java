@@ -75,9 +75,10 @@ public class Whale extends WaterAnimal{
     }
 
     /**
-     * prints the the name of the class and the sound of the animal
+     * prints the sound of the animal
      */
-    public void makeSound(){
-        System.out.println("Whale "  + super.get_name() + " said: Splash");
+    protected String getsound()
+    {
+        return "Splash";
     }
 }

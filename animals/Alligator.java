@@ -73,9 +73,10 @@ public class Alligator extends WaterAnimal{
     }
 
     /**
-     * prints the the name of the class and the sound of the animal
+     * prints the sound of the animal
      */
-    public void makeSound(){
-        System.out.println("Alligator "  + super.get_name() + " said: Roar");
+    protected String getsound()
+    {
+        return "Roar";
     }
 }
