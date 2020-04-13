@@ -7,13 +7,14 @@ import java.lang.Math;
  * @author Eliran Dagan id: 208061580
  */
 public abstract class Mobile implements ILocatable{
-    private Point location = new Point();
+    private Point location ;
     private double totalDistance;
 
     /**
      * Default constructor (with proper values)
      */
     public Mobile(){
+        this.location = new Point();
         this.totalDistance = 0; // total Distance start at 0
     }
 
@@ -22,7 +23,7 @@ public abstract class Mobile implements ILocatable{
      * @param location
      */
     public Mobile(Point location){
-        setLocation(location); // Updating the point location;
+        this.location = new Point(location.getX(),location.getY()); // Updating the point location;
         this.totalDistance = 0; // total Distance start at 0
     }
 

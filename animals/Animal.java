@@ -40,8 +40,7 @@ public abstract class Animal extends Mobile{
      * @param position
      */
     public Animal(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position){
-        super();
-        super.setLocation(position);
+        super(position);
         if(name.length() > 0){
             this.name = name;
         }
