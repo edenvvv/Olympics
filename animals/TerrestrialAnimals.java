@@ -16,7 +16,7 @@ public abstract class TerrestrialAnimals extends Animal{
      */
     public TerrestrialAnimals(){
         super();
-        super.set_position(new Point(0,20));
+        super.setLocation(new Point(0,20));
         this.noLegs = 4;
     }
 

@@ -16,7 +16,7 @@ public abstract class AirAnimal extends Animal {
      */
     public AirAnimal(){
         super();
-        super.set_position(new Point(0,100));
+        super.setLocation(new Point(0,100));
         this.wingspan = 0.8;
 
     }

@@ -15,10 +15,8 @@ public abstract class Animal extends Mobile{
     private double weight;
     private double speed;
     private Medal[] medals;
-    private Point position = new Point();
 
     protected abstract String getsound();
-
 
     /**
      * Default constructor (with proper values)
@@ -43,6 +41,7 @@ public abstract class Animal extends Mobile{
      */
     public Animal(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position){
         super();
+        super.setLocation(position);
         if(name.length() > 0){
             this.name = name;
         }
@@ -54,7 +53,6 @@ public abstract class Animal extends Mobile{
         this.weight = weight;
         this.speed = speed;
         this.medals = medals;
-        set_position(position);
     }
 
     /**
@@ -118,17 +116,6 @@ public abstract class Animal extends Mobile{
     }
 
     /**
-     * protected: set the position of the animal
-     * @param nuw_Point
-     * @return if it succeed or failed
-     */
-    protected boolean set_position(Point nuw_Point){
-        super.setLocation(nuw_Point);
-        this.position = super.getLocation();
-        return true;
-    }
-
-    /**
      * Private: get the medals of the aninal as string
      * @return string of medals
      */
@@ -150,10 +137,8 @@ public abstract class Animal extends Mobile{
     public String toString()
     {
         return " Name: " + this.name + ", Gender: " + this.my_genders + ", Weight: " + this.weight + ", Speed: " +
-                this.speed + ", Medals details: " + printMedals() + "Position: " + this.position;
+                this.speed + ", Medals details: " + printMedals() + "Position: " + super.getLocation();
     }
-
-
 
     /**
      * protected: set the speed of the animal
