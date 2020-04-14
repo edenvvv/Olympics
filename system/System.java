@@ -18,7 +18,7 @@ public class System {
     public static void main(String[] args) {
         try {
 
-            java.lang.System.out.println("Enter the num of  the animals:");
+            java.lang.System.out.println("Enter the num of the animals:");
             Scanner input = new Scanner(java.lang.System.in);
             int num_of_animals = input.nextInt();
 
