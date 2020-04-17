@@ -245,7 +245,7 @@ public class System {
         }
         catch (Exception e)
         {
-            java.lang.System.out.println("we cant found the animal you chose, please try again. ");
+            java.lang.System.out.println("Something went wrong, please try again. ");
             Air_Menu(array,i);
         }
 
@@ -423,7 +423,7 @@ public class System {
         }
         catch (Exception e)
         {
-            java.lang.System.out.println("we cant found the animal you chose, please try again. ");
+            java.lang.System.out.println("Something went wrong, please try again. ");
             Water_Menu(array,i);
         }
 
@@ -601,7 +601,7 @@ public class System {
         }
         catch (Exception e)
         {
-            java.lang.System.out.println("we cant found the animal you chose, please try again. ");
+            java.lang.System.out.println("Something went wrong, please try again. ");
             Terrestrial_Menu(array,i);
         }
 

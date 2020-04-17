@@ -24,12 +24,14 @@ public class Point {
      */
     public Point(int x ,int y){
         if ((x < 0) || (y < 0)){
-            System.out.println("Invalid value is different from dipole value");
+            System.out.println("Invalid value is different from dipole value, It's okay, we provided a default value (0,0)");
             this.x = 0;
             this.y = 0;
         }
-        this.x = x;
-        this.y = y;
+        else {
+            this.x = x;
+            this.y = y;
+        }
     }
 
     /**
