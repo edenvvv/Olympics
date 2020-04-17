@@ -243,7 +243,7 @@ public class System {
             }
 
         }
-        catch (InvalidParameterException e)
+        catch (Exception e)
         {
             java.lang.System.out.println("we cant found the animal you chose, please try again. ");
             Air_Menu(array,i);
@@ -421,7 +421,7 @@ public class System {
                     throw new InvalidParameterException();
             }
         }
-        catch (InvalidParameterException e)
+        catch (Exception e)
         {
             java.lang.System.out.println("we cant found the animal you chose, please try again. ");
             Water_Menu(array,i);
@@ -578,7 +578,7 @@ public class System {
                         Point position = new Point(x,y);
                         java.lang.System.out.println("Enter the num of Legs:");
                         int noLegs = input_data.nextInt();
-                        java.lang.System.out.println("Enter if Castrated? (true, false)");
+                        java.lang.System.out.println("Enter length:");
                         double length = input_data.nextDouble();
                         java.lang.System.out.println("Enter 1 for poisonous, 2 for non_poisonous");
                         int choice_Poisonous = input_data.nextInt();
@@ -599,7 +599,7 @@ public class System {
                     throw new InvalidParameterException();
             }
         }
-        catch (InvalidParameterException e)
+        catch (Exception e)
         {
             java.lang.System.out.println("we cant found the animal you chose, please try again. ");
             Terrestrial_Menu(array,i);
