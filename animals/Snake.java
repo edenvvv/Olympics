@@ -30,12 +30,11 @@ public class Snake extends TerrestrialAnimals implements IReptile {
      * @param speed
      * @param medals
      * @param position
-     * @param noLegs
      * @param length
      * @param pois
      */
-    public Snake(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position, int noLegs, double length, Poisonous pois){
-        super(name, my_genders, weight, speed, medals, position,noLegs);
+    public Snake(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position, double length, Poisonous pois){
+        super(name, my_genders, weight, speed, medals, position,0);
         if(speed > MAX_SPEED){
             super.set_speed(MAX_SPEED);
         }

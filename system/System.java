@@ -576,8 +576,6 @@ public class System {
                         java.lang.System.out.println("y:");
                         int y = input_data.nextInt();
                         Point position = new Point(x,y);
-                        java.lang.System.out.println("Enter the num of Legs:");
-                        int noLegs = input_data.nextInt();
                         java.lang.System.out.println("Enter length:");
                         double length = input_data.nextDouble();
                         java.lang.System.out.println("Enter 1 for poisonous, 2 for non_poisonous");
@@ -592,7 +590,7 @@ public class System {
                         else {
                             throw new InvalidParameterException();
                         }
-                        array[i] = new Snake(name, my_genders, weight, speed, medals, position, noLegs,length,pois);
+                        array[i] = new Snake(name, my_genders, weight, speed, medals, position,length,pois);
                     }
                     break;
                 default:

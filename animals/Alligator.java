@@ -7,7 +7,7 @@ import mobility.Point;
  * @author Eden dadon id:207279183
  * @author Eliran Dagan id: 208061580
  */
-public class Alligator extends WaterAnimal{
+public class Alligator extends WaterAnimal implements IReptile{
     private String AreaOfLiving;
 
     /**
@@ -31,6 +31,9 @@ public class Alligator extends WaterAnimal{
      */
     public Alligator(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position, double diveDept, String AreaOfLiving){
         super(name, my_genders, weight, speed, medals, position,diveDept);
+        if(speed > MAX_SPEED){
+            super.set_speed(MAX_SPEED);
+        }
         if(AreaOfLiving.length() > 0) {
             this.AreaOfLiving = AreaOfLiving;
         }
@@ -78,5 +81,15 @@ public class Alligator extends WaterAnimal{
     protected String getsound()
     {
         return "Roar";
+    }
+
+    public void speedUp(int speed){
+        double new_speed = super.get_speed() + speed;
+        if (new_speed > MAX_SPEED){
+            super.set_speed(MAX_SPEED);
+        }
+        else {
+            super.set_speed(new_speed);
+        }
     }
 }

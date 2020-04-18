@@ -32,7 +32,7 @@ public abstract class TerrestrialAnimals extends Animal{
      */
     public TerrestrialAnimals(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position, int noLegs){
         super(name, my_genders, weight, speed, medals, position);
-        if(noLegs > 0) {
+        if(noLegs >= 0) {
             this.noLegs = noLegs;
         }
         else {
