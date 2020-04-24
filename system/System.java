@@ -156,40 +156,15 @@ public class System {
                         array[i] = new Eagle();
                     }
                     else {
+
                         Scanner input_data = new Scanner(java.lang.System.in);
-                        java.lang.System.out.println("Enter the name:");
-                        String name = input_data.next();
-                        java.lang.System.out.println("Enter 1 for Male, 2 for Female and 3 for Hermaphrodite");
-                        int choice_gender = input_data.nextInt();
-                        Animal.gender my_genders ;
-                        if (choice_gender == 1){
-                            my_genders = Animal.gender.Male ;
-                        }
-                        else if (choice_gender == 2){
-                            my_genders = Animal.gender.Female ;
-                        }
-                        else if (choice_gender == 3){
-                            my_genders = Animal.gender.Hermaphrodite ;
-                        }
-                        else {
-                            throw new InvalidParameterException();
-                        }
-                        java.lang.System.out.println("Enter the weight:");
-                        double weight = input_data.nextDouble();
-                        java.lang.System.out.println("Enter the speed:");
-                        double speed = input_data.nextDouble();
-                        Medal[] medals = input_medals();
-                        java.lang.System.out.println("Enter the position (x,y)");
-                        java.lang.System.out.println("x:");
-                        int x = input_data.nextInt();
-                        java.lang.System.out.println("y:");
-                        int y = input_data.nextInt();
-                        Point position = new Point(x,y);
+                        Animal_like animal_data = input_Animal();
                         java.lang.System.out.println("Enter the wingspan:");
                         double wingspan = input_data.nextDouble();
                         java.lang.System.out.println("Enter the altitude Of Flight:");
                         double altitudeOfFlight = input_data.nextFloat();
-                        array[i] = new Eagle(name, my_genders, weight, speed, medals, position, wingspan,altitudeOfFlight);
+                        array[i] = new Eagle(animal_data.get_name(), animal_data.get_gender(), animal_data.get_weight(),
+                                animal_data.get_speed(), animal_data.get_medals(), animal_data.get_position(), wingspan,altitudeOfFlight);
                     }
                     break;
 
@@ -201,39 +176,13 @@ public class System {
                     }
                     else {
                         Scanner input_data = new Scanner(java.lang.System.in);
-                        java.lang.System.out.println("Enter the name:");
-                        String name = input_data.next();
-                        java.lang.System.out.println("Enter 1 for Male, 2 for Female and 3 for Hermaphrodite");
-                        int choice_gender = input_data.nextInt();
-                        Animal.gender my_genders ;
-                        if (choice_gender == 1){
-                            my_genders = Animal.gender.Male ;
-                        }
-                        else if (choice_gender == 2){
-                            my_genders = Animal.gender.Female ;
-                        }
-                        else if (choice_gender == 3){
-                            my_genders = Animal.gender.Hermaphrodite ;
-                        }
-                        else {
-                            throw new InvalidParameterException();
-                        }
-                        java.lang.System.out.println("Enter the weight:");
-                        double weight = input_data.nextDouble();
-                        java.lang.System.out.println("Enter the speed:");
-                        double speed = input_data.nextDouble();
-                        Medal[] medals = input_medals();
-                        java.lang.System.out.println("Enter the position (x,y)");
-                        java.lang.System.out.println("x:");
-                        int x = input_data.nextInt();
-                        java.lang.System.out.println("y:");
-                        int y = input_data.nextInt();
-                        Point position = new Point(x,y);
+                        Animal_like animal_data = input_Animal();
                         java.lang.System.out.println("Enter the wingspan:");
                         double wingspan = input_data.nextDouble();
                         java.lang.System.out.println("Enter the family:");
                         String family = input_data.next();
-                        array[i] = new Pigeon(name, my_genders, weight, speed, medals, position, wingspan,family);
+                        array[i] = new Pigeon(animal_data.get_name(), animal_data.get_gender(), animal_data.get_weight(),
+                                animal_data.get_speed(), animal_data.get_medals(), animal_data.get_position(), wingspan,family);
                     }
                     break;
 
@@ -284,39 +233,13 @@ public class System {
                     }
                     else {
                         Scanner input_data = new Scanner(java.lang.System.in);
-                        java.lang.System.out.println("Enter the name:");
-                        String name = input_data.next();
-                        java.lang.System.out.println("Enter 1 for Male, 2 for Female and 3 for Hermaphrodite");
-                        int choice_gender = input_data.nextInt();
-                        Animal.gender my_genders ;
-                        if (choice_gender == 1){
-                            my_genders = Animal.gender.Male ;
-                        }
-                        else if (choice_gender == 2){
-                            my_genders = Animal.gender.Female ;
-                        }
-                        else if (choice_gender == 3){
-                            my_genders = Animal.gender.Hermaphrodite ;
-                        }
-                        else {
-                            throw new InvalidParameterException();
-                        }
-                        java.lang.System.out.println("Enter the weight:");
-                        double weight = input_data.nextDouble();
-                        java.lang.System.out.println("Enter the speed:");
-                        double speed = input_data.nextDouble();
-                        Medal[] medals = input_medals();
-                        java.lang.System.out.println("Enter the position (x,y)");
-                        java.lang.System.out.println("x:");
-                        int x = input_data.nextInt();
-                        java.lang.System.out.println("y:");
-                        int y = input_data.nextInt();
-                        Point position = new Point(x,y);
+                        Animal_like animal_data = input_Animal();
                         java.lang.System.out.println("Enter the diveDept:");
                         double diveDept = input_data.nextDouble();
                         java.lang.System.out.println("Enter the Area Of Living:");
                         String AreaOfLiving = input_data.next();
-                        array[i] = new Alligator(name, my_genders, weight, speed, medals, position, diveDept,AreaOfLiving);
+                        array[i] = new Alligator(animal_data.get_name(), animal_data.get_gender(), animal_data.get_weight(),
+                                animal_data.get_speed(), animal_data.get_medals(), animal_data.get_position(), diveDept,AreaOfLiving);
                     }
                     break;
 
@@ -328,39 +251,13 @@ public class System {
                     }
                     else {
                         Scanner input_data = new Scanner(java.lang.System.in);
-                        java.lang.System.out.println("Enter the name:");
-                        String name = input_data.next();
-                        java.lang.System.out.println("Enter 1 for Male, 2 for Female and 3 for Hermaphrodite");
-                        int choice_gender = input_data.nextInt();
-                        Animal.gender my_genders ;
-                        if (choice_gender == 1){
-                            my_genders = Animal.gender.Male ;
-                        }
-                        else if (choice_gender == 2){
-                            my_genders = Animal.gender.Female ;
-                        }
-                        else if (choice_gender == 3){
-                            my_genders = Animal.gender.Hermaphrodite ;
-                        }
-                        else {
-                            throw new InvalidParameterException();
-                        }
-                        java.lang.System.out.println("Enter the weight:");
-                        double weight = input_data.nextDouble();
-                        java.lang.System.out.println("Enter the speed:");
-                        double speed = input_data.nextDouble();
-                        Medal[] medals = input_medals();
-                        java.lang.System.out.println("Enter the position (x,y)");
-                        java.lang.System.out.println("x:");
-                        int x = input_data.nextInt();
-                        java.lang.System.out.println("y:");
-                        int y = input_data.nextInt();
-                        Point position = new Point(x,y);
+                        Animal_like animal_data = input_Animal();
                         java.lang.System.out.println("Enter the diveDept:");
                         double diveDept = input_data.nextDouble();
                         java.lang.System.out.println("Enter the food Type:");
                         String foodType = input_data.next();
-                        array[i] = new Whale(name, my_genders, weight, speed, medals, position, diveDept,foodType);
+                        array[i] = new Whale(animal_data.get_name(), animal_data.get_gender(), animal_data.get_weight(),
+                                animal_data.get_speed(), animal_data.get_medals(), animal_data.get_position(), diveDept,foodType);
                     }
                     break;
 
@@ -372,34 +269,7 @@ public class System {
                     }
                     else {
                         Scanner input_data = new Scanner(java.lang.System.in);
-                        java.lang.System.out.println("Enter the name:");
-                        String name = input_data.next();
-                        java.lang.System.out.println("Enter 1 for Male, 2 for Female and 3 for Hermaphrodite");
-                        int choice_gender = input_data.nextInt();
-                        Animal.gender my_genders ;
-                        if (choice_gender == 1){
-                            my_genders = Animal.gender.Male ;
-                        }
-                        else if (choice_gender == 2){
-                            my_genders = Animal.gender.Female ;
-                        }
-                        else if (choice_gender == 3){
-                            my_genders = Animal.gender.Hermaphrodite ;
-                        }
-                        else {
-                            throw new InvalidParameterException();
-                        }
-                        java.lang.System.out.println("Enter the weight:");
-                        double weight = input_data.nextDouble();
-                        java.lang.System.out.println("Enter the speed:");
-                        double speed = input_data.nextDouble();
-                        Medal[] medals = input_medals();
-                        java.lang.System.out.println("Enter the position (x,y)");
-                        java.lang.System.out.println("x:");
-                        int x = input_data.nextInt();
-                        java.lang.System.out.println("y:");
-                        int y = input_data.nextInt();
-                        Point position = new Point(x,y);
+                        Animal_like animal_data = input_Animal();
                         java.lang.System.out.println("Enter the diveDept:");
                         double diveDept = input_data.nextDouble();
                         java.lang.System.out.println("Enter 1 for Sea, 2 for Sweet");
@@ -414,7 +284,8 @@ public class System {
                         else {
                             throw new InvalidParameterException();
                         }
-                        array[i] = new Dolphin(name, my_genders, weight, speed, medals, position, diveDept,Water_Type);
+                        array[i] = new Dolphin(animal_data.get_name(), animal_data.get_gender(), animal_data.get_weight(),
+                                animal_data.get_speed(), animal_data.get_medals(), animal_data.get_position(), diveDept,Water_Type);
                     }
                     break;
                 default:
@@ -460,39 +331,13 @@ public class System {
                     }
                     else {
                         Scanner input_data = new Scanner(java.lang.System.in);
-                        java.lang.System.out.println("Enter the name:");
-                        String name = input_data.next();
-                        java.lang.System.out.println("Enter 1 for Male, 2 for Female and 3 for Hermaphrodite");
-                        int choice_gender = input_data.nextInt();
-                        Animal.gender my_genders ;
-                        if (choice_gender == 1){
-                            my_genders = Animal.gender.Male ;
-                        }
-                        else if (choice_gender == 2){
-                            my_genders = Animal.gender.Female ;
-                        }
-                        else if (choice_gender == 3){
-                            my_genders = Animal.gender.Hermaphrodite ;
-                        }
-                        else {
-                            throw new InvalidParameterException();
-                        }
-                        java.lang.System.out.println("Enter the weight:");
-                        double weight = input_data.nextDouble();
-                        java.lang.System.out.println("Enter the speed:");
-                        double speed = input_data.nextDouble();
-                        Medal[] medals = input_medals();
-                        java.lang.System.out.println("Enter the position (x,y)");
-                        java.lang.System.out.println("x:");
-                        int x = input_data.nextInt();
-                        java.lang.System.out.println("y:");
-                        int y = input_data.nextInt();
-                        Point position = new Point(x,y);
+                        Animal_like animal_data = input_Animal();
                         java.lang.System.out.println("Enter the num of Legs:");
                         int noLegs = input_data.nextInt();
                         java.lang.System.out.println("Enter the breed:");
                         String breed = input_data.next();
-                        array[i] = new Dog(name, my_genders, weight, speed, medals, position, noLegs,breed);
+                        array[i] = new Dog(animal_data.get_name(), animal_data.get_gender(), animal_data.get_weight(),
+                                animal_data.get_speed(), animal_data.get_medals(), animal_data.get_position(), noLegs,breed);
                     }
                     break;
 
@@ -504,39 +349,13 @@ public class System {
                     }
                     else {
                         Scanner input_data = new Scanner(java.lang.System.in);
-                        java.lang.System.out.println("Enter the name:");
-                        String name = input_data.next();
-                        java.lang.System.out.println("Enter 1 for Male, 2 for Female and 3 for Hermaphrodite");
-                        int choice_gender = input_data.nextInt();
-                        Animal.gender my_genders ;
-                        if (choice_gender == 1){
-                            my_genders = Animal.gender.Male ;
-                        }
-                        else if (choice_gender == 2){
-                            my_genders = Animal.gender.Female ;
-                        }
-                        else if (choice_gender == 3){
-                            my_genders = Animal.gender.Hermaphrodite ;
-                        }
-                        else {
-                            throw new InvalidParameterException();
-                        }
-                        java.lang.System.out.println("Enter the weight:");
-                        double weight = input_data.nextDouble();
-                        java.lang.System.out.println("Enter the speed:");
-                        double speed = input_data.nextDouble();
-                        Medal[] medals = input_medals();
-                        java.lang.System.out.println("Enter the position (x,y)");
-                        java.lang.System.out.println("x:");
-                        int x = input_data.nextInt();
-                        java.lang.System.out.println("y:");
-                        int y = input_data.nextInt();
-                        Point position = new Point(x,y);
+                        Animal_like animal_data = input_Animal();
                         java.lang.System.out.println("Enter the num of Legs:");
                         int noLegs = input_data.nextInt();
                         java.lang.System.out.println("Enter if Castrated? (true, false)");
                         boolean Castrated = input_data.nextBoolean();
-                        array[i] = new Cat(name, my_genders, weight, speed, medals, position, noLegs,Castrated);
+                        array[i] = new Cat(animal_data.get_name(), animal_data.get_gender(), animal_data.get_weight(),
+                                animal_data.get_speed(), animal_data.get_medals(), animal_data.get_position(), noLegs,Castrated);
                     }
                     break;
 
@@ -548,34 +367,7 @@ public class System {
                     }
                     else {
                         Scanner input_data = new Scanner(java.lang.System.in);
-                        java.lang.System.out.println("Enter the name:");
-                        String name = input_data.next();
-                        java.lang.System.out.println("Enter 1 for Male, 2 for Female and 3 for Hermaphrodite");
-                        int choice_gender = input_data.nextInt();
-                        Animal.gender my_genders ;
-                        if (choice_gender == 1){
-                            my_genders = Animal.gender.Male ;
-                        }
-                        else if (choice_gender == 2){
-                            my_genders = Animal.gender.Female ;
-                        }
-                        else if (choice_gender == 3){
-                            my_genders = Animal.gender.Hermaphrodite ;
-                        }
-                        else {
-                            throw new InvalidParameterException();
-                        }
-                        java.lang.System.out.println("Enter the weight:");
-                        double weight = input_data.nextDouble();
-                        java.lang.System.out.println("Enter the speed:");
-                        double speed = input_data.nextDouble();
-                        Medal[] medals = input_medals();
-                        java.lang.System.out.println("Enter the position (x,y)");
-                        java.lang.System.out.println("x:");
-                        int x = input_data.nextInt();
-                        java.lang.System.out.println("y:");
-                        int y = input_data.nextInt();
-                        Point position = new Point(x,y);
+                        Animal_like animal_data = input_Animal();
                         java.lang.System.out.println("Enter length:");
                         double length = input_data.nextDouble();
                         java.lang.System.out.println("Enter 1 for poisonous, 2 for non_poisonous");
@@ -590,7 +382,8 @@ public class System {
                         else {
                             throw new InvalidParameterException();
                         }
-                        array[i] = new Snake(name, my_genders, weight, speed, medals, position,length,pois);
+                        array[i] = new Snake(animal_data.get_name(), animal_data.get_gender(), animal_data.get_weight(),
+                                animal_data.get_speed(), animal_data.get_medals(), animal_data.get_position(),length,pois);
                     }
                     break;
                 default:
@@ -634,5 +427,121 @@ public class System {
             medals[i] = new Medal(type, tournament, year);
         }
         return medals;
+    }
+
+    /**
+     * Receives the animal data as input from the user
+     * @return Animal_like object
+     */
+    private static Animal_like input_Animal(){
+        Scanner input_data = new Scanner(java.lang.System.in);
+        java.lang.System.out.println("Enter the name:");
+        String name = input_data.next();
+        java.lang.System.out.println("Enter 1 for Male, 2 for Female and 3 for Hermaphrodite");
+        int choice_gender = input_data.nextInt();
+        Animal.gender my_genders ;
+        if (choice_gender == 1){
+            my_genders = Animal.gender.Male ;
+        }
+        else if (choice_gender == 2){
+            my_genders = Animal.gender.Female ;
+        }
+        else if (choice_gender == 3){
+            my_genders = Animal.gender.Hermaphrodite ;
+        }
+        else {
+            throw new InvalidParameterException();
+        }
+        java.lang.System.out.println("Enter the weight:");
+        double weight = input_data.nextDouble();
+        java.lang.System.out.println("Enter the speed:");
+        double speed = input_data.nextDouble();
+        Medal[] medals = input_medals();
+        java.lang.System.out.println("Enter the position (x,y)");
+        java.lang.System.out.println("x:");
+        int x = input_data.nextInt();
+        java.lang.System.out.println("y:");
+        int y = input_data.nextInt();
+        Point position = new Point(x,y);
+
+        return new Animal_like(name, my_genders, weight, speed, medals, position);
+    }
+
+    /**
+     * A class that receives parameters identical to Animal
+     */
+    static class Animal_like{
+
+        private Animal.gender my_genders;
+        private String name;
+        private double weight;
+        private double speed;
+        private Medal[] medals;
+        private Point position;
+
+        /**
+         * @param name
+         * @param my_genders
+         * @param weight
+         * @param speed
+         * @param medals
+         * @param position
+         */
+        public Animal_like(String name, Animal.gender my_genders, double weight, double speed, Medal[] medals, Point position){
+            this.name = name;
+            this.my_genders = my_genders;
+            this.weight = weight;
+            this.speed = speed;
+            this.medals = medals;
+            this.position = position;
+        }
+
+        /**
+         * Get the name of the animal
+         * @return name
+         */
+        public String get_name(){
+            return this.name;
+        }
+
+        /**
+         * Return the gender of the animal
+         * @return gender
+         */
+        public Animal.gender get_gender(){
+            return this.my_genders;
+        }
+
+        /**
+         * Get the weight of the animal
+         * @return weight
+         */
+        public double get_weight(){
+            return this.weight;
+        }
+
+        /**
+         * Protected: get the speed of the animal
+         * @return speed of animal
+         */
+        public double get_speed(){
+            return this.speed;
+        }
+
+        /**
+         * Protected: get the medals of the animal
+         * @return speed of animal
+         */
+        public Medal[] get_medals(){
+            return this.medals;
+        }
+
+        /**
+         * Protected: get the position of the animal
+         * @return speed of animal
+         */
+        public Point get_position(){
+            return this.position;
+        }
     }
 }
