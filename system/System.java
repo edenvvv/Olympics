@@ -437,7 +437,7 @@ public class System {
         Scanner input_data = new Scanner(java.lang.System.in);
         java.lang.System.out.println("Enter the name:");
         String name = input_data.next();
-        java.lang.System.out.println("Enter 1 for Male, 2 for Female and 3 for Hermaphrodite");
+        java.lang.System.out.println("Enter 1 for Male, 2 for Female or 3 for Hermaphrodite");
         int choice_gender = input_data.nextInt();
         Animal.gender my_genders ;
         if (choice_gender == 1){
