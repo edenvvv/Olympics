@@ -238,8 +238,10 @@ public class System {
                         double diveDept = input_data.nextDouble();
                         java.lang.System.out.println("Enter the Area Of Living:");
                         String AreaOfLiving = input_data.next();
+                        java.lang.System.out.println("Enter the num of Legs:");
+                        int noLegs = input_data.nextInt();
                         array[i] = new Alligator(animal_data.get_name(), animal_data.get_gender(), animal_data.get_weight(),
-                                animal_data.get_speed(), animal_data.get_medals(), animal_data.get_position(), diveDept,AreaOfLiving);
+                                animal_data.get_speed(), animal_data.get_medals(), animal_data.get_position(), diveDept,AreaOfLiving,noLegs);
                     }
                     break;
 
@@ -316,7 +318,7 @@ public class System {
      */
     public static void Terrestrial_Menu(Animal[] array, int i)
     {
-        java.lang.System.out.println("Which Terrestrial-Animal do you want to choose: (Dog , Cat, Snake)");
+        java.lang.System.out.println("Which Terrestrial-Animal do you want to choose: (Dog , Cat, Snake, alligator)");
         Scanner input = new Scanner(java.lang.System.in);
         String option = input.next().toLowerCase();
         Scanner bool_input = new Scanner(java.lang.System.in);
@@ -387,6 +389,25 @@ public class System {
                         }
                         array[i] = new Snake(animal_data.get_name(), animal_data.get_gender(), animal_data.get_weight(),
                                 animal_data.get_speed(), animal_data.get_medals(), animal_data.get_position(),length,pois);
+                    }
+                    break;
+                case "alligator":
+                    java.lang.System.out.println("Do you want us to give default values? (true, false)");
+                    choice = bool_input.nextBoolean();
+                    if(choice) {
+                        array[i] = new Alligator();
+                    }
+                    else {
+                        Scanner input_data = new Scanner(java.lang.System.in);
+                        Animal_like animal_data = input_Animal();
+                        java.lang.System.out.println("Enter the diveDept:");
+                        double diveDept = input_data.nextDouble();
+                        java.lang.System.out.println("Enter the Area Of Living:");
+                        String AreaOfLiving = input_data.next();
+                        java.lang.System.out.println("Enter the num of Legs:");
+                        int noLegs = input_data.nextInt();
+                        array[i] = new Alligator(animal_data.get_name(), animal_data.get_gender(), animal_data.get_weight(),
+                                animal_data.get_speed(), animal_data.get_medals(), animal_data.get_position(), diveDept,AreaOfLiving,noLegs);
                     }
                     break;
                 default:

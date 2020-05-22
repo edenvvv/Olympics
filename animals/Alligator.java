@@ -17,7 +17,6 @@ public class Alligator extends WaterAnimal implements IReptile{
     public Alligator(){
         super();
         this.terrestrial = new TerrestrialAnimals() {
-            @Override
             protected String getsound() {
                 return "Roar";
             }
@@ -36,7 +35,7 @@ public class Alligator extends WaterAnimal implements IReptile{
      * @param diveDept
      * @param AreaOfLiving
      */
-    public Alligator(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position, double diveDept, String AreaOfLiving){
+    public Alligator(String name, gender my_genders, double weight, double speed, Medal[] medals, Point position, double diveDept, String AreaOfLiving, int noLegs){
         super(name, my_genders, weight, speed, medals, position,diveDept);
         if(speed > MAX_SPEED){
             super.set_speed(MAX_SPEED);
@@ -48,8 +47,7 @@ public class Alligator extends WaterAnimal implements IReptile{
             System.out.println("You have entered incorrect value. It's okay, we provided a default value");
             this.AreaOfLiving = "Lake";
         }
-        this.terrestrial = new TerrestrialAnimals() {
-            @Override
+        this.terrestrial = new TerrestrialAnimals(name, my_genders, weight, speed, medals, position,noLegs) {
             protected String getsound() {
                 return "Roar";
             }
