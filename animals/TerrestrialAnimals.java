@@ -8,7 +8,7 @@ import mobility.Point;
  * @author eden dadon id:207279183
  * @author Eliran Dagan id: 208061580
  */
-public abstract class TerrestrialAnimals extends Animal{
+public abstract class TerrestrialAnimals extends Animal implements Iterrestrial{
     private int noLegs;
 
     /**

@@ -7,7 +7,8 @@ import mobility.Point;
  * @author Eden dadon id:207279183
  * @author Eliran Dagan id: 208061580
  */
-public class Alligator extends WaterAnimal implements IReptile{
+public class Alligator extends WaterAnimal implements IReptile, Iterrestrial{
+    private Iterrestrial terrestrial;
     private String AreaOfLiving;
 
     /**
@@ -15,6 +16,12 @@ public class Alligator extends WaterAnimal implements IReptile{
      */
     public Alligator(){
         super();
+        this.terrestrial = new TerrestrialAnimals() {
+            @Override
+            protected String getsound() {
+                return "Roar";
+            }
+        };
         this.AreaOfLiving = "Lake";
     }
 
@@ -41,7 +48,12 @@ public class Alligator extends WaterAnimal implements IReptile{
             System.out.println("You have entered incorrect value. It's okay, we provided a default value");
             this.AreaOfLiving = "Lake";
         }
-
+        this.terrestrial = new TerrestrialAnimals() {
+            @Override
+            protected String getsound() {
+                return "Roar";
+            }
+        };
     }
 
 
@@ -72,7 +84,7 @@ public class Alligator extends WaterAnimal implements IReptile{
      */
     public String toString()
     {
-        return "AreaOfLiving: " + this.AreaOfLiving  + ", " + super.toString();
+        return "AreaOfLiving: " + this.AreaOfLiving  + ", " + super.toString() + ", " + terrestrial.toString();
     }
 
     /**
