@@ -7,7 +7,7 @@ import mobility.Point;
  * @author Eden dadon id:207279183
  * @author Eliran Dagan id: 208061580
  */
-public class Alligator extends WaterAnimal implements IReptile, Iterrestrial{
+public class Alligator extends WaterAnimal implements IReptile{
     private Iterrestrial terrestrial;
     private String AreaOfLiving;
 
@@ -84,7 +84,7 @@ public class Alligator extends WaterAnimal implements IReptile, Iterrestrial{
      */
     public String toString()
     {
-        return "AreaOfLiving: " + this.AreaOfLiving  + ", " + super.toString() + ", " + terrestrial.toString();
+        return "AreaOfLiving: " + this.AreaOfLiving  + ", " + super.toString() + ", " + "number of Legs: " + terrestrial.get_num_of_legs();
     }
 
     /**
