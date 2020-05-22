@@ -9,7 +9,7 @@ import mobility.Point;
  * @author Eliran Dagan id: 208061580
  */
 public class Snake extends TerrestrialAnimals implements IReptile {
-    public enum Poisonous {poisonous, non_poisonous}; //
+    public enum Poisonous {Medium, low, high}; //
     private Poisonous poisonous;
     private double length;
 
@@ -18,7 +18,7 @@ public class Snake extends TerrestrialAnimals implements IReptile {
      */
     public Snake(){
         super();
-        this.poisonous = Poisonous.non_poisonous;
+        this.poisonous = Poisonous.Medium;
         this.length = 2.5;
     }
 

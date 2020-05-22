@@ -370,14 +370,17 @@ public class System {
                         Animal_like animal_data = input_Animal();
                         java.lang.System.out.println("Enter length:");
                         double length = input_data.nextDouble();
-                        java.lang.System.out.println("Enter 1 for poisonous, 2 for non_poisonous");
+                        java.lang.System.out.println("Enter 1 for low, 2 for Medium, 3 for high");
                         int choice_Poisonous = input_data.nextInt();
                         Snake.Poisonous pois;
                         if (choice_Poisonous == 1){
-                            pois = Snake.Poisonous.poisonous ;
+                            pois = Snake.Poisonous.low ;
                         }
                         else if (choice_Poisonous == 2){
-                            pois = Snake.Poisonous.non_poisonous ;
+                            pois = Snake.Poisonous.Medium ;
+                        }
+                        else if (choice_Poisonous == 3){
+                            pois = Snake.Poisonous.high ;
                         }
                         else {
                             throw new InvalidParameterException();
