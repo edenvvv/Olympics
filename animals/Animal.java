@@ -1,22 +1,28 @@
 package animals;
+
+import Olympics.Medal;
 import graphics.IAnimal;
 import graphics.IClonable;
 import graphics.IDrawable;
-import graphics.IMoveable;
+
 import mobility.ILocatable;
 import mobility.Mobile;
 import mobility.Point;
-import Olympics.Medal;
 
+import javafx.geometry.Orientation;
+
+
+
+import javax.xml.stream.Location;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * Class that describes an Animal attributes
  * @author Eden dadon id:207279183
  * @author Eliran Dagan id: 208061580
  */
-public abstract class Animal extends Mobile implements IAnimal, ILocatable,
-        IMoveable, IDrawable, IClonable {
+public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDrawable, IClonable {
     @Override
     public boolean eat(int energy) {
         return false;
@@ -35,6 +41,21 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable,
     public String getAnimaleName() {
         return null;
     }
+
+
+
+    protected int size;
+    protected int id;
+    protected Location loc;
+    protected Orientation orien;
+    protected int maxEnergy;
+    protected int energyPerMeter;
+    //protected CompetitionPanel pan;
+    protected BufferedImage img1, img2, img3, img4;
+
+
+
+
 
 
     public enum gender {Male, Female, Hermaphrodite}

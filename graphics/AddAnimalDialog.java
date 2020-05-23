@@ -1,4 +1,6 @@
 package graphics;
 
-public class AddAnimalDialog {
+import javax.swing.*;
+
+public class AddAnimalDialog extends JDialog{
 }

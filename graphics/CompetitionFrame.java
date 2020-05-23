@@ -1,6 +1,8 @@
 package graphics;
 
-public class CompetitionFrame {
+import javax.swing.*;
+
+public class CompetitionFrame extends JFrame {
     public static void main(String[] args) {
 
     }
