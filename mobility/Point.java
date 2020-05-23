@@ -1,11 +1,13 @@
 package mobility;
 
+import graphics.IClonable;
+
 /**
  * Class that describes an Point attributes
  * @author eden dadon id:207279183
  * @author Eliran Dagan id: 208061580
  */
-public class Point {
+public class Point implements IClonable {
     private int x;
     private int y;
 

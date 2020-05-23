@@ -83,7 +83,7 @@ public class Snake extends TerrestrialAnimals implements IReptile {
      * @param speed
      */
     public void speedUp(int speed) {
-        double new_speed = super.get_speed() + speed;
+        double new_speed = super.getSpeed() + speed;
         if (new_speed > MAX_SPEED){
             super.set_speed(MAX_SPEED);
         }

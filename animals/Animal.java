@@ -1,14 +1,42 @@
 package animals;
+import graphics.IAnimal;
+import graphics.IClonable;
+import graphics.IDrawable;
+import graphics.IMoveable;
+import mobility.ILocatable;
 import mobility.Mobile;
 import mobility.Point;
 import Olympics.Medal;
+
+import java.awt.*;
 
 /**
  * Class that describes an Animal attributes
  * @author Eden dadon id:207279183
  * @author Eliran Dagan id: 208061580
  */
-public abstract class Animal extends Mobile{
+public abstract class Animal extends Mobile implements IAnimal, ILocatable,
+        IMoveable, IDrawable, IClonable {
+    @Override
+    public boolean eat(int energy) {
+        return false;
+    }
+
+    @Override
+    public void loadImages(String nm) {
+
+    }
+
+    @Override
+    public void drawObject(Graphics g) {
+
+    }
+    @Override
+    public String getAnimaleName() {
+        return null;
+    }
+
+
     public enum gender {Male, Female, Hermaphrodite}
     private gender my_genders;
     private String name;
@@ -156,7 +184,7 @@ public abstract class Animal extends Mobile{
      * Protected: get the speed of the animal
      * @return speed of animal
      */
-    protected double get_speed(){
+    public double getSpeed(){
         return this.speed;
     }
 
