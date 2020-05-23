@@ -46,7 +46,7 @@ public abstract class TerrestrialAnimals extends Animal implements Iterrestrial{
      * Get the num of the legs of the TerrestrialAnimals
      * @return number of legs
      */
-    public double get_num_of_legs(){
+    public int get_num_of_legs(){
         return this.noLegs;
     }
 
