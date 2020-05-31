@@ -37,16 +37,10 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
     public void drawObject(Graphics g) {
 
     }
-    @Override
-    public String getAnimaleName() {
-        return null;
-    }
 
 
 
     protected int size;
-    protected int id;
-    protected Location loc;
     protected Orientation orien;
     protected int maxEnergy;
     protected int energyPerMeter;

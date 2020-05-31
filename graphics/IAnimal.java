@@ -1,5 +1,5 @@
 package graphics;
 
-public interface IAnimal extends IMoveable{
+public interface IAnimal{
     public boolean eat(int energy);
 }
