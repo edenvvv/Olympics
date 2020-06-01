@@ -1,3 +1,6 @@
 package graphics;
 
-public interface IClonable { }
+public interface IClonable
+{
+
+}
