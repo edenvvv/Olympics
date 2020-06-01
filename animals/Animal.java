@@ -39,7 +39,7 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
     }
 
 
-
+    public enum Orientation {EAST, SOUTH, WEST,NORTH}
     protected int size;
     protected Orientation orien;
     protected int maxEnergy;
@@ -71,6 +71,13 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
         this.weight = 36.5;
         this.speed = 1.2;
         this.medals = new Medal[] {new Medal(Medal.types.silver, "BLOB", 2000), new Medal(Medal.types.silver, "Blob", 2015)};
+
+
+        // ????
+        this.size = 8;
+        this.orien = Orientation.EAST;
+        this.maxEnergy = 8;
+        this.energyPerMeter = 8;
     }
 
     /**
