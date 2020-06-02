@@ -1,6 +1,7 @@
 package animals;
 
 import Olympics.Medal;
+import graphics.CompetitionPanel;
 import graphics.IAnimal;
 import graphics.IClonable;
 import graphics.IDrawable;
@@ -9,13 +10,16 @@ import mobility.ILocatable;
 import mobility.Mobile;
 import mobility.Point;
 
-import javafx.geometry.Orientation;
+//import javafx.geometry.Orientation;
 
 
-
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import javax.xml.stream.Location;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Class that describes an Animal attributes
@@ -35,6 +39,19 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
 
     @Override
     public void drawObject(Graphics g) {
+        if(orien==Orientation.EAST) // animal move to the east side
+            g.drawImage(img1, super.getLocation().getX(), super.getLocation().getY()-size/10, size*2, size,
+                    pan);
+        else if(orien==Orientation.SOUTH) // animal move to the south side
+            g.drawImage(img2, super.getLocation().getX(), super.getLocation().getY()-size/10, size, size,
+                    pan);
+        else if(orien==Orientation.WEST) // animal move to the west side
+            g.drawImage(img3, super.getLocation().getX(), super.getLocation().getY()-size/10, size*2, size,
+                    pan);
+        else if(orien==Orientation.NORTH) // animal move to the north side
+            g.drawImage(img4, super.getLocation().getX()-size/2, super.getLocation().getY()-size/10, size,
+                    size*2, pan);
+
 
     }
 
@@ -44,7 +61,7 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
     protected Orientation orien;
     protected int maxEnergy;
     protected int energyPerMeter;
-    //protected CompetitionPanel pan;
+    protected CompetitionPanel pan;
     protected BufferedImage img1, img2, img3, img4;
 
 
@@ -78,6 +95,15 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
         this.orien = Orientation.EAST;
         this.maxEnergy = 8;
         this.energyPerMeter = 8;
+        this.pan = new CompetitionPanel();
+
+        try
+        {
+            img1 = ImageIO.read(new File(IDrawable.PICTURE_PATH + "dog1E.png"));
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(new JDialog(), "Cannot open background file");
+            System.exit(1);
+        }
     }
 
     /**
@@ -102,6 +128,8 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
         this.weight = weight;
         this.speed = speed;
         this.medals = medals;
+
+        this.pan = new CompetitionPanel();
     }
 
     /**

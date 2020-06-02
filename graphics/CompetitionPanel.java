@@ -16,6 +16,11 @@ import java.util.Vector;
 public class CompetitionPanel extends JPanel implements ActionListener {
 
     private BufferedImage img = null;
+    private BufferedImage animal_img = null;
+    private int x = 712 ;
+    private int y = 0;
+
+
     private JPanel buttonPanel;
     private int competition_type = -1;
     private Vector<Animal> vec= new Vector<>();
@@ -27,6 +32,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         try
         {
             img = ImageIO.read(new File(IDrawable.PICTURE_PATH + "competitionBackground.png"));
+            animal_img = ImageIO.read(new File(IDrawable.PICTURE_PATH + "dog1E.png"));
         } catch (IOException e) {
             JOptionPane.showMessageDialog(new JDialog(), "Cannot open background file");
             System.exit(1);
@@ -59,11 +65,16 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
 
 
+
+
     }
 
     public void paintComponent(Graphics g)
     {
         g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
+        g.drawImage(animal_img, x, y, 65, 65, this);
+        //vec.firstElement().drawObject(g);
+
     }
 
 
