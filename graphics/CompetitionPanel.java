@@ -92,6 +92,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
         if(choose_button.equals("Competition"))
         {
+            vec.clear();
             Object[] options = {"Air", "Water", "Terrestrial"};
             this.competition_type = pop_up(options,options.length-1,"What kind of competition?", "CompetitionDialog");
         }
