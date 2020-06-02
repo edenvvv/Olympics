@@ -62,11 +62,6 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         buttonPanel.add(eat_button);
         buttonPanel.add(info_button);
         buttonPanel.add(exit);
-
-
-
-
-
     }
 
     public void paintComponent(Graphics g)
