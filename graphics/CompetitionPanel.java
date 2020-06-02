@@ -1,5 +1,8 @@
 package graphics;
 
+import animals.Animal;
+import animals.*;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -8,11 +11,14 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Vector;
 
 public class CompetitionPanel extends JPanel implements ActionListener {
 
     private BufferedImage img = null;
     private JPanel buttonPanel;
+    private int competition_type = -1;
+    private Vector<Animal> vec= new Vector<>();
 
     public CompetitionPanel()
     {
@@ -61,6 +67,15 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     }
 
 
+    public static int pop_up(Object[] obg,int size,String mas,String title){
+        return JOptionPane.showOptionDialog(new JDialog(), "What kind of competition would you like?",
+                "CompetitionDialog",
+                JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                obg,
+                obg[size]);
+    }
     /**
      * Invoked when an action occurs.
      *
@@ -74,6 +89,29 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         {
             System.exit(0);
         }
+
+        if(choose_button.equals("Competition"))
+        {
+            Object[] options = {"Air", "Water", "Terrestrial"};
+            this.competition_type = pop_up(options,options.length-1,"What kind of competition?", "CompetitionDialog");
+        }
+
+        if(choose_button.equals("Add Animal"))
+        {
+            try {
+                AddAnimalDialog animal = new AddAnimalDialog(vec, this.competition_type);
+                animal.choose_animal();
+                System.out.println(vec.toString());
+            }
+            catch (Exception x){
+                JOptionPane.showMessageDialog(new JDialog(), "The type of animal should match the type of animal selected in the competition",
+                    "Error",JOptionPane.ERROR_MESSAGE);
+                System.exit(1);
+            }
+
+        }
+
+
 
     }
 }
