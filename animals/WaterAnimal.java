@@ -17,7 +17,7 @@ public abstract class WaterAnimal extends Animal {
      */
     public WaterAnimal(){
         super();
-        super.setLocation(new Point(50,0));
+        super.setLocation(new Point(65,55));
         this.diveDept = 0.0;
     }
 

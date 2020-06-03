@@ -3,6 +3,9 @@ package animals;
 import Olympics.Medal;
 import mobility.Point;
 
+import javax.swing.*;
+import java.io.IOException;
+
 /**
  * Class that describes an Cat attributes
  * @author eden dadon id:207279183

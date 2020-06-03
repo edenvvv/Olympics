@@ -10,7 +10,7 @@ import mobility.ILocatable;
 import mobility.Mobile;
 import mobility.Point;
 
-//import javafx.geometry.Orientation;
+
 
 
 import javax.imageio.ImageIO;
@@ -33,29 +33,35 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
     }
 
     @Override
-    public void loadImages(String nm) {
-
+    public void loadImages(String nm) throws IOException {
+        img1 = ImageIO.read(new File(IDrawable.PICTURE_PATH + nm));
+        img2 = ImageIO.read(new File(IDrawable.PICTURE_PATH + nm));
+        img3 = ImageIO.read(new File(IDrawable.PICTURE_PATH + nm));
+        img4 = ImageIO.read(new File(IDrawable.PICTURE_PATH + nm));
     }
+
 
     @Override
     public void drawObject(Graphics g) {
         if(orien==Orientation.EAST) // animal move to the east side
-            g.drawImage(img1, super.getLocation().getX(), super.getLocation().getY()-size/10, size*2, size,
+            g.drawImage(img1, super.getLocation().getX(), super.getLocation().getY(), size, size,
                     pan);
         else if(orien==Orientation.SOUTH) // animal move to the south side
-            g.drawImage(img2, super.getLocation().getX(), super.getLocation().getY()-size/10, size, size,
+            g.drawImage(img2, super.getLocation().getX(), super.getLocation().getY()-size, size, size,
                     pan);
         else if(orien==Orientation.WEST) // animal move to the west side
-            g.drawImage(img3, super.getLocation().getX(), super.getLocation().getY()-size/10, size*2, size,
+            g.drawImage(img3, super.getLocation().getX(), super.getLocation().getY()-size, size, size,
                     pan);
         else if(orien==Orientation.NORTH) // animal move to the north side
-            g.drawImage(img4, super.getLocation().getX()-size/2, super.getLocation().getY()-size/10, size,
-                    size*2, pan);
+            g.drawImage(img4, super.getLocation().getX()-size/2, super.getLocation().getY()-size, size,
+                    size, pan);
 
 
     }
 
 
+    private int x = 712 ;
+    private int y = 0;
     public enum Orientation {EAST, SOUTH, WEST,NORTH}
     protected int size;
     protected Orientation orien;
@@ -90,20 +96,23 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
         this.medals = new Medal[] {new Medal(Medal.types.silver, "BLOB", 2000), new Medal(Medal.types.silver, "Blob", 2015)};
 
 
-        // ????
-        this.size = 8;
+
+        this.size = 65;
         this.orien = Orientation.EAST;
         this.maxEnergy = 8;
         this.energyPerMeter = 8;
         this.pan = new CompetitionPanel();
 
+        /*
         try
         {
-            img1 = ImageIO.read(new File(IDrawable.PICTURE_PATH + "dog1E.png"));
+            loadImages("dog1");
         } catch (IOException e) {
             JOptionPane.showMessageDialog(new JDialog(), "Cannot open background file");
             System.exit(1);
         }
+
+         */
     }
 
     /**

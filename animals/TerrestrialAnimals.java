@@ -16,7 +16,7 @@ public abstract class TerrestrialAnimals extends Animal implements Iterrestrial{
      */
     public TerrestrialAnimals(){
         super();
-        super.setLocation(new Point(0,20));
+        super.setLocation(new Point(0,0));
         this.noLegs = 4;
     }
 

@@ -21,6 +21,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     private int y = 0;
 
 
+
     private JPanel buttonPanel;
     private int competition_type = -1;
     private Vector<Animal> vec= new Vector<>();
@@ -32,7 +33,6 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         try
         {
             img = ImageIO.read(new File(IDrawable.PICTURE_PATH + "competitionBackground.png"));
-            animal_img = ImageIO.read(new File(IDrawable.PICTURE_PATH + "dog1E.png"));
         } catch (IOException e) {
             JOptionPane.showMessageDialog(new JDialog(), "Cannot open background file");
             System.exit(1);
@@ -64,11 +64,12 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         buttonPanel.add(exit);
     }
 
+
     public void paintComponent(Graphics g)
     {
         g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
-        g.drawImage(animal_img, x, y, 65, 65, this);
-        //vec.firstElement().drawObject(g);
+        if(!vec.isEmpty())
+            vec.lastElement().drawObject(g);
 
     }
 
@@ -108,6 +109,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
             try {
                 AddAnimalDialog animal = new AddAnimalDialog(vec, this.competition_type);
                 animal.choose_animal();
+                repaint();
                 System.out.println(vec.toString());
             }
             catch (Exception x){
@@ -115,10 +117,6 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                     "Error",JOptionPane.ERROR_MESSAGE);
                 System.exit(1);
             }
-
         }
-
-
-
     }
 }

@@ -43,9 +43,11 @@ public class AddAnimalDialog extends JDialog {
                 competition_type = pop_up(options,options.length-1,"What animal do you want?", "CompetitionDialog");
                 if(competition_type == 0){
                     this.vector.add(new Eagle());
+                    vector.lastElement().loadImages("eagle1.png");
                 }
                 else if(competition_type == 1){
                     this.vector.add(new Pigeon());
+                    vector.lastElement().loadImages("pigeon.png");
                 }
                 return "Air";
             }
@@ -54,12 +56,15 @@ public class AddAnimalDialog extends JDialog {
                 competition_type = pop_up(options,options.length-1,"What animal do you want?", "CompetitionDialog");
                 if(competition_type == 0){
                     this.vector.add(new Whale());
+                    vector.lastElement().loadImages("whaleE.png");
                 }
                 else if(competition_type == 1){
                     this.vector.add(new Alligator());
+                    vector.lastElement().loadImages("alligator2E.png");
                 }
                 else if(competition_type == 2){
                     this.vector.add(new Dolphin());
+                    vector.lastElement().loadImages("dolphin1E.png");
                 }
                 return "Water";
             }
@@ -68,15 +73,19 @@ public class AddAnimalDialog extends JDialog {
                 competition_type = pop_up(options,options.length-1,"What animal do you want?", "CompetitionDialog");
                 if(competition_type == 0){
                     this.vector.add(new Dog());
+                    vector.lastElement().loadImages("dog1E.png");
                 }
                 else if(competition_type == 1){
                     this.vector.add(new Cat());
+                    vector.lastElement().loadImages("cat1E.png");
                 }
                 else if(competition_type == 2){
                     this.vector.add(new Alligator());
+                    vector.lastElement().loadImages("alligator1E.png");
                 }
                 else if(competition_type == 3){
                     this.vector.add(new Snake());
+                    vector.lastElement().loadImages("snake1E.png");
                 }
                 return "Terrestrial";
             }
