@@ -29,7 +29,19 @@ import java.io.IOException;
 public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDrawable, IClonable {
     @Override
     public boolean eat(int energy) {
-        return false;
+        int tempEnergy = this.current_energy + energy;
+
+        if(tempEnergy > this.maxEnergy) {
+            this.current_energy = this.maxEnergy;
+        }
+        else {
+            this.current_energy += energy;
+        }
+        if(this.current_energy > 0 && this.current_energy > this.energyPerMeter) {
+            super.setLocation(new Point((int) (super.getLocation().getX()+getSpeed()),super.getLocation().getY()));
+            this.current_energy -= this.energyPerMeter;
+        }
+        return true;
     }
 
     @Override
@@ -47,31 +59,28 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
             g.drawImage(img1, super.getLocation().getX(), super.getLocation().getY(), size, size,
                     pan);
         else if(orien==Orientation.SOUTH) // animal move to the south side
-            g.drawImage(img2, super.getLocation().getX(), super.getLocation().getY()-size, size, size,
+            g.drawImage(img2, super.getLocation().getX(), super.getLocation().getY(), size, size,
                     pan);
         else if(orien==Orientation.WEST) // animal move to the west side
-            g.drawImage(img3, super.getLocation().getX(), super.getLocation().getY()-size, size, size,
+            g.drawImage(img3, super.getLocation().getX(), super.getLocation().getY(), size, size,
                     pan);
         else if(orien==Orientation.NORTH) // animal move to the north side
-            g.drawImage(img4, super.getLocation().getX()-size/2, super.getLocation().getY()-size, size,
+            g.drawImage(img4, super.getLocation().getX()-size/2, super.getLocation().getY(), size,
                     size, pan);
 
 
     }
 
 
-    private int x = 712 ;
-    private int y = 0;
+
     public enum Orientation {EAST, SOUTH, WEST,NORTH}
     protected int size;
     protected Orientation orien;
     protected int maxEnergy;
     protected int energyPerMeter;
+    protected int current_energy;
     protected CompetitionPanel pan;
     protected BufferedImage img1, img2, img3, img4;
-
-
-
 
 
 
@@ -92,27 +101,18 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
         this.name = "brownie";
         this.my_genders = gender.Male;
         this.weight = 36.5;
-        this.speed = 1.2;
+        this.speed = 5.2;
         this.medals = new Medal[] {new Medal(Medal.types.silver, "BLOB", 2000), new Medal(Medal.types.silver, "Blob", 2015)};
 
 
 
         this.size = 65;
         this.orien = Orientation.EAST;
-        this.maxEnergy = 8;
-        this.energyPerMeter = 8;
+        this.maxEnergy = 60;
+        this.current_energy = 30;
+        this.energyPerMeter = 4;
         this.pan = new CompetitionPanel();
 
-        /*
-        try
-        {
-            loadImages("dog1");
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(new JDialog(), "Cannot open background file");
-            System.exit(1);
-        }
-
-         */
     }
 
     /**
@@ -138,6 +138,11 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
         this.speed = speed;
         this.medals = medals;
 
+        this.size = 65;
+        this.orien = Orientation.EAST;
+        this.maxEnergy = 60;
+        this.current_energy = 30;
+        this.energyPerMeter = 4;
         this.pan = new CompetitionPanel();
     }
 

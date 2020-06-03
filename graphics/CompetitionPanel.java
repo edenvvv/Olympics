@@ -118,5 +118,37 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                 System.exit(1);
             }
         }
+        if(choose_button.equals("Clear"))
+        {
+            vec.clear();
+            repaint();
+        }
+
+        if(choose_button.equals("Eat"))
+        {
+            Object[] options = {"1","2", "5", "10"};
+            int add_energy = pop_up(options, options.length - 1, "How much energy you want to add?", "Add Energy");
+
+            if(add_energy == 0)
+            {
+                vec.firstElement().eat(1);
+                repaint();
+            }
+            else if(add_energy == 1)
+            {
+                vec.firstElement().eat(2);
+                repaint();
+            }
+            else if(add_energy == 2)
+            {
+                vec.firstElement().eat(5);
+                repaint();
+            }
+            else if(add_energy == 3)
+            {
+                vec.firstElement().eat(10);
+                repaint();
+            }
+        }
     }
 }
