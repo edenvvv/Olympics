@@ -3,7 +3,6 @@ package animals;
 import Olympics.Medal;
 import graphics.CompetitionPanel;
 import graphics.IAnimal;
-import graphics.IClonable;
 import graphics.IDrawable;
 
 import mobility.ILocatable;
@@ -14,8 +13,6 @@ import mobility.Point;
 
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import javax.xml.stream.Location;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -26,7 +23,7 @@ import java.io.IOException;
  * @author Eden dadon id:207279183
  * @author Eliran Dagan id: 208061580
  */
-public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDrawable, IClonable {
+public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDrawable {
     @Override
     public boolean eat(int energy) {
         int tempEnergy = this.current_energy + energy;
