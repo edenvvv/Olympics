@@ -131,24 +131,56 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
             if(add_energy == 0)
             {
-                vec.firstElement().eat(1);
+                vec.lastElement().eat(1);
                 repaint();
             }
             else if(add_energy == 1)
             {
-                vec.firstElement().eat(2);
+                vec.lastElement().eat(2);
                 repaint();
             }
             else if(add_energy == 2)
             {
-                vec.firstElement().eat(5);
+                vec.lastElement().eat(5);
                 repaint();
             }
             else if(add_energy == 3)
             {
-                vec.firstElement().eat(10);
+                vec.lastElement().eat(10);
                 repaint();
             }
+        }
+        else if (choose_button.equals("Info")) {
+            JFrame table_frame = new JFrame("Info");
+            String[] columnNames = {"Animal", "Category", "Type", "Speed", "Energy Amount", "Distance", "Energy Consumption"};
+            Animal animal;
+
+            String[][] data = new String[this.vec.size()][columnNames.length];
+            for (int i = 0; i < this.vec.size(); i++)
+            {
+                animal = vec.get(i);
+                if (animal != null)
+                {
+                    data[i][0] = animal.get_name();
+                    data[i][1] = animal.getClass().getSuperclass().toString().substring(14);
+                    data[i][2] = animal.getClass().getName().substring(8);
+                    data[i][3] = String.valueOf(animal.getSpeed());
+                    data[i][4] = String.valueOf(animal.get_current_energy());
+                    data[i][5] = String.valueOf(animal.get_distance());
+                    data[i][6] = String.valueOf(animal.get_current_energy());
+                }
+            }
+
+            final JTable jt=new JTable(data,columnNames);
+            jt.setCellSelectionEnabled(true);
+            ListSelectionModel select= jt.getSelectionModel();
+            select.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            JScrollPane sp=new JScrollPane(jt);
+            table_frame.add(sp);
+            table_frame.setSize(3000, 88 + vec.size()*45);
+            table_frame.setVisible(true);
+            jt.setEnabled(false);
+            repaint();
         }
     }
 }

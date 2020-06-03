@@ -40,6 +40,7 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
         if(this.current_energy > 0 && this.current_energy > this.energyPerMeter) {
             super.setLocation(new Point((int) (super.getLocation().getX()+getSpeed()),super.getLocation().getY()));
             this.current_energy -= this.energyPerMeter;
+            ++distance;
         }
         return true;
     }
@@ -81,6 +82,7 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
     protected int current_energy;
     protected CompetitionPanel pan;
     protected BufferedImage img1, img2, img3, img4;
+    private float distance;
 
 
 
@@ -111,6 +113,7 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
         this.maxEnergy = 60;
         this.current_energy = 30;
         this.energyPerMeter = 4;
+        this.distance = 0;
         this.pan = new CompetitionPanel();
 
     }
@@ -143,6 +146,7 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
         this.maxEnergy = 60;
         this.current_energy = 30;
         this.energyPerMeter = 4;
+        this.distance = 0;
         this.pan = new CompetitionPanel();
     }
 
@@ -184,6 +188,25 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
         }
         return false;
     }
+
+
+    /**
+     * Get the weight of the animal
+     * @return distance
+     */
+    public float get_distance(){
+        return this.distance;
+    }
+
+
+    /**
+     * Get the weight of the animal
+     * @return distance
+     */
+    public float get_current_energy(){
+        return this.current_energy;
+    }
+
 
     /**
      * Get the weight of the animal
