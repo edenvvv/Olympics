@@ -145,7 +145,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                             vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 227));
                         }
                         if (vec.size() == 3) {
-                            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 330));
+                            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 343));
                         }
                     }
                     else if(choose.equals("Terrestrial")){
