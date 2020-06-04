@@ -17,8 +17,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
     private BufferedImage img = null;
     private BufferedImage animal_img = null;
-    private int x = 712 ;
-    private int y = 0;
+    private String choose;
 
 
 
@@ -67,10 +66,14 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
     public void paintComponent(Graphics g)
     {
+        super.paintComponent(g);
         g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
-        if(!vec.isEmpty())
-            vec.lastElement().drawObject(g);
-
+        if(!vec.isEmpty()) {
+            for (Animal animal : vec) {
+                animal.drawObject(g);
+            }
+            //vec.lastElement().drawObject(g);
+        }
     }
 
 
@@ -108,7 +111,21 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         {
             try {
                 AddAnimalDialog animal = new AddAnimalDialog(vec, this.competition_type);
-                animal.choose_animal();
+                if(!vec.isEmpty()) {
+                    if((choose.equals("Air")) && (vec.size() > 5)){
+                        JOptionPane.showMessageDialog(new JDialog(), "There is no room for Air animals",
+                                "Error",JOptionPane.ERROR_MESSAGE);
+                    }
+                    else if((choose.equals("Water")) && (vec.size() > 4)){
+                        JOptionPane.showMessageDialog(new JDialog(), "There is no room for Water animals",
+                                "Error",JOptionPane.ERROR_MESSAGE);
+                    }
+                    else if((choose.equals("Terrestrial")) && (vec.size() >= 1)){
+                        JOptionPane.showMessageDialog(new JDialog(), "There is no room for Terrestrial animals",
+                                "Error",JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+                choose = animal.choose_animal();
                 repaint();
                 System.out.println(vec.toString());
             }
