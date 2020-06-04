@@ -2,6 +2,7 @@ package graphics;
 
 import animals.Animal;
 import animals.*;
+import mobility.Point;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -118,15 +119,34 @@ public class CompetitionPanel extends JPanel implements ActionListener {
             try {
                 AddAnimalDialog animal = new AddAnimalDialog(vec, this.competition_type);
                 if(!vec.isEmpty()) {
-                    if((choose.equals("Air")) && (vec.size() >= 5)){
+                    if((choose.equals("Air")) && (vec.size() >= 3)){
                         JOptionPane.showMessageDialog(new JDialog(), "There is no room for Air animals",
                                 "Error",JOptionPane.ERROR_MESSAGE);
                         return;
+                    }
+                    else if(choose.equals("Air")){
+                        if (vec.size() == 1){
+                            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()+111));
+                        }
+                        if (vec.size() == 2){
+                            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()+227));
+                        }
                     }
                     else if((choose.equals("Water")) && (vec.size() >= 4)){
                         JOptionPane.showMessageDialog(new JDialog(), "There is no room for Water animals",
                                 "Error",JOptionPane.ERROR_MESSAGE);
                         return;
+                    }
+                    else if(choose.equals("Water")) {
+                        if (vec.size() == 1) {
+                            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 111));
+                        }
+                        if (vec.size() == 2) {
+                            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 227));
+                        }
+                        if (vec.size() == 3) {
+                            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 330));
+                        }
                     }
                     else if(choose.equals("Terrestrial")){
                         JOptionPane.showMessageDialog(new JDialog(), "There is no room for Terrestrial animals",
