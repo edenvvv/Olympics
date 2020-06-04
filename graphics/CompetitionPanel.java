@@ -77,6 +77,12 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     }
 
 
+    public void eat_all(int num){
+        for (Animal animal : vec) {
+            animal.eat(num);
+        }
+    }
+
     public static int pop_up(Object[] obg,int size,String mas,String title){
         return JOptionPane.showOptionDialog(new JDialog(), "What kind of competition would you like?",
                 "CompetitionDialog",
@@ -112,17 +118,17 @@ public class CompetitionPanel extends JPanel implements ActionListener {
             try {
                 AddAnimalDialog animal = new AddAnimalDialog(vec, this.competition_type);
                 if(!vec.isEmpty()) {
-                    if((choose.equals("Air")) && (vec.size() > 5)){
+                    if((choose.equals("Air")) && (vec.size() >= 5)){
                         JOptionPane.showMessageDialog(new JDialog(), "There is no room for Air animals",
                                 "Error",JOptionPane.ERROR_MESSAGE);
                         return;
                     }
-                    else if((choose.equals("Water")) && (vec.size() > 4)){
+                    else if((choose.equals("Water")) && (vec.size() >= 4)){
                         JOptionPane.showMessageDialog(new JDialog(), "There is no room for Water animals",
                                 "Error",JOptionPane.ERROR_MESSAGE);
                         return;
                     }
-                    else if((choose.equals("Terrestrial")) && (vec.size() >= 1)){
+                    else if(choose.equals("Terrestrial")){
                         JOptionPane.showMessageDialog(new JDialog(), "There is no room for Terrestrial animals",
                                 "Error",JOptionPane.ERROR_MESSAGE);
                         return;
@@ -151,22 +157,22 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
             if(add_energy == 0)
             {
-                vec.lastElement().eat(1);
+                eat_all(1);
                 repaint();
             }
             else if(add_energy == 1)
             {
-                vec.lastElement().eat(2);
+                eat_all(2);
                 repaint();
             }
             else if(add_energy == 2)
             {
-                vec.lastElement().eat(5);
+                eat_all(5);
                 repaint();
             }
             else if(add_energy == 3)
             {
-                vec.lastElement().eat(10);
+                eat_all(10);
                 repaint();
             }
         }
