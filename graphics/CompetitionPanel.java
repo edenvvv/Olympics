@@ -115,14 +115,17 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                     if((choose.equals("Air")) && (vec.size() > 5)){
                         JOptionPane.showMessageDialog(new JDialog(), "There is no room for Air animals",
                                 "Error",JOptionPane.ERROR_MESSAGE);
+                        return;
                     }
                     else if((choose.equals("Water")) && (vec.size() > 4)){
                         JOptionPane.showMessageDialog(new JDialog(), "There is no room for Water animals",
                                 "Error",JOptionPane.ERROR_MESSAGE);
+                        return;
                     }
                     else if((choose.equals("Terrestrial")) && (vec.size() >= 1)){
                         JOptionPane.showMessageDialog(new JDialog(), "There is no room for Terrestrial animals",
                                 "Error",JOptionPane.ERROR_MESSAGE);
+                        return;
                     }
                 }
                 choose = animal.choose_animal();
