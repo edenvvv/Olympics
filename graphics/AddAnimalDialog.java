@@ -80,7 +80,8 @@ public class AddAnimalDialog extends JDialog {
                     vector.lastElement().loadImages("cat1E.png");
                 }
                 else if(competition_type == 2){
-                    this.vector.add(new Alligator());
+                    Alligator temp= new Alligator();
+                    this.vector.add((Animal) temp.set_type_terrestrial());
                     vector.lastElement().loadImages("alligator2E.png");
                 }
                 else if(competition_type == 3){

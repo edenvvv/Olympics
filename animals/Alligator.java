@@ -21,6 +21,9 @@ public class Alligator extends WaterAnimal implements IReptile{
                 return "Roar";
             }
         };
+        if(super.getSpeed() > MAX_SPEED){
+            super.set_speed(MAX_SPEED);
+        }
         this.AreaOfLiving = "Lake";
     }
 
@@ -101,5 +104,14 @@ public class Alligator extends WaterAnimal implements IReptile{
         else {
             super.set_speed(new_speed);
         }
+    }
+
+    public Iterrestrial set_type_terrestrial() {
+        Iterrestrial temp =  new TerrestrialAnimals() {
+            protected String getsound() {
+                return "Roar";
+            }
+        };
+        return temp;
     }
 }

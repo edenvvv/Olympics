@@ -100,8 +100,9 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
         this.name = "brownie";
         this.my_genders = gender.Male;
         this.weight = 36.5;
-        this.speed = 5.2;
-        this.medals = new Medal[] {new Medal(Medal.types.silver, "BLOB", 2000), new Medal(Medal.types.silver, "Blob", 2015)};
+        this.speed = Math.random() * 8;
+        this.medals = new Medal[] {new Medal(Medal.types.silver, "BLOB", 2000),
+                new Medal(Medal.types.silver, "Blob", 2015)};
 
 
 

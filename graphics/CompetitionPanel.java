@@ -164,6 +164,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                     data[i][0] = animal.get_name();
                     data[i][1] = animal.getClass().getSuperclass().toString().substring(14);
                     data[i][2] = animal.getClass().getName().substring(8);
+                    System.out.println(animal.getClass().getName());
                     data[i][3] = String.valueOf(animal.getSpeed());
                     data[i][4] = String.valueOf(animal.get_current_energy());
                     data[i][5] = String.valueOf(animal.get_distance());

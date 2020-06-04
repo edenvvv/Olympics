@@ -19,6 +19,9 @@ public class Snake extends TerrestrialAnimals implements IReptile {
     public Snake(){
         super();
         this.poisonous = Poisonous.Medium;
+        if(super.getSpeed() > MAX_SPEED){
+            super.set_speed(MAX_SPEED);
+        }
         this.length = 2.5;
     }
 
