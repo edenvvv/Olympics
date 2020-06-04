@@ -106,12 +106,11 @@ public class Alligator extends WaterAnimal implements IReptile{
         }
     }
 
-    public Iterrestrial set_type_terrestrial() {
-        Iterrestrial temp =  new TerrestrialAnimals() {
+    public TerrestrialAnimals set_type_terrestrial() {
+        return new TerrestrialAnimals() {
             protected String getsound() {
                 return "Roar";
             }
         };
-        return temp;
     }
 }

@@ -155,6 +155,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
             String[] columnNames = {"Animal", "Category", "Type", "Speed", "Energy Amount", "Distance", "Energy Consumption"};
             Animal animal;
 
+            int index_of;
             String[][] data = new String[this.vec.size()][columnNames.length];
             for (int i = 0; i < this.vec.size(); i++)
             {
@@ -163,8 +164,13 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                 {
                     data[i][0] = animal.get_name();
                     data[i][1] = animal.getClass().getSuperclass().toString().substring(14);
-                    data[i][2] = animal.getClass().getName().substring(8);
-                    System.out.println(animal.getClass().getName());
+                    index_of = animal.getClass().getName().indexOf("$");
+                    if(index_of == -1){
+                        data[i][2] = animal.getClass().getName().substring(8);
+                    }
+                    else {
+                        data[i][2] = animal.getClass().getName().substring(8,index_of);
+                    }
                     data[i][3] = String.valueOf(animal.getSpeed());
                     data[i][4] = String.valueOf(animal.get_current_energy());
                     data[i][5] = String.valueOf(animal.get_distance());
