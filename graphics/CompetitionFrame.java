@@ -4,14 +4,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ * Class that describes an competition attributes
+ * @author Eden dadon id:207279183
+ * @author Eliran Dagan id: 208061580
+ */
 public class CompetitionFrame extends JFrame implements ActionListener
 {
     private JMenu jmenuFile, jmenuHelp;
     private JMenuItem jmenuitemExit, jmenuitemAbout;
     CompetitionPanel pan;
 
-
+    /**
+     * Default Ctor, for the competition frame (GUI part)
+     */
     public CompetitionFrame ()
     {
         super("Competition");
@@ -35,6 +41,10 @@ public class CompetitionFrame extends JFrame implements ActionListener
 
     }
 
+    /**
+     * main method to start the GUI frame
+     * @param args
+     */
     public static void main(String args[])
     {
         CompetitionFrame com_frame = new CompetitionFrame();

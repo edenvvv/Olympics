@@ -24,7 +24,10 @@ import java.io.IOException;
  * @author Eliran Dagan id: 208061580
  */
 public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDrawable {
-    @Override
+    /**
+    "eat" method that moves the animal on the board with the parameter energy from the user
+     @param energy
+     */
     public boolean eat(int energy) {
         int tempEnergy = this.current_energy + energy;
 
@@ -42,7 +45,11 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
         return true;
     }
 
-    @Override
+    /**
+     * method that load images from package to show the selected animals
+     * @param nm
+     * @throws IOException
+     */
     public void loadImages(String nm) throws IOException {
         img1 = ImageIO.read(new File(IDrawable.PICTURE_PATH + nm));
         img2 = ImageIO.read(new File(IDrawable.PICTURE_PATH + nm));
@@ -51,7 +58,10 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
     }
 
 
-    @Override
+    /**
+     * method that shows the GUI part of the program, the board and the chosen animals
+     * @param g
+     */
     public void drawObject(Graphics g) {
         if(orien==Orientation.EAST) // animal move to the east side
             g.drawImage(img1, super.getLocation().getX(), super.getLocation().getY(), size, size,

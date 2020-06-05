@@ -13,7 +13,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Vector;
-
+/**
+ * Class that describes an competition attributes
+ * @author Eden dadon id:207279183
+ * @author Eliran Dagan id: 208061580
+ */
 public class CompetitionPanel extends JPanel implements ActionListener {
 
     private BufferedImage img = null;
@@ -26,6 +30,9 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     private int competition_type = -1;
     private Vector<Animal> vec= new Vector<>();
 
+    /**
+     * Default Ctor, for the competition panel (GUI patr)
+     */
     public CompetitionPanel()
     {
         super(new BorderLayout());
@@ -64,7 +71,11 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         buttonPanel.add(exit);
     }
 
-
+    /**
+     * method that covers the panel with selected draws and pictures, uses the the chosen animals method "drawObject"
+     * to show the selected animals
+     * @param g
+     */
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
@@ -77,13 +88,24 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         }
     }
 
-
+    /**
+     * method gives energy to all the animals that selected by the user
+     * @param num
+     */
     public void eat_all(int num){
         for (Animal animal : vec) {
             animal.eat(num);
         }
     }
 
+    /**
+     * GUI method for pop-up message to user when he select the competition section
+     * @param obg
+     * @param size
+     * @param mas
+     * @param title
+     * @return
+     */
     public static int pop_up(Object[] obg,int size,String mas,String title){
         return JOptionPane.showOptionDialog(new JDialog(), "What kind of competition would you like?",
                 "CompetitionDialog",
