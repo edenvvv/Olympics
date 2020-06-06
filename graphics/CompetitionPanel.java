@@ -178,7 +178,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                 }
                 choose = animal.choose_animal();
                 repaint();
-                System.out.println(vec.toString());
+                //System.out.println(vec.toString());
             }
             catch (Exception x){
                 JOptionPane.showMessageDialog(new JDialog(), "The type of animal should match the type of animal selected in the competition",
