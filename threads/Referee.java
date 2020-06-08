@@ -3,10 +3,12 @@ package threads;
 public class Referee implements Runnable{
     private String name;
     private Scores scores;
+    private Boolean come;
 
     public Referee(String name,Scores score){
         this.scores = score;
         this.name = name;
+        this.come = false;
     }
 
     /**
@@ -19,6 +21,17 @@ public class Referee implements Runnable{
      */
     @Override
     public void run() {
-
+        synchronized (this.come){
+            while (!this.come) {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                this.scores.add(this.name);
+                this.come = false;
+                notify();
+            }
+        }
     }
 }

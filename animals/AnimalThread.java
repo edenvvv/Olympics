@@ -1,15 +1,20 @@
 package animals;
 
+import graphics.CompetitionFrame;
+import graphics.CompetitionPanel;
+
 public class AnimalThread implements Runnable {
 
     private Animal participant;
     private double neededDistance;
     private Boolean startFlag;
     private Boolean finishFlag;
+    private CompetitionPanel pan;
 
     static int sleep;
 
-    public AnimalThread(Animal participant) {
+    public AnimalThread(Animal participant, CompetitionPanel pan) {
+        this.pan = pan;
         this.participant = participant;
         this.neededDistance = 8;
         this.startFlag = false;
@@ -17,7 +22,8 @@ public class AnimalThread implements Runnable {
         sleep = 88;
     }
 
-    public AnimalThread(Animal participant,double neededDistance) {
+    public AnimalThread(Animal participant,double neededDistance, CompetitionPanel pan) {
+        this.pan = pan;
         this.participant = participant;
         this.neededDistance = neededDistance;
         this.startFlag = false;
@@ -52,6 +58,7 @@ public class AnimalThread implements Runnable {
 
         synchronized (this.participant){
             this.participant.eat(8); // The animal moves
+            pan.repaint();
 
             if(this.participant.get_distance() >= this.neededDistance){
                 this.finishFlag = true;
@@ -67,16 +74,6 @@ public class AnimalThread implements Runnable {
 
     }
 
-    /*
-    public synchronized void start_Flag() {
-        while (!this.startFlag) {
-            try {
-                wait();
-            } catch (InterruptedException e) { }
-        }
-        this.startFlag = false;
-        notify();
-    }
-     */
+
 }
 

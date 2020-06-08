@@ -25,6 +25,7 @@ public class TournamentThread implements Runnable {
      */
     @Override
     public void run() {
-
+        this.startSignal = true;
+        
     }
 }
