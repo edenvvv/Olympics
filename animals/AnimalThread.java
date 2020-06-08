@@ -7,8 +7,19 @@ public class AnimalThread implements Runnable {
     private Boolean startFlag;
     private Boolean finishFlag;
 
-    public AnimalThread() {
+    static int sleep;
+
+    public AnimalThread(Animal participant) {
+        this.participant = participant;
         this.neededDistance = 8;
+        this.startFlag = false;
+        this.finishFlag = false;
+        sleep = 88;
+    }
+
+    public AnimalThread(Animal participant,double neededDistance) {
+        this.participant = participant;
+        this.neededDistance = neededDistance;
         this.startFlag = false;
         this.finishFlag = false;
     }
@@ -23,9 +34,40 @@ public class AnimalThread implements Runnable {
      */
     @Override
     public void run() {
-        start_Flag();
+        synchronized (this.startFlag){
+            while (!this.startFlag) {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            this.startFlag = false;
+            notify();
+        }
+
+        if(Thread.interrupted()){
+            System.out.println("BLOB");
+        }
+
+        synchronized (this.participant){
+            this.participant.eat(8); // The animal moves
+
+            if(this.participant.get_distance() >= this.neededDistance){
+                this.finishFlag = true;
+                notify();
+            }
+        }
+
+        try {
+            Thread.sleep(sleep);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 
+    /*
     public synchronized void start_Flag() {
         while (!this.startFlag) {
             try {
@@ -35,5 +77,6 @@ public class AnimalThread implements Runnable {
         this.startFlag = false;
         notify();
     }
+     */
 }
 

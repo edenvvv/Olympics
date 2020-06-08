@@ -89,7 +89,7 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
     protected int current_energy;
     protected CompetitionPanel pan;
     protected BufferedImage img1, img2, img3, img4;
-    private float distance;
+    private double distance;
 
 
 
@@ -202,7 +202,7 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
      * Get the weight of the animal
      * @return distance
      */
-    public float get_distance(){
+    public double get_distance(){
         return this.distance;
     }
 
