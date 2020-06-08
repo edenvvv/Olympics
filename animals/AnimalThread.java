@@ -13,21 +13,21 @@ public class AnimalThread implements Runnable {
 
     static int sleep;
 
-    public AnimalThread(Animal participant, CompetitionPanel pan) {
-        this.pan = pan;
-        this.participant = participant;
+    public AnimalThread() {
+        //this.pan = pan;
+        //this.participant = participant;
         this.neededDistance = 8;
         this.startFlag = false;
         this.finishFlag = false;
         sleep = 88;
     }
 
-    public AnimalThread(Animal participant,double neededDistance, CompetitionPanel pan) {
-        this.pan = pan;
-        this.participant = participant;
+    public AnimalThread(double neededDistance, Boolean startFlag, Boolean finishFlag) {
+        //this.pan = pan;
+        //this.participant = participant;
         this.neededDistance = neededDistance;
-        this.startFlag = false;
-        this.finishFlag = false;
+        this.startFlag = startFlag;
+        this.finishFlag = finishFlag;
     }
 
     /**
