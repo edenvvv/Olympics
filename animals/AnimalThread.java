@@ -26,8 +26,8 @@ public class AnimalThread implements Runnable {
         //this.pan = pan;
         this.participant = participant;
         this.neededDistance = 8;
-        this.startFlag = false;
-        this.finishFlag = false;
+        this.startFlag = startFlag;
+        this.finishFlag = finishFlag;
         sleep = 88;
     }
 
@@ -57,6 +57,7 @@ public class AnimalThread implements Runnable {
      */
     @Override
     public void run() {
+        /*
         synchronized (this.startFlag){
             while (!this.startFlag) {
                 try {
@@ -89,6 +90,9 @@ public class AnimalThread implements Runnable {
             e.printStackTrace();
         }
 
+         */
+
+        System.out.println("blob");
     }
 
 

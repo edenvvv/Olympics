@@ -3,6 +3,8 @@ package graphics;
 import animals.Animal;
 import animals.*;
 import mobility.Point;
+import threads.CourierTournament;
+import threads.RegularTournament;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -23,6 +25,13 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     private BufferedImage img = null;
     private BufferedImage animal_img = null;
     private String choose;
+    private int Tournament_choose;
+    private Animal[][] regular_setup_arr;
+    private int setup_counter;
+    private final int setup_max_size = 8;
+
+    private RegularTournament regular_tournament;
+    private CourierTournament courier_tournament;
 
 
 
@@ -69,6 +78,13 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         buttonPanel.add(eat_button);
         buttonPanel.add(info_button);
         buttonPanel.add(exit);
+
+        setup_counter = 0;
+        regular_setup_arr = new Animal[setup_max_size][];
+        for(int i=0; i < regular_setup_arr.length; ++i){
+            regular_setup_arr[i] = new Animal[1];
+        }
+
     }
 
     /**
@@ -131,7 +147,19 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
         if(choose_button.equals("Competition"))
         {
-            vec.clear();
+            //vec.clear();
+            Object[] Tournament = {"Regular Tournament", "Courier Tournament"};
+            this.Tournament_choose = pop_up(Tournament,Tournament.length-1,"What kind of Tournament?", "CompetitionDialog");
+            if(this.Tournament_choose == 0){
+                regular_tournament = new RegularTournament(regular_setup_arr);
+                regular_tournament.init_threads();
+
+            }
+            else if(this.Tournament_choose == 1){
+                courier_tournament = new CourierTournament();
+            }
+
+
             Object[] options = {"Air", "Water", "Terrestrial"};
             this.competition_type = pop_up(options,options.length-1,"What kind of competition?", "CompetitionDialog");
         }
@@ -180,11 +208,14 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                     }
                 }
                 choose = animal.choose_animal();
+                regular_setup_arr[setup_counter][0] = vec.lastElement();
+                regular_tournament.set_threads(regular_setup_arr, vec.lastElement(), setup_counter);
+                ++setup_counter;
                 repaint();
                 //System.out.println(vec.toString());
             }
             catch (Exception x){
-                JOptionPane.showMessageDialog(new JDialog(), "The type of animal should match the type of animal selected in the competition",
+                JOptionPane.showMessageDialog(new JDialog(), "The type of animal should match the type of animal selected in the competition" + x.getMessage(),
                     "Error",JOptionPane.ERROR_MESSAGE);
                 System.exit(1);
             }

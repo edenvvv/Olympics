@@ -10,6 +10,12 @@ public abstract class Tournament {
         setup(new Animal[this.tournament.get_groups_size()][]);
     }
 
+
+    public Tournament(Animal[][] setup_arr){
+        this.tournament = new TournamentThread();
+        setup(setup_arr);
+    }
+
     public TournamentThread get_TournamentThread(){
         return this.tournament;
     }
