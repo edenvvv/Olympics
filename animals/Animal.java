@@ -158,6 +158,16 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
         this.pan = new CompetitionPanel();
     }
 
+
+    /**
+     * Return the gender of the animal
+     * @return pan
+     */
+    public CompetitionPanel get_pan(){
+        return this.pan;
+    }
+
+
     /**
      * Return the gender of the animal
      * @return gender

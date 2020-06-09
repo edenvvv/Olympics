@@ -2,6 +2,7 @@ package threads;
 
 import animals.Animal;
 import animals.AnimalThread;
+import graphics.CompetitionPanel;
 
 import java.util.Vector;
 
@@ -11,7 +12,7 @@ public class RegularTournament extends Tournament {
 
     public RegularTournament(Animal[][] setup_arr){
         super(setup_arr);
-        //threads = new Vector<>();
+
     }
     @Override
     public void setup(Animal[][] setup_arr) {

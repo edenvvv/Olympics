@@ -9,7 +9,6 @@ public class AnimalThread implements Runnable {
     private double neededDistance;
     private Boolean startFlag;
     private Boolean finishFlag;
-    private CompetitionPanel pan;
 
     static int sleep;
 
@@ -57,7 +56,7 @@ public class AnimalThread implements Runnable {
      */
     @Override
     public void run() {
-        /*
+
         synchronized (this.startFlag){
             while (!this.startFlag) {
                 try {
@@ -75,12 +74,14 @@ public class AnimalThread implements Runnable {
         }
 
         synchronized (this.participant){
-            this.participant.eat(8); // The animal moves
-            pan.repaint();
+            for (int i=0; i<12;++i) {
+                this.participant.get_pan().repaint();
+                this.participant.eat(8); // The animal moves
 
-            if(this.participant.get_distance() >= this.neededDistance){
-                this.finishFlag = true;
-                notify();
+                if (this.participant.get_distance() >= this.neededDistance) {
+                    this.finishFlag = true;
+                    notify();
+                }
             }
         }
 
@@ -90,9 +91,8 @@ public class AnimalThread implements Runnable {
             e.printStackTrace();
         }
 
-         */
-
         System.out.println("blob");
+
     }
 
 
