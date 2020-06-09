@@ -5,10 +5,10 @@ public class Referee implements Runnable{
     private Scores scores;
     private Boolean come;
 
-    public Referee(String name,Scores score){
+    public Referee(String name,Scores score, Boolean come){
         this.scores = score;
         this.name = name;
-        this.come = false;
+        this.come = come;
     }
 
     /**
