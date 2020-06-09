@@ -170,10 +170,13 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                             vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 343));
                         }
                     }
-                    else if(choose.equals("Terrestrial")){
+                    else if(choose.equals("Terrestrial") && (vec.size() >= 2)){
                         JOptionPane.showMessageDialog(new JDialog(), "There is no room for Terrestrial animals",
                                 "Error",JOptionPane.ERROR_MESSAGE);
                         return;
+                    }
+                    else if(choose.equals("Terrestrial")) {
+                        vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 111));
                     }
                 }
                 choose = animal.choose_animal();
