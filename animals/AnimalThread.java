@@ -11,6 +11,7 @@ public class AnimalThread implements Runnable {
     private double neededDistance;
     private Boolean startFlag;
     private Boolean finishFlag;
+    static Boolean winner = false;
 
     private RegularTournament rt;
 
@@ -58,16 +59,20 @@ public class AnimalThread implements Runnable {
         }*/
 
         synchronized (this.participant) {
-            while (true) {
+            while (!winner) {
                 System.out.println(this.participant.getLocation());
                 try {
                     Thread.sleep(sleep);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                if(winner){
+                    break;
+                }
                 this.participant.eat(5); // The animal moves
 
                 if (this.participant.get_max_distance() <= this.participant.getLocation().getX()) {
+                    winner = true;
                     int index_of;
                     String type;
                     index_of = this.participant.getClass().getName().indexOf("$");
@@ -79,9 +84,8 @@ public class AnimalThread implements Runnable {
                     }
                     String mas = "the winner is :" + this.participant.get_name() +" the "+ type;
                     winner_mas(mas,"WINNER!");
-                    rt.stop_threads();
+
                     System.exit(0);
-                    
                 }
             }
         }
