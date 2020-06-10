@@ -1,3 +1,4 @@
+/*
 package system;
 import Olympics.Medal;
 import animals.*;
@@ -6,17 +7,21 @@ import mobility.Point;
 import java.security.InvalidParameterException;
 import java.util.Scanner;
 
+*/
 /**
  * Main
  * @author eden dadon id:207279183
  * @author Eliran Dagan id: 208061580
- */
+ *//*
+
 public class System {
 
-    /**
+    */
+/**
      * main method
      * @param args
-     */
+     *//*
+
     public static void main(String[] args) {
         try {
 
@@ -42,7 +47,8 @@ public class System {
         }
     }
 
-    /**
+    */
+/**
      * Once all the animals are selected by the user, a menu will open which has 3 options:
      * 1 - Information on each animal selected.
      * 2 - The sound the animal makes.
@@ -51,7 +57,8 @@ public class System {
      * an exception is thrown and the option is repeated.
      * @param array
      * @throws InvalidParameterException
-     */
+     *//*
+
     public static void Actions_Menu(Animal[] array)
     {
         Scanner input = new Scanner(java.lang.System.in);
@@ -84,7 +91,8 @@ public class System {
     }
 
 
-    /**
+    */
+/**
      * A menu where the user can choose what type of animal they want from 3 families:
      * 1 - air
      * 2 - water
@@ -94,7 +102,8 @@ public class System {
      * @param array
      * @param i - counter (the location in the Animal array - "array[i]")
      * @throws InvalidParameterException
-     */
+     *//*
+
     public static void Choose_Menu(Animal[] array, int i)
     {
         java.lang.System.out.println("insert which kind of animal do you want: (Air, Water, Terrestrial)");
@@ -126,7 +135,8 @@ public class System {
         }
     }
 
-    /**
+    */
+/**
      * Specific menu of the Air-Animal Family.
      * Where two animals can be selected:
      *  - Eagle
@@ -137,7 +147,8 @@ public class System {
      * @param array
      * @param i - counter (the location in the Animal array - "array[i]")
      * @throws InvalidParameterException
-     */
+     *//*
+
     public static void Air_Menu(Animal[] array, int i)
     {
         java.lang.System.out.println("Which Air-Animal do you want to choose: (Eagle, Pigeon)");
@@ -202,7 +213,8 @@ public class System {
     }
 
 
-    /**
+    */
+/**
      * Specific menu of the Water-Animal Family.
      * Where three animals can be selected:
      *  - Alligator
@@ -215,7 +227,8 @@ public class System {
      * @param i - counter (the location in the Animal array - "array[i]")
      * @throws InvalidParameterException
      *
-     */
+     *//*
+
     public static void Water_Menu(Animal[] array, int i)
     {
         java.lang.System.out.println("Which Water-Animal do you want to choose: (Alligator, Whale, Dolphin)");
@@ -303,7 +316,8 @@ public class System {
 
     }
 
-    /**
+    */
+/**
      * * Specific menu of the Terrestrial-Animal Family.
      * Where three animals can be selected:
      *  - Dog
@@ -315,7 +329,8 @@ public class System {
      * @param array
      * @param i - counter (the location in the Animal array - "array[i]")
      * @throws InvalidParameterException
-     */
+     *//*
+
     public static void Terrestrial_Menu(Animal[] array, int i)
     {
         java.lang.System.out.println("Which Terrestrial-Animal do you want to choose: (Dog , Cat, Snake, alligator)");
@@ -453,10 +468,12 @@ public class System {
         return medals;
     }
 
-    /**
+    */
+/**
      * Receives the animal data as input from the user
      * @return Animal_like object
-     */
+     *//*
+
     private static Animal_like input_Animal(){
         Scanner input_data = new Scanner(java.lang.System.in);
         java.lang.System.out.println("Enter the name:");
@@ -491,9 +508,11 @@ public class System {
         return new Animal_like(name, my_genders, weight, speed, medals, position);
     }
 
-    /**
+    */
+/**
      * A class that receives parameters identical to Animal
-     */
+     *//*
+
     static class Animal_like{
 
         private Animal.gender my_genders;
@@ -503,14 +522,16 @@ public class System {
         private Medal[] medals;
         private Point position;
 
-        /**
+        */
+/**
          * @param name
          * @param my_genders
          * @param weight
          * @param speed
          * @param medals
          * @param position
-         */
+         *//*
+
         public Animal_like(String name, Animal.gender my_genders, double weight, double speed, Medal[] medals, Point position){
             this.name = name;
             this.my_genders = my_genders;
@@ -520,52 +541,65 @@ public class System {
             this.position = position;
         }
 
-        /**
+        */
+/**
          * Get the name of the animal
          * @return name
-         */
+         *//*
+
         public String get_name(){
             return this.name;
         }
 
-        /**
+        */
+/**
          * Return the gender of the animal
          * @return gender
-         */
+         *//*
+
         public Animal.gender get_gender(){
             return this.my_genders;
         }
 
-        /**
+        */
+/**
          * Get the weight of the animal
          * @return weight
-         */
+         *//*
+
         public double get_weight(){
             return this.weight;
         }
 
-        /**
+        */
+/**
          * Protected: get the speed of the animal
          * @return speed of animal
-         */
+         *//*
+
         public double get_speed(){
             return this.speed;
         }
 
-        /**
+        */
+/**
          * Protected: get the medals of the animal
          * @return speed of animal
-         */
+         *//*
+
         public Medal[] get_medals(){
             return this.medals;
         }
 
-        /**
+        */
+/**
          * Protected: get the position of the animal
          * @return speed of animal
-         */
+         *//*
+
         public Point get_position(){
             return this.position;
         }
     }
 }
+*/

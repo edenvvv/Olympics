@@ -1,6 +1,7 @@
 package animals;
 
 import Olympics.Medal;
+import graphics.CompetitionPanel;
 import mobility.Point;
 
 /**
@@ -14,6 +15,12 @@ public abstract class TerrestrialAnimals extends Animal implements Iterrestrial{
     /**
      * Default constructor (with proper values)
      */
+    public TerrestrialAnimals(CompetitionPanel pan){
+        super(pan);
+        super.setLocation(new Point(0,0));
+        this.noLegs = 4;
+    }
+
     public TerrestrialAnimals(){
         super();
         super.setLocation(new Point(0,0));

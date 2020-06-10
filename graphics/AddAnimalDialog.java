@@ -35,18 +35,18 @@ public class AddAnimalDialog extends JDialog {
 
     }
 
-    public String choose_animal() throws Exception {
+    public String choose_animal(CompetitionPanel pan) throws Exception {
         int competition_type = -1;
         if(choose_animal_type()){
             if(this.choice == 0){
                 Object[] options = {"Eagle", "Pigeon"};
                 competition_type = pop_up(options,options.length-1,"What animal do you want?", "CompetitionDialog");
                 if(competition_type == 0){
-                    this.vector.add(new Eagle());
+                    this.vector.add(new Eagle(pan));
                     vector.lastElement().loadImages("eagle1.png");
                 }
                 else if(competition_type == 1){
-                    this.vector.add(new Pigeon());
+                    this.vector.add(new Pigeon(pan));
                     vector.lastElement().loadImages("pigeon.png");
                 }
                 return "Air";
@@ -55,15 +55,15 @@ public class AddAnimalDialog extends JDialog {
                 Object[] options = {"Whale", "Alligator", "Dolphin"};
                 competition_type = pop_up(options,options.length-1,"What animal do you want?", "CompetitionDialog");
                 if(competition_type == 0){
-                    this.vector.add(new Whale());
+                    this.vector.add(new Whale(pan));
                     vector.lastElement().loadImages("whaleE.png");
                 }
                 else if(competition_type == 1){
-                    this.vector.add(new Alligator());
+                    this.vector.add(new Alligator(pan));
                     vector.lastElement().loadImages("alligator2E.png");
                 }
                 else if(competition_type == 2){
-                    this.vector.add(new Dolphin());
+                    this.vector.add(new Dolphin(pan));
                     vector.lastElement().loadImages("dolphin1E.png");
                 }
                 return "Water";
@@ -72,20 +72,20 @@ public class AddAnimalDialog extends JDialog {
                 Object[] options = {"Dog", "Cat", "Alligator", "Snake"};
                 competition_type = pop_up(options,options.length-1,"What animal do you want?", "CompetitionDialog");
                 if(competition_type == 0){
-                    this.vector.add(new Dog());
+                    this.vector.add(new Dog(pan));
                     vector.lastElement().loadImages("dog1E.png");
                 }
                 else if(competition_type == 1){
-                    this.vector.add(new Cat());
+                    this.vector.add(new Cat(pan));
                     vector.lastElement().loadImages("cat1E.png");
                 }
                 else if(competition_type == 2){
-                    Alligator temp= new Alligator();
+                    Alligator temp= new Alligator(pan);
                     this.vector.add(temp.set_type_terrestrial());
                     vector.lastElement().loadImages("alligator2E.png");
                 }
                 else if(competition_type == 3){
-                    this.vector.add(new Snake());
+                    this.vector.add(new Snake(pan));
                     vector.lastElement().loadImages("snake1E.png");
                 }
                 return "Terrestrial";

@@ -21,7 +21,7 @@ public class AnimalThread implements Runnable {
         this.neededDistance = 8;
         this.startFlag = false;
         this.finishFlag = false;
-        sleep = 888;
+        sleep = 1000;
     }
 
     public AnimalThread(Animal participant, Boolean startFlag, Boolean finishFlag) {
@@ -30,7 +30,7 @@ public class AnimalThread implements Runnable {
         this.neededDistance = 8;
         this.startFlag = startFlag;
         this.finishFlag = finishFlag;
-        sleep = 888;
+        sleep = 1000;
     }
 
     public AnimalThread(Boolean startFlag, Boolean finishFlag) {
@@ -97,10 +97,15 @@ public class AnimalThread implements Runnable {
 
 
          */
-        for (int i = 0; i < 12; ++i) {
+        for (int i = 0; i < 200; ++i) {
             System.out.println(this.participant.getLocation());
+            try {
+                Thread.sleep(sleep);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             this.participant.eat(2); // The animal moves
-            this.participant.get_pan().repaint();
+            //this.participant.get_pan().repaint();
         }
     }
 

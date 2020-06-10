@@ -1,6 +1,7 @@
 package animals;
 
 import Olympics.Medal;
+import graphics.CompetitionPanel;
 import mobility.Point;
 
 import javax.swing.*;
@@ -17,8 +18,8 @@ public class Dog extends TerrestrialAnimals{
     /**
      * Default constructor (with proper values)
      */
-    public Dog(){
-        super();
+    public Dog(CompetitionPanel pan){
+        super(pan);
         this.breed = "None";
     }
 

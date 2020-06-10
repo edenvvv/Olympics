@@ -1,6 +1,7 @@
 package animals;
 
 import Olympics.Medal;
+import graphics.CompetitionPanel;
 import mobility.Point;
 
 /**
@@ -14,8 +15,8 @@ public class Pigeon extends AirAnimal {
     /**
      * Default constructor (with proper values)
      */
-    public Pigeon(){
-        super();
+    public Pigeon(CompetitionPanel pan){
+        super(pan);
         this.family = "poultry";
     }
 

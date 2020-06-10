@@ -1,6 +1,7 @@
 package animals;
 
 import Olympics.Medal;
+import graphics.CompetitionPanel;
 import mobility.Point;
 /**
  * Class that describes an Alligator attributes
@@ -14,9 +15,9 @@ public class Alligator extends WaterAnimal implements IReptile{
     /**
      * Default constructor (with proper values)
      */
-    public Alligator(){
-        super();
-        this.terrestrial = new TerrestrialAnimals() {
+    public Alligator(CompetitionPanel pan){
+        super(pan);
+        this.terrestrial = new TerrestrialAnimals(pan) {
             protected String getsound() {
                 return "Roar";
             }
@@ -107,7 +108,7 @@ public class Alligator extends WaterAnimal implements IReptile{
     }
 
     public TerrestrialAnimals set_type_terrestrial() {
-        return new TerrestrialAnimals() {
+        return new TerrestrialAnimals(pan) {
             protected String getsound() {
                 return "Roar";
             }

@@ -1,6 +1,7 @@
 package animals;
 
 import Olympics.Medal;
+import graphics.CompetitionPanel;
 import mobility.Point;
 
 /**
@@ -16,8 +17,8 @@ public class Snake extends TerrestrialAnimals implements IReptile {
     /**
      * Default constructor (with proper values)
      */
-    public Snake(){
-        super();
+    public Snake(CompetitionPanel pan){
+        super(pan);
         this.poisonous = Poisonous.Medium;
         if(super.getSpeed() > MAX_SPEED){
             super.set_speed(MAX_SPEED);

@@ -1,6 +1,7 @@
 package animals;
 
 import Olympics.Medal;
+import graphics.CompetitionPanel;
 import mobility.Point;
 
 /**
@@ -15,8 +16,8 @@ public abstract class WaterAnimal extends Animal {
     /**
      * Default constructor (with proper values)
      */
-    public WaterAnimal(){
-        super();
+    public WaterAnimal(CompetitionPanel pan){
+        super(pan);
         super.setLocation(new Point(65,55));
         this.diveDept = 0.0;
     }

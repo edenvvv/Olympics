@@ -13,7 +13,7 @@ public class CompetitionFrame extends JFrame implements ActionListener
 {
     private JMenu jmenuFile, jmenuHelp;
     private JMenuItem jmenuitemExit, jmenuitemAbout;
-    CompetitionPanel pan;
+    private CompetitionPanel pan;
 
     /**
      * Default Ctor, for the competition frame (GUI part)
@@ -39,6 +39,10 @@ public class CompetitionFrame extends JFrame implements ActionListener
         jmenuitemAbout.addActionListener(this);
         jmenuitemExit.addActionListener(this);
 
+    }
+
+    public CompetitionPanel get_Fpan(){
+        return this.pan;
     }
 
     /**

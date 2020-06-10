@@ -1,6 +1,7 @@
 package animals;
 
 import Olympics.Medal;
+import graphics.CompetitionPanel;
 import mobility.Point;
 
 /**
@@ -14,8 +15,8 @@ public class Whale extends WaterAnimal{
     /**
      * Default constructor (with proper values)
      */
-    public Whale(){
-        super();
+    public Whale(CompetitionPanel pan){
+        super(pan);
         this.foodType = "plankton";
     }
 

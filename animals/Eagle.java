@@ -1,6 +1,7 @@
 package animals;
 
 import Olympics.Medal;
+import graphics.CompetitionPanel;
 import mobility.Point;
 
 /**
@@ -15,8 +16,8 @@ public class Eagle extends AirAnimal{
     /**
      * Default constructor (with proper values)
      */
-    public Eagle(){
-        super();
+    public Eagle(CompetitionPanel pan){
+        super(pan);
         this.altitudeOfFlight = 8.8;
     }
 

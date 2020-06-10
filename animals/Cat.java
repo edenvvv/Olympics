@@ -1,6 +1,7 @@
 package animals;
 
 import Olympics.Medal;
+import graphics.CompetitionPanel;
 import mobility.Point;
 
 import javax.swing.*;
@@ -17,8 +18,8 @@ public class Cat extends TerrestrialAnimals{
     /**
      * Default constructor (with proper values)
      */
-    public Cat(){
-        super();
+    public Cat(CompetitionPanel pan){
+        super(pan);
         this.Castrated = true;
 
     }

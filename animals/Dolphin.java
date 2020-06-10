@@ -1,6 +1,7 @@
 package animals;
 
 import Olympics.Medal;
+import graphics.CompetitionPanel;
 import mobility.Point;
 /**
  * Class that describes an Dolphin attributes
@@ -14,8 +15,8 @@ public class Dolphin extends WaterAnimal {
     /**
      * Default constructor (with proper values)
      */
-    public Dolphin(){
-        super();
+    public Dolphin(CompetitionPanel pan){
+        super(pan);
         this.Water_Type = WaterType.Sea;
     }
 

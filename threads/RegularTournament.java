@@ -45,7 +45,7 @@ public class RegularTournament extends Tournament {
 
     public void set_threads(Animal[][] setup_arr,Animal animal, int i){
         setup_arr[i][0] = animal;
-        AnimalThread temp = new AnimalThread(setup_arr[i][0], false , false);
+        AnimalThread temp = new AnimalThread(animal, false , false);
         Thread temp_thread = new Thread(temp);
         threads.set(i,temp_thread);
         threads.get(i).start();

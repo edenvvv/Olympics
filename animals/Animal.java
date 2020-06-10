@@ -41,6 +41,7 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
             super.setLocation(new Point((int) (super.getLocation().getX()+getSpeed()),super.getLocation().getY()));
             this.current_energy -= this.energyPerMeter;
             ++distance;
+            pan.repaint();
         }
         return true;
     }
@@ -105,6 +106,27 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
     /**
      * Default constructor (with proper values)
      */
+    public Animal(CompetitionPanel pan){
+        super();
+        this.name = "brownie";
+        this.my_genders = gender.Male;
+        this.weight = 36.5;
+        this.speed = (Math.random() * 15) + 1;
+        this.medals = new Medal[] {new Medal(Medal.types.silver, "BLOB", 2000),
+                new Medal(Medal.types.silver, "Blob", 2015)};
+
+
+
+        this.size = 65;
+        this.orien = Orientation.EAST;
+        this.maxEnergy = 60;
+        this.current_energy = 30;
+        this.energyPerMeter = 4;
+        this.distance = 0;
+        this.pan = pan;
+
+    }
+
     public Animal(){
         super();
         this.name = "brownie";
@@ -122,7 +144,6 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
         this.current_energy = 30;
         this.energyPerMeter = 4;
         this.distance = 0;
-        this.pan = new CompetitionPanel();
 
     }
 

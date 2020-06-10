@@ -1,6 +1,7 @@
 package animals;
 
 import Olympics.Medal;
+import graphics.CompetitionPanel;
 import mobility.Point;
 
 /**
@@ -14,8 +15,8 @@ public abstract class AirAnimal extends Animal {
     /**
      * Default constructor (with proper values)
      */
-    public AirAnimal(){
-        super();
+    public AirAnimal(CompetitionPanel pan){
+        super(pan);
         super.setLocation(new Point(0,110));
         this.wingspan = 0.8;
 

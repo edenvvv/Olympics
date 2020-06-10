@@ -207,7 +207,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                         vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 111));
                     }
                 }
-                choose = animal.choose_animal();
+                choose = animal.choose_animal(this);
                 regular_setup_arr[setup_counter][0] = vec.lastElement();
                 regular_tournament.set_threads(regular_setup_arr, vec.lastElement(), setup_counter);
                 ++setup_counter;
@@ -305,22 +305,22 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         if(i == 0)
         {
             eat_all(1);
-            repaint();
+            //repaint();
         }
         else if(i == 1)
         {
             eat_all(2);
-            repaint();
+            //repaint();
         }
         else if(i == 2)
         {
             eat_all(5);
-            repaint();
+            //repaint();
         }
         else if(i == 3)
         {
             eat_all(10);
-            repaint();
+            //repaint();
         }
     }
 }
