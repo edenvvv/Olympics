@@ -3,6 +3,9 @@ package animals;
 import graphics.CompetitionFrame;
 import graphics.CompetitionPanel;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class AnimalThread implements Runnable {
 
     private Animal participant;
@@ -18,7 +21,7 @@ public class AnimalThread implements Runnable {
         this.neededDistance = 8;
         this.startFlag = false;
         this.finishFlag = false;
-        sleep = 88;
+        sleep = 888;
     }
 
     public AnimalThread(Animal participant, Boolean startFlag, Boolean finishFlag) {
@@ -27,7 +30,7 @@ public class AnimalThread implements Runnable {
         this.neededDistance = 8;
         this.startFlag = startFlag;
         this.finishFlag = finishFlag;
-        sleep = 88;
+        sleep = 888;
     }
 
     public AnimalThread(Boolean startFlag, Boolean finishFlag) {
@@ -57,6 +60,7 @@ public class AnimalThread implements Runnable {
     @Override
     public void run() {
 
+        /*
         synchronized (this.startFlag){
             while (!this.startFlag) {
                 try {
@@ -91,10 +95,14 @@ public class AnimalThread implements Runnable {
             e.printStackTrace();
         }
 
-        System.out.println("blob");
 
+         */
+        for (int i = 0; i < 12; ++i) {
+            System.out.println(this.participant.getLocation());
+            this.participant.eat(2); // The animal moves
+            this.participant.get_pan().repaint();
+        }
     }
-
 
 }
 

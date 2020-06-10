@@ -12,7 +12,6 @@ public class RegularTournament extends Tournament {
 
     public RegularTournament(Animal[][] setup_arr){
         super(setup_arr);
-
     }
     @Override
     public void setup(Animal[][] setup_arr) {
@@ -31,7 +30,7 @@ public class RegularTournament extends Tournament {
         special.add(startFlag);
         special.add(scores);
         special.add(setup_arr.length);
-         */
+        */
     }
 
     public void start_threads(){

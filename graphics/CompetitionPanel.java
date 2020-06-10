@@ -231,6 +231,8 @@ public class CompetitionPanel extends JPanel implements ActionListener {
             Object[] options = {"1","2", "5", "10"};
             int add_energy = pop_up(options, options.length - 1, "How much energy you want to add?", "Add Energy");
 
+            eat_one(add_energy);
+            /*
             if(add_energy == 0)
             {
                 eat_all(1);
@@ -251,6 +253,8 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                 eat_all(10);
                 repaint();
             }
+
+             */
         }
         else if (choose_button.equals("Info")) {
             JFrame table_frame = new JFrame("Info");
@@ -289,6 +293,33 @@ public class CompetitionPanel extends JPanel implements ActionListener {
             table_frame.setSize(3000, 88 + vec.size()*45);
             table_frame.setVisible(true);
             jt.setEnabled(false);
+            repaint();
+        }
+    }
+
+    public void repan(){
+        repaint();
+    }
+
+    public void eat_one(int i){
+        if(i == 0)
+        {
+            eat_all(1);
+            repaint();
+        }
+        else if(i == 1)
+        {
+            eat_all(2);
+            repaint();
+        }
+        else if(i == 2)
+        {
+            eat_all(5);
+            repaint();
+        }
+        else if(i == 3)
+        {
+            eat_all(10);
             repaint();
         }
     }

@@ -167,6 +167,10 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
         return this.pan;
     }
 
+    public void pan_repaint(){
+        this.pan.repaint();
+    }
+
 
     /**
      * Return the gender of the animal
