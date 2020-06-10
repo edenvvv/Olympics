@@ -20,6 +20,7 @@ public class Dog extends TerrestrialAnimals{
      */
     public Dog(CompetitionPanel pan){
         super(pan);
+        super.set_name("brownie");
         this.breed = "None";
     }
 

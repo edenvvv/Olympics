@@ -17,6 +17,7 @@ public class Pigeon extends AirAnimal {
      */
     public Pigeon(CompetitionPanel pan){
         super(pan);
+        super.set_name("chick");
         this.family = "poultry";
     }
 

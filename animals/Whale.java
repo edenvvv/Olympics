@@ -17,6 +17,7 @@ public class Whale extends WaterAnimal{
      */
     public Whale(CompetitionPanel pan){
         super(pan);
+        super.set_name("plash");
         this.foodType = "plankton";
     }
 

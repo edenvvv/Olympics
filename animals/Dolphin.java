@@ -17,6 +17,7 @@ public class Dolphin extends WaterAnimal {
      */
     public Dolphin(CompetitionPanel pan){
         super(pan);
+        super.set_name("calf");
         this.Water_Type = WaterType.Sea;
     }
 

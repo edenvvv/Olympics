@@ -20,6 +20,7 @@ public class Cat extends TerrestrialAnimals{
      */
     public Cat(CompetitionPanel pan){
         super(pan);
+        super.set_name("kitten");
         this.Castrated = true;
 
     }

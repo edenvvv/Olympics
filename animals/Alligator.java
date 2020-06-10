@@ -17,6 +17,7 @@ public class Alligator extends WaterAnimal implements IReptile{
      */
     public Alligator(CompetitionPanel pan){
         super(pan);
+        super.set_name("whelp");
         this.terrestrial = new TerrestrialAnimals(pan) {
             protected String getsound() {
                 return "Roar";

@@ -18,6 +18,7 @@ public class Eagle extends AirAnimal{
      */
     public Eagle(CompetitionPanel pan){
         super(pan);
+        super.set_name("duckling");
         this.altitudeOfFlight = 8.8;
     }
 
