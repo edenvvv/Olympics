@@ -14,6 +14,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Vector;
+
+import static animals.AnimalThread.print_mas;
+
 /**
  * Class that describes an competition attributes
  * @author Eden dadon id:207279183
@@ -31,6 +34,8 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
     private RegularTournament regular_tournament;
     private CourierTournament courier_tournament;
+
+    public static Boolean start_flag = false;
 
 
 
@@ -222,6 +227,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         if(choose_button.equals("Clear"))
         {
             vec.clear();
+            regular_tournament.stop_threads();
             repaint();
         }
 

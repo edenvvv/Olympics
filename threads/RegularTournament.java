@@ -23,7 +23,7 @@ public class RegularTournament extends Tournament {
 
         for (int i=0; i < setup_arr.length; ++i){
             Boolean finishFlag = false;
-            AnimalThread temp = new AnimalThread(setup_arr[i][0], startFlag , finishFlag, this);
+            AnimalThread temp = new AnimalThread(setup_arr[i][0], startFlag , finishFlag);
             Thread temp_thread = new Thread(temp);
             Referee temp_referee = new Referee(String.valueOf(i+1),scores,finishFlag);
         }
@@ -46,7 +46,7 @@ public class RegularTournament extends Tournament {
 
     public void set_threads(Animal[][] setup_arr,Animal animal, int i){
         setup_arr[i][0] = animal;
-        AnimalThread temp = new AnimalThread(animal, start_Flag , finish_Flag,this);
+        AnimalThread temp = new AnimalThread(animal, start_Flag , finish_Flag);
         Thread temp_thread = new Thread(temp);
         regular_threads.set(i,temp_thread);
         regular_threads.get(i).start();
@@ -59,7 +59,7 @@ public class RegularTournament extends Tournament {
     }
 
     public void stop_threads(){
-        for (int i=0; i < 8; ++i){
+        for (int i=0; i < max; ++i){
             regular_threads.get(i).stop();
         }
     }

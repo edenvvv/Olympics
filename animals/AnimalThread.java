@@ -3,6 +3,7 @@ package animals;
 import threads.RegularTournament;
 
 import javax.swing.*;
+import static graphics.CompetitionPanel.start_flag;
 
 
 public class AnimalThread implements Runnable {
@@ -13,7 +14,6 @@ public class AnimalThread implements Runnable {
     private Boolean finishFlag;
     static Boolean winner = false;
 
-    private RegularTournament rt;
 
     static int sleep;
 
@@ -26,8 +26,7 @@ public class AnimalThread implements Runnable {
         sleep = 888;
     }
 
-    public AnimalThread(Animal participant, Boolean startFlag, Boolean finishFlag, RegularTournament rt) {
-        this.rt = rt;
+    public AnimalThread(Animal participant, Boolean startFlag, Boolean finishFlag) {
         this.participant = participant;
         this.neededDistance = 8;
         this.startFlag = startFlag;
@@ -45,7 +44,7 @@ public class AnimalThread implements Runnable {
      * take any action whatsoever.
      */
 
-    public static void winner_mas(String infoMessage, String titleBar)
+    public static void print_mas(String infoMessage, String titleBar)
     {
         JOptionPane.showMessageDialog(null, infoMessage, titleBar, JOptionPane.INFORMATION_MESSAGE);
     }
@@ -59,6 +58,17 @@ public class AnimalThread implements Runnable {
         }*/
 
         synchronized (this.participant) {
+            synchronized(start_flag){
+                if (!start_flag){
+                    try {print_mas("The competition starts another 5 seconds from now.\n" +
+                            "The end","Start competition");
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    start_flag = true;
+                }
+            }
             while (!winner) {
                 System.out.println(this.participant.getLocation());
                 try {
@@ -68,6 +78,9 @@ public class AnimalThread implements Runnable {
                 }
                 if(winner){
                     break;
+                }
+                if(Thread.interrupted()){
+                    print_mas("ERROR","ERROR");
                 }
                 this.participant.eat(5); // The animal moves
 
@@ -82,8 +95,8 @@ public class AnimalThread implements Runnable {
                     else {
                         type = this.participant.getClass().getName().substring(8,index_of);
                     }
-                    String mas = "the winner is :" + this.participant.get_name() +" the "+ type;
-                    winner_mas(mas,"WINNER!");
+                    String mas = "the winner is :" + this.participant.get_name() + " the " + type;
+                    print_mas(mas,"WINNER!");
 
                     System.exit(0);
                 }
