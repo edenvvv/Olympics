@@ -52,11 +52,6 @@ public class AnimalThread implements Runnable {
     @Override
     public void run() {
 
-        /*
-        if(Thread.interrupted()){
-            System.out.println("BLOB");
-        }*/
-
         synchronized (this.participant) {
             synchronized(start_flag){
                 if (!start_flag){

@@ -7,7 +7,7 @@ import java.util.Vector;
 
 public class RegularTournament extends Tournament {
     private Vector<Thread> regular_threads = new Vector<>();
-    private int max = 8;
+    private int max = 30;
     private Boolean start_Flag;
     private Boolean finish_Flag;
 

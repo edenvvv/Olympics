@@ -30,7 +30,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     private int Tournament_choose;
     private Animal[][] regular_setup_arr;
     private int setup_counter;
-    private final int setup_max_size = 8;
+    private final int setup_max_size = 30;
 
     private RegularTournament regular_tournament;
     private CourierTournament courier_tournament;
