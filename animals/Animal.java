@@ -106,12 +106,12 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
     /**
      * Default constructor (with proper values)
      */
-    public Animal(CompetitionPanel pan){
+    public Animal(CompetitionPanel pan, double distance){
         super();
         this.name = "brownie";
         this.my_genders = gender.Male;
         this.weight = 36.5;
-        this.speed = (Math.random() * 15) + 1;
+        this.speed = (Math.random() * 15) + 29;
         this.medals = new Medal[] {new Medal(Medal.types.silver, "BLOB", 2000),
                 new Medal(Medal.types.silver, "Blob", 2015)};
 
@@ -122,30 +122,11 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
         this.maxEnergy = 60;
         this.current_energy = 30;
         this.energyPerMeter = 4;
-        this.distance = 0;
+        this.distance = distance;
         this.pan = pan;
 
     }
 
-    public Animal(){
-        super();
-        this.name = "brownie";
-        this.my_genders = gender.Male;
-        this.weight = 36.5;
-        this.speed = (Math.random() * 15) + 1;
-        this.medals = new Medal[] {new Medal(Medal.types.silver, "BLOB", 2000),
-                new Medal(Medal.types.silver, "Blob", 2015)};
-
-
-
-        this.size = 65;
-        this.orien = Orientation.EAST;
-        this.maxEnergy = 60;
-        this.current_energy = 30;
-        this.energyPerMeter = 4;
-        this.distance = 0;
-
-    }
 
     /**
      * constructor that initializes according to the attributes it received
@@ -237,7 +218,7 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
      * Get the weight of the animal
      * @return distance
      */
-    public double get_distance(){
+    public double get_max_distance(){
         return this.distance;
     }
 

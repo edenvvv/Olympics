@@ -2,16 +2,19 @@ package threads;
 
 import animals.Animal;
 import animals.AnimalThread;
-import graphics.CompetitionPanel;
 
 import java.util.Vector;
 
 public class RegularTournament extends Tournament {
-    private Vector<Thread> threads = new Vector<>();
+    private Vector<Thread> regular_threads = new Vector<>();
     private int max = 8;
+    private Boolean start_Flag;
+    private Boolean finish_Flag;
 
     public RegularTournament(Animal[][] setup_arr){
         super(setup_arr);
+        this.start_Flag = false;
+        this.finish_Flag = false;
     }
     @Override
     public void setup(Animal[][] setup_arr) {
@@ -20,10 +23,8 @@ public class RegularTournament extends Tournament {
 
         for (int i=0; i < setup_arr.length; ++i){
             Boolean finishFlag = false;
-            AnimalThread temp = new AnimalThread(setup_arr[i][0], startFlag , finishFlag);
+            AnimalThread temp = new AnimalThread(setup_arr[i][0], startFlag , finishFlag, this);
             Thread temp_thread = new Thread(temp);
-
-            //temp_thread.start();
             Referee temp_referee = new Referee(String.valueOf(i+1),scores,finishFlag);
         }
         /*
@@ -34,26 +35,32 @@ public class RegularTournament extends Tournament {
     }
 
     public void start_threads(){
-        for (int i=0; i < threads.size(); ++i){
-            threads.get(i).start();
+        for (int i = 0; i < regular_threads.size(); ++i){
+            regular_threads.get(i).start();
         }
     }
 
     public void start_lastElement_threads(){
-        threads.lastElement().start();
+        regular_threads.lastElement().start();
     }
 
     public void set_threads(Animal[][] setup_arr,Animal animal, int i){
         setup_arr[i][0] = animal;
-        AnimalThread temp = new AnimalThread(animal, false , false);
+        AnimalThread temp = new AnimalThread(animal, start_Flag , finish_Flag,this);
         Thread temp_thread = new Thread(temp);
-        threads.set(i,temp_thread);
-        threads.get(i).start();
+        regular_threads.set(i,temp_thread);
+        regular_threads.get(i).start();
     }
 
     public void init_threads(){
         for (int i=0; i < max; ++i){
-            threads.add(i,new Thread());
+            regular_threads.add(i,new Thread());
+        }
+    }
+
+    public void stop_threads(){
+        for (int i=0; i < 8; ++i){
+            regular_threads.get(i).stop();
         }
     }
 
