@@ -102,27 +102,6 @@ public class AnimalThread implements Runnable {
                 }
             }
         }
-
-        /*try {
-            Thread.sleep(sleep);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
-
-
-         /*
-        for (int i = 0; i < 200; ++i) {
-            System.out.println(this.participant.getLocation());
-            try {
-                Thread.sleep(sleep);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            this.participant.eat(2); // The animal moves
-            //this.participant.get_pan().repaint();
-        }
-        */
     }
-
 }
 
