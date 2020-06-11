@@ -6,7 +6,7 @@ import animals.AnimalThread;
 import java.util.Vector;
 
 public class CourierTournament extends Tournament {
-    private Vector<Thread> regular_threads = new Vector<>();
+    private Vector<Thread> courier_threads = new Vector<>();
     private int max = 30;
     private Boolean start_Flag;
     private Boolean finish_Flag;
@@ -33,19 +33,19 @@ public class CourierTournament extends Tournament {
         setup_arr[0][i] = animal;
         AnimalThread temp = new AnimalThread(animal, start_Flag , finish_Flag);
         Thread temp_thread = new Thread(temp);
-        regular_threads.set(i,temp_thread);
-        regular_threads.get(i).start();
+        courier_threads.set(i,temp_thread);
+        courier_threads.get(i).start();
     }
 
     public void init_threads(){
         for (int i=0; i < max; ++i){
-            regular_threads.add(i,new Thread());
+            courier_threads.add(i,new Thread());
         }
     }
 
     public void stop_threads(){
         for (int i=0; i < max; ++i){
-            regular_threads.get(i).stop();
+            courier_threads.get(i).stop();
         }
     }
 }

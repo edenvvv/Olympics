@@ -21,6 +21,8 @@ import java.util.Vector;
  * @author Eliran Dagan id: 208061580
  */
 public class CompetitionPanel extends JPanel implements ActionListener {
+    public static Boolean start_regular = false;
+    public static Boolean start_courier = false;
 
     private BufferedImage img = null;
     private BufferedImage animal_img = null;
@@ -169,11 +171,13 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                 return;
             }
             if(this.Tournament_choose == 0){
+                start_regular = true;
                 regular_tournament = new RegularTournament(regular_setup_arr);
                 regular_tournament.init_threads();
 
             }
             else if(this.Tournament_choose == 1){
+                start_courier = true;
                 courier_tournament = new CourierTournament(courier_setup_arr);
                 courier_tournament.init_threads();
             }
