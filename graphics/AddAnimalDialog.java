@@ -28,6 +28,9 @@ public class AddAnimalDialog extends JDialog {
         }
         Object[] options = {"Air", "Water", "Terrestrial"};
         int competition_type = pop_up(options,options.length-1,"What kind of competition?", "CompetitionDialog");
+        if(competition_type == -1){
+            return false;
+        }
         if(competition_type == choice){
             return true;
         }
@@ -91,6 +94,6 @@ public class AddAnimalDialog extends JDialog {
                 return "Terrestrial";
             }
         }
-        return null;
+        return " ";
     }
 }

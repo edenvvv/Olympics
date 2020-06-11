@@ -154,6 +154,9 @@ public class CompetitionPanel extends JPanel implements ActionListener {
             //vec.clear();
             Object[] Tournament = {"Regular Tournament", "Courier Tournament"};
             this.Tournament_choose = pop_up(Tournament,Tournament.length-1,"What kind of Tournament?", "CompetitionDialog");
+            if(Tournament_choose == -1){
+                return;
+            }
             if(this.Tournament_choose == 0){
                 regular_tournament = new RegularTournament(regular_setup_arr);
                 regular_tournament.init_threads();
@@ -212,6 +215,9 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                     }
                 }
                 choose = animal.choose_animal(this);
+                if (choose.equals(" ")){
+                    return;
+                }
                 regular_setup_arr[setup_counter][0] = vec.lastElement();
                 regular_tournament.set_threads(regular_setup_arr, vec.lastElement(), setup_counter);
                 ++setup_counter;
@@ -219,7 +225,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                 //System.out.println(vec.toString());
             }
             catch (Exception x){
-                JOptionPane.showMessageDialog(new JDialog(), "The type of animal should match the type of animal selected in the competition" + x.getMessage(),
+                JOptionPane.showMessageDialog(new JDialog(), "The type of animal should match the type of animal selected in the competition " + x.getMessage(),
                     "Error",JOptionPane.ERROR_MESSAGE);
                 System.exit(1);
             }
