@@ -16,7 +16,7 @@ public abstract class TerrestrialAnimals extends Animal implements Iterrestrial{
      * Default constructor (with proper values)
      */
     public TerrestrialAnimals(CompetitionPanel pan){
-        super(pan,675);
+        super(pan,654);
         super.setLocation(new Point(0,0));
         this.noLegs = 4;
     }
