@@ -224,8 +224,16 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
 
 
     /**
-     * Get the weight of the animal
+     * Set the weight of the animal
      * @return distance
+     */
+    public void set_max_distance(double d){
+        this.distance = d;
+    }
+
+    /**
+     * Get the weight of the animal
+     * @return energy
      */
     public float get_current_energy(){
         return this.current_energy;

@@ -30,6 +30,9 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     private int setup_counter;
     private final int setup_max_size = 30;
 
+    private Animal[][] courier_setup_arr;
+    private int courier_counter;
+
     private RegularTournament regular_tournament;
     private CourierTournament courier_tournament;
 
@@ -86,6 +89,13 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         regular_setup_arr = new Animal[setup_max_size][];
         for(int i=0; i < regular_setup_arr.length; ++i){
             regular_setup_arr[i] = new Animal[1];
+        }
+
+
+        courier_counter = 0;
+        courier_setup_arr = new Animal[setup_max_size][];
+        for(int i=0; i < courier_setup_arr.length; ++i) {
+            courier_setup_arr[i] = new Animal[9];
         }
 
     }
@@ -164,7 +174,8 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
             }
             else if(this.Tournament_choose == 1){
-                courier_tournament = new CourierTournament();
+                courier_tournament = new CourierTournament(courier_setup_arr);
+                courier_tournament.init_threads();
             }
 
             Object[] options = {"Air", "Water", "Terrestrial"};
@@ -223,6 +234,10 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                     regular_tournament.set_threads(regular_setup_arr, vec.lastElement(), setup_counter);
                     ++setup_counter;
                 }
+
+
+
+
                 else if(this.Tournament_choose == 1){
                     if (vec.size() >= 9){
                         JOptionPane.showMessageDialog(new JDialog(), "There is no room for Air animals",
@@ -233,7 +248,12 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                     if (choose.equals(" ")){
                         return;
                     }
+                    courier_setup_arr[0][courier_counter] = vec.lastElement();
+                    courier_tournament.set_threads(courier_setup_arr, vec.lastElement(), courier_counter);
+                    ++courier_counter;
+
                     if(!vec.isEmpty()) {
+
                         if((choose.equals("Air")) && (vec.size() > 9)){
                             JOptionPane.showMessageDialog(new JDialog(), "There is no room for Air animals",
                                     "Error",JOptionPane.ERROR_MESSAGE);
@@ -337,8 +357,6 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                             }
                         }
                     }
-
-                    System.out.println("blob");
                 }
                 repaint();
                 //System.out.println(vec.toString());
