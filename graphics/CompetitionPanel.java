@@ -15,8 +15,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Vector;
 
-import static animals.AnimalThread.print_mas;
-
 /**
  * Class that describes an competition attributes
  * @author Eden dadon id:207279183
@@ -154,8 +152,8 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         {
             //vec.clear();
             this.competition_button.setEnabled(false);
-            Object[] Tournament = {"Regular Tournament", "Courier Tournament"};
-            this.Tournament_choose = pop_up(Tournament,Tournament.length-1,"What kind of Tournament?", "CompetitionDialog");
+            Object[] tournament = {"Regular Tournament", "Courier Tournament"};
+            this.Tournament_choose = pop_up(tournament,tournament.length-1,"What kind of Tournament?", "CompetitionDialog");
             if(Tournament_choose == -1){
                 this.competition_button.setEnabled(true);
                 return;
@@ -168,7 +166,6 @@ public class CompetitionPanel extends JPanel implements ActionListener {
             else if(this.Tournament_choose == 1){
                 courier_tournament = new CourierTournament();
             }
-
 
             Object[] options = {"Air", "Water", "Terrestrial"};
             this.competition_type = pop_up(options,options.length-1,"What kind of competition?", "CompetitionDialog");
@@ -227,7 +224,76 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                     ++setup_counter;
                 }
                 else if(this.Tournament_choose == 1){
+                    if (vec.size() >= 9){
+                        JOptionPane.showMessageDialog(new JDialog(), "There is no room for Air animals",
+                                "Error",JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
                     choose = animal.choose_animal(this);
+                    if (choose.equals(" ")){
+                        return;
+                    }
+                    if(!vec.isEmpty()) {
+                        if((choose.equals("Air")) && (vec.size() > 9)){
+                            JOptionPane.showMessageDialog(new JDialog(), "There is no room for Air animals",
+                                    "Error",JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
+                        else if(choose.equals("Air")){
+                            if (vec.size() == 1){
+                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()));
+                            }
+                            else if (vec.size() == 2){
+                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+250,vec.lastElement().getLocation().getY()));
+                            }
+                            else if (vec.size() == 3){
+                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+465,vec.lastElement().getLocation().getY()));
+                            }
+                            else if (vec.size() == 4){
+                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()+111));
+                            }
+                            else if (vec.size() == 5){
+                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+250,vec.lastElement().getLocation().getY()+111));
+                            }
+                            else if (vec.size() == 6){
+                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+465,vec.lastElement().getLocation().getY()+111));
+                            }
+                            else if (vec.size() == 7){
+                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()+227));
+                            }
+                            else if (vec.size() == 8){
+                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+250,vec.lastElement().getLocation().getY()+227));
+                            }
+                            else if (vec.size() == 9){
+                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+465,vec.lastElement().getLocation().getY()+227));
+                            }
+                        }
+                        else if((choose.equals("Water")) && (vec.size() >= 4)){
+                            JOptionPane.showMessageDialog(new JDialog(), "There is no room for Water animals",
+                                    "Error",JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
+                        else if(choose.equals("Water")) {
+                            if (vec.size() == 1) {
+                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 111));
+                            }
+                            if (vec.size() == 2) {
+                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 227));
+                            }
+                            if (vec.size() == 3) {
+                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 343));
+                            }
+                        }
+                        else if(choose.equals("Terrestrial") && (vec.size() >= 2)){
+                            JOptionPane.showMessageDialog(new JDialog(), "There is no room for Terrestrial animals",
+                                    "Error",JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
+                        else if(choose.equals("Terrestrial")) {
+                            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 111));
+                        }
+                    }
+
                     System.out.println("blob");
                 }
                 repaint();
