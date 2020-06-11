@@ -37,6 +37,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
     public static Boolean start_flag = false;
 
+    private JButton competition_button;
 
 
     private JPanel buttonPanel;
@@ -61,14 +62,14 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         this.buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout());
 
-        JButton competition_button = new JButton("Competition");
+        this.competition_button = new JButton("Competition");
         JButton add_animal_button = new JButton("Add Animal");
         JButton clear_button = new JButton("Clear");
         JButton eat_button = new JButton("Eat");
         JButton info_button = new JButton("Info");
         JButton exit = new JButton("Exit");
 
-        competition_button.addActionListener(this);
+        this.competition_button.addActionListener(this);
         add_animal_button.addActionListener(this);
         clear_button.addActionListener(this);
         eat_button.addActionListener(this);
@@ -76,7 +77,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         exit.addActionListener(this);
 
         add(this.buttonPanel, BorderLayout.SOUTH);
-        buttonPanel.add(competition_button);
+        buttonPanel.add(this.competition_button);
         buttonPanel.add(add_animal_button);
         buttonPanel.add(clear_button);
         buttonPanel.add(eat_button);
@@ -152,9 +153,11 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         if(choose_button.equals("Competition"))
         {
             //vec.clear();
+            this.competition_button.setEnabled(false);
             Object[] Tournament = {"Regular Tournament", "Courier Tournament"};
             this.Tournament_choose = pop_up(Tournament,Tournament.length-1,"What kind of Tournament?", "CompetitionDialog");
             if(Tournament_choose == -1){
+                this.competition_button.setEnabled(true);
                 return;
             }
             if(this.Tournament_choose == 0){
@@ -175,55 +178,56 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         {
             try {
                 AddAnimalDialog animal = new AddAnimalDialog(vec, this.competition_type);
-                if(!vec.isEmpty()) {
-                    if((choose.equals("Air")) && (vec.size() >= 3)){
-                        JOptionPane.showMessageDialog(new JDialog(), "There is no room for Air animals",
-                                "Error",JOptionPane.ERROR_MESSAGE);
-                        return;
-                    }
-                    else if(choose.equals("Air")){
-                        if (vec.size() == 1){
-                            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()+111));
+                if(this.Tournament_choose == 0) {
+                    if(!vec.isEmpty()) {
+                        if((choose.equals("Air")) && (vec.size() >= 3)){
+                            JOptionPane.showMessageDialog(new JDialog(), "There is no room for Air animals",
+                                    "Error",JOptionPane.ERROR_MESSAGE);
+                            return;
                         }
-                        if (vec.size() == 2){
-                            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()+227));
+                        else if(choose.equals("Air")){
+                            if (vec.size() == 1){
+                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()+111));
+                            }
+                            if (vec.size() == 2){
+                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()+227));
+                            }
                         }
-                    }
-                    else if((choose.equals("Water")) && (vec.size() >= 4)){
-                        JOptionPane.showMessageDialog(new JDialog(), "There is no room for Water animals",
-                                "Error",JOptionPane.ERROR_MESSAGE);
-                        return;
-                    }
-                    else if(choose.equals("Water")) {
-                        if (vec.size() == 1) {
+                        else if((choose.equals("Water")) && (vec.size() >= 4)){
+                            JOptionPane.showMessageDialog(new JDialog(), "There is no room for Water animals",
+                                    "Error",JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
+                        else if(choose.equals("Water")) {
+                            if (vec.size() == 1) {
+                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 111));
+                            }
+                            if (vec.size() == 2) {
+                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 227));
+                            }
+                            if (vec.size() == 3) {
+                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 343));
+                            }
+                        }
+                        else if(choose.equals("Terrestrial") && (vec.size() >= 2)){
+                            JOptionPane.showMessageDialog(new JDialog(), "There is no room for Terrestrial animals",
+                                    "Error",JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
+                        else if(choose.equals("Terrestrial")) {
                             vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 111));
                         }
-                        if (vec.size() == 2) {
-                            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 227));
-                        }
-                        if (vec.size() == 3) {
-                            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 343));
-                        }
                     }
-                    else if(choose.equals("Terrestrial") && (vec.size() >= 2)){
-                        JOptionPane.showMessageDialog(new JDialog(), "There is no room for Terrestrial animals",
-                                "Error",JOptionPane.ERROR_MESSAGE);
+                    choose = animal.choose_animal(this);
+                    if (choose.equals(" ")){
                         return;
                     }
-                    else if(choose.equals("Terrestrial")) {
-                        vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 111));
-                    }
-                }
-                choose = animal.choose_animal(this);
-                if (choose.equals(" ")){
-                    return;
-                }
-                if(this.Tournament_choose == 0) {
                     regular_setup_arr[setup_counter][0] = vec.lastElement();
                     regular_tournament.set_threads(regular_setup_arr, vec.lastElement(), setup_counter);
                     ++setup_counter;
                 }
                 else if(this.Tournament_choose == 1){
+                    choose = animal.choose_animal(this);
                     System.out.println("blob");
                 }
                 repaint();

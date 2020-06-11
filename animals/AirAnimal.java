@@ -16,7 +16,7 @@ public abstract class AirAnimal extends Animal {
      * Default constructor (with proper values)
      */
     public AirAnimal(CompetitionPanel pan){
-        super(pan, 654);
+        super(pan, 645);
         super.setLocation(new Point(0,110));
         this.wingspan = 0.8;
 

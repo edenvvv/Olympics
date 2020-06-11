@@ -80,6 +80,9 @@ public class AnimalThread implements Runnable {
                 this.participant.eat(5); // The animal moves
 
                 if (this.participant.get_max_distance() <= this.participant.getLocation().getX()) {
+                    if(winner){
+                        break;
+                    }
                     winner = true;
                     int index_of;
                     String type;

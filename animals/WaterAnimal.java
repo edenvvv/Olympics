@@ -17,7 +17,7 @@ public abstract class WaterAnimal extends Animal {
      * Default constructor (with proper values)
      */
     public WaterAnimal(CompetitionPanel pan){
-        super(pan,610);
+        super(pan,595);
         super.setLocation(new Point(65,55));
         this.diveDept = 0.0;
     }
