@@ -51,11 +51,16 @@ public class CompetitionFrame extends JFrame implements ActionListener
      */
     public static void main(String args[])
     {
-        CompetitionFrame com_frame = new CompetitionFrame();
-        com_frame.setVisible(true);
-        com_frame.setResizable(false);
-        com_frame.pack();
-        com_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        try{
+            CompetitionFrame com_frame = new CompetitionFrame();
+            com_frame.setVisible(true);
+            com_frame.setResizable(false);
+            com_frame.pack();
+            com_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }catch (Exception e){
+            System.out.println("ERROR, Please try again");
+        }
+
     }
 
     /**

@@ -218,9 +218,14 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                 if (choose.equals(" ")){
                     return;
                 }
-                regular_setup_arr[setup_counter][0] = vec.lastElement();
-                regular_tournament.set_threads(regular_setup_arr, vec.lastElement(), setup_counter);
-                ++setup_counter;
+                if(this.Tournament_choose == 0) {
+                    regular_setup_arr[setup_counter][0] = vec.lastElement();
+                    regular_tournament.set_threads(regular_setup_arr, vec.lastElement(), setup_counter);
+                    ++setup_counter;
+                }
+                else if(this.Tournament_choose == 1){
+                    System.out.println("blob");
+                }
                 repaint();
                 //System.out.println(vec.toString());
             }

@@ -27,11 +27,6 @@ public class RegularTournament extends Tournament {
             Thread temp_thread = new Thread(temp);
             Referee temp_referee = new Referee(String.valueOf(i+1),scores,finishFlag);
         }
-        /*
-        special.add(startFlag);
-        special.add(scores);
-        special.add(setup_arr.length);
-        */
     }
 
     public void start_threads(){
