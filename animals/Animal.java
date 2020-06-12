@@ -157,7 +157,6 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
         this.current_energy = 30;
         this.energyPerMeter = 4;
         this.distance = 0;
-        this.pan = new CompetitionPanel();
     }
 
 

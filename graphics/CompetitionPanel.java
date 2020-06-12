@@ -10,12 +10,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Vector;
 
 import static animals.AnimalThread.print_mas;
+import static graphics.CompetitionFrame.frame;
 
 /**
  * Class that describes an competition attributes
@@ -27,6 +29,8 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     private BufferedImage img = null;
     private BufferedImage animal_img = null;
     private String choose;
+    private JFrame my_frame;
+    static Integer competition_num = 0;
     private int Tournament_choose;
     private Animal[][] regular_setup_arr;
     private int setup_counter;
@@ -56,7 +60,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     /**
      * Default Ctor, for the competition panel (GUI patr)
      */
-    public CompetitionPanel()
+    public CompetitionPanel(JFrame frame)
     {
         super(new BorderLayout());
 
@@ -70,6 +74,8 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
         this.buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout());
+
+        this.my_frame = frame;
 
         this.competition_button = new JButton("Competition");
         JButton add_animal_button = new JButton("Add Animal");
@@ -183,19 +189,26 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     {
         String choose_button = e.getActionCommand();
 
-        if(choose_button.equals("Exit"))
-        {
-            System.exit(0);
+        if(choose_button.equals("Exit")) {
+            if (competition_num > 1){
+                my_frame.dispose();
+                --competition_num;
+            }
+            else {
+                System.exit(0);
+            }
         }
 
         if(choose_button.equals("Competition"))
         {
             //vec.clear();
-            this.competition_button.setEnabled(false);
+            if (competition_num != 0){
+                frame();
+            }
+            ++competition_num;
             Object[] tournament = {"Regular Tournament", "Courier Tournament"};
             this.Tournament_choose = pop_up(tournament,tournament.length-1,"What kind of Tournament?", "CompetitionDialog");
             if(Tournament_choose == -1){
-                this.competition_button.setEnabled(true);
                 return;
             }
             if(this.Tournament_choose == 0){
