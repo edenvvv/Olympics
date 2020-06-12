@@ -7,7 +7,7 @@ import mobility.Point;
 import java.util.Vector;
 
 public class CourierTournament extends Tournament {
-    public static Vector<Thread> courier_threads = new Vector<>();
+    private Vector<Thread> courier_threads = new Vector<>();
     public static Vector<Point> Locations = new Vector<>();
     public static Vector<Animal> animal_arr = new Vector<>();
     private Thread thread;

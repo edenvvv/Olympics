@@ -15,6 +15,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Vector;
 
+import static animals.AnimalThread.print_mas;
+
 /**
  * Class that describes an competition attributes
  * @author Eden dadon id:207279183
@@ -30,6 +32,8 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     private int setup_counter;
     private final int setup_max_size = 30;
 
+    private boolean clear_op = true;
+
     public static Boolean start_regular = false;
     public static Boolean start_courier = false;
     private Animal[][] courier_setup_arr;
@@ -41,6 +45,8 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     public static Boolean start_flag = false;
 
     private JButton competition_button;
+    private JButton clear_button;
+    private JButton eat_button;
 
 
     private JPanel buttonPanel;
@@ -67,8 +73,8 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
         this.competition_button = new JButton("Competition");
         JButton add_animal_button = new JButton("Add Animal");
-        JButton clear_button = new JButton("Clear");
-        JButton eat_button = new JButton("Eat");
+        clear_button = new JButton("Clear");
+        eat_button = new JButton("Eat");
         JButton info_button = new JButton("Info");
         JButton exit = new JButton("Exit");
 
@@ -199,7 +205,9 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
             }
             else if(this.Tournament_choose == 1){
+                print_mas("The competition is between two groups so it's start when there are 6 participants (animals)", "notification");
                 start_courier = true;
+                this.eat_button.setEnabled(false);
                 courier_tournament = new CourierTournament(courier_setup_arr);
                 courier_tournament.init_threads();
             }
@@ -321,7 +329,11 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         if(choose_button.equals("Clear"))
         {
             vec.clear();
-            regular_tournament.stop_threads();
+            if (Tournament_choose == 0) {
+                regular_tournament.stop_threads();
+            } else if (Tournament_choose == 1) {
+                courier_tournament.stop_threads();
+            }
             repaint();
         }
 
