@@ -148,15 +148,6 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         else if (vec.size() == 6){
             vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+y,vec.lastElement().getLocation().getY()+111));
         }
-        else if (vec.size() == 7){
-            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()+227));
-        }
-        else if (vec.size() == 8){
-            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+x,vec.lastElement().getLocation().getY()+227));
-        }
-        else if (vec.size() == 9){
-            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+y,vec.lastElement().getLocation().getY()+227));
-        }
     }
 
 
@@ -274,7 +265,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
 
                 else if(this.Tournament_choose == 1){
-                    if (vec.size() >= 9){
+                    if (vec.size() >= 6){
                         JOptionPane.showMessageDialog(new JDialog(), "There is no room for Air animals",
                                 "Error",JOptionPane.ERROR_MESSAGE);
                         return;
@@ -287,7 +278,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
                     if(!vec.isEmpty()) {
 
-                        if((choose.equals("Air")) && (vec.size() > 9)){
+                        if((choose.equals("Air")) && (vec.size() > 6)){
                             JOptionPane.showMessageDialog(new JDialog(), "There is no room for Air animals",
                                     "Error",JOptionPane.ERROR_MESSAGE);
                             return;
@@ -295,7 +286,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                         else if(choose.equals("Air")){
                             pointer(250,500);
                         }
-                        else if((choose.equals("Water")) && (vec.size() > 9)){
+                        else if((choose.equals("Water")) && (vec.size() > 6)){
                             JOptionPane.showMessageDialog(new JDialog(), "There is no room for Water animals",
                                     "Error",JOptionPane.ERROR_MESSAGE);
                             return;
@@ -304,7 +295,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                             pointer(250,465);
 
                         }
-                        else if(choose.equals("Terrestrial") && (vec.size() > 9)){
+                        else if(choose.equals("Terrestrial") && (vec.size() > 6)){
                             JOptionPane.showMessageDialog(new JDialog(), "There is no room for Terrestrial animals",
                                     "Error",JOptionPane.ERROR_MESSAGE);
                             return;

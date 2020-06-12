@@ -18,7 +18,6 @@ public class AnimalThread implements Runnable {
     private CourierTournament courier;
     private int animali1 = 0;
     private int animali2 = 3;
-    private int animali3 = 6;
 
 
     static int sleep;
@@ -85,7 +84,7 @@ public class AnimalThread implements Runnable {
 
         if (start_courier) {
             synchronized (this) {
-                while (Locations.size() < 9) {
+                while (Locations.size() < 6) {
                     try {
                         wait();
                     } catch (InterruptedException e) {
@@ -95,47 +94,26 @@ public class AnimalThread implements Runnable {
                 notifyAll();
                 while (true) {
                     animal_arr.get(animali1).eat(5); // The animal moves
-                    animali1 += 3;
                     animal_arr.get(animali2).eat(5); // The animal moves
-                    animali2 += 3;
-                    animal_arr.get(animali3).eat(5); // The animal moves
-                    animali3 += 3;
                     try {
                         Thread.sleep(sleep);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    if (animali1 >= 3) {
-                        animali1 -= 3;
+
+                    if (animali1 != 2){
+                        if (animal_arr.get(animali1).getLocation().getX() >= animal_arr.get(animali1 + 1).getLocation().getX() - 62) {
+                            ++animali1;
+                        }
                     }
-                    if (animali2 >= 3) {
-                        animali2 -= 3;
-                    }
-                    if (animali3 >= 3) {
-                        animali3 -= 3;
-                    }
-                    System.out.println(animal_arr.get(animali1).getLocation().getX());
-                    System.out.println(animal_arr.get(animali1 + 1).getLocation().getX());
-                    if (animal_arr.get(animali1).getLocation().getX() >= animal_arr.get(animali1 + 1).getLocation().getX() - 62) {
-                        ++animali1;
-                    }
-                    animali1 += 3;
-                    if (animal_arr.get(animali2).getLocation().getX() >= animal_arr.get(animali2 + 1).getLocation().getX() - 62) {
-                        ++animali2;
-                    }
-                    animali2 += 3;
-                    if (animal_arr.get(animali3).getLocation().getX() >= animal_arr.get(animali3 + 1).getLocation().getX() - 62) {
-                        ++animali3;
-                    }
-                    animali3 += 3;
-                    if (animali1 >= 3) {
-                        animali1 -= 3;
-                    }
-                    if (animali2 >= 3) {
-                        animali2 -= 3;
-                    }
-                    if (animali3 >= 3) {
-                        animali3 -= 3;
+
+                    if (animali2 <= 4){
+                        if (animal_arr.get(animali2).getLocation().getX() >= animal_arr.get(animali2 + 1).getLocation().getX() - 62) {
+                            ++animali2;
+                        }
+                    else if (animali2 == 5){
+                            ++animali2;
+                        }
                     }
                 }
             }
