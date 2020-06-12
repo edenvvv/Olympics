@@ -48,6 +48,14 @@ public class AnimalThread implements Runnable {
         sleep = 888;
     }
 
+    public void set_animal(Animal a){
+        this.participant = a;
+    }
+
+    public Animal get_animal(){
+        return this.participant;
+    }
+
     public void set_max_dic(double d){
         this.participant.set_max_distance(d);
     }
@@ -97,11 +105,12 @@ public class AnimalThread implements Runnable {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    if (i == 9){
-                        i = 0;
+                    if (i >= 9){
+                        i -= 9;
                     }
-                    System.out.println(Locations.toString());
-                   if (Locations.get(i).getX() >= Locations.get(i+1).getX()-40){
+                    System.out.println(animal_arr.get(i).getLocation().getX());
+                    System.out.println(animal_arr.get(i+1).getLocation().getX());
+                   if (animal_arr.get(i).getLocation().getX() >= animal_arr.get(i+1).getLocation().getX()-60){
                        ++i;
                    }
                 }

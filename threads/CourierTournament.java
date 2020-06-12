@@ -35,12 +35,13 @@ public class CourierTournament extends Tournament {
     }
 
     public void set_threads(Animal[][] setup_arr,Animal animal, int i){
-        animal_arr.add(animal);
+
         setup_arr[0][i] = animal;
         Locations.add(i,animal.getLocation());
         AnimalThread temp = new AnimalThread(animal, start_Flag , finish_Flag, this);
         Thread temp_thread = new Thread(temp);
         this.thread = temp_thread;
+        animal_arr.add(temp.get_animal());
         courier_threads.set(i,temp_thread);
         courier_threads.get(i).start();
     }
