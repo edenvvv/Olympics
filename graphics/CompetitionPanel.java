@@ -208,6 +208,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                 print_mas("The competition is between two groups so it's start when there are 6 participants (animals)", "notification");
                 start_courier = true;
                 this.eat_button.setEnabled(false);
+                this.clear_button.setEnabled(false);
                 courier_tournament = new CourierTournament(courier_setup_arr);
                 courier_tournament.init_threads();
             }
