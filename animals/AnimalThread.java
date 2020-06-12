@@ -6,7 +6,7 @@ import threads.RegularTournament;
 import javax.swing.*;
 
 import static graphics.CompetitionPanel.*;
-import static threads.CourierTournament.Locations;
+import static threads.CourierTournament.*;
 
 
 public class AnimalThread implements Runnable {
@@ -17,6 +17,7 @@ public class AnimalThread implements Runnable {
     private Boolean finishFlag;
     static Boolean winner = false;
     private CourierTournament courier;
+    private int i = 0;
 
 
     static int sleep;
@@ -74,17 +75,37 @@ public class AnimalThread implements Runnable {
     public void run() {
 
         if(start_courier) {
-            synchronized (this) {
-                while (Locations.size() <= 9) {
-                    System.out.println(Locations.size());
-                    this.courier.suspend_threads();
-                    System.out.println("blob");
-
-                    // ????????
-                    this.courier.resume_threads();
-                    System.out.println(this.toString());
-                    this.participant.eat(50); // The animal moves
+            synchronized(this) {
+                while (Locations.size() < 9) {
+                    try {
+                        wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
+                notifyAll();
+                while (true) {
+
+                    animal_arr.get(i).eat(5); // The animal moves
+                    i += 3;
+                    animal_arr.get(i).eat(5); // The animal moves
+                    i += 3;
+                    animal_arr.get(i).eat(5); // The animal moves
+                    i += 3;
+                    try {
+                        Thread.sleep(sleep);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if (i == 9){
+                        i = 0;
+                    }
+                    System.out.println(Locations.toString());
+                   if (Locations.get(i).getX() >= Locations.get(i+1).getX()-40){
+                       ++i;
+                   }
+                }
+
 
                 }
             }

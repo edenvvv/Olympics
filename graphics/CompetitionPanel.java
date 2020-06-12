@@ -129,6 +129,37 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         }
     }
 
+    public void pointer(int x, int y){
+        if (vec.size() == 1){
+            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()));
+        }
+        else if (vec.size() == 2){
+            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+x,vec.lastElement().getLocation().getY()));
+        }
+        else if (vec.size() == 3){
+            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+y,vec.lastElement().getLocation().getY()));
+        }
+        else if (vec.size() == 4){
+            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()+111));
+        }
+        else if (vec.size() == 5){
+            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+x,vec.lastElement().getLocation().getY()+111));
+        }
+        else if (vec.size() == 6){
+            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+y,vec.lastElement().getLocation().getY()+111));
+        }
+        else if (vec.size() == 7){
+            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()+227));
+        }
+        else if (vec.size() == 8){
+            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+x,vec.lastElement().getLocation().getY()+227));
+        }
+        else if (vec.size() == 9){
+            vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+y,vec.lastElement().getLocation().getY()+227));
+        }
+    }
+
+
     /**
      * GUI method for pop-up message to user when he select the competition section
      * @param obg
@@ -252,9 +283,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                     if (choose.equals(" ")){
                         return;
                     }
-                    courier_setup_arr[0][courier_counter] = vec.lastElement();
-                    courier_tournament.set_threads(courier_setup_arr, vec.lastElement(), courier_counter);
-                    ++courier_counter;
+
 
                     if(!vec.isEmpty()) {
 
@@ -264,33 +293,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                             return;
                         }
                         else if(choose.equals("Air")){
-                            if (vec.size() == 1){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()));
-                            }
-                            else if (vec.size() == 2){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+250,vec.lastElement().getLocation().getY()));
-                            }
-                            else if (vec.size() == 3){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+500,vec.lastElement().getLocation().getY()));
-                            }
-                            else if (vec.size() == 4){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()+111));
-                            }
-                            else if (vec.size() == 5){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+250,vec.lastElement().getLocation().getY()+111));
-                            }
-                            else if (vec.size() == 6){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+500,vec.lastElement().getLocation().getY()+111));
-                            }
-                            else if (vec.size() == 7){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()+227));
-                            }
-                            else if (vec.size() == 8){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+250,vec.lastElement().getLocation().getY()+227));
-                            }
-                            else if (vec.size() == 9){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+500,vec.lastElement().getLocation().getY()+227));
-                            }
+                            pointer(250,500);
                         }
                         else if((choose.equals("Water")) && (vec.size() > 9)){
                             JOptionPane.showMessageDialog(new JDialog(), "There is no room for Water animals",
@@ -298,33 +301,8 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                             return;
                         }
                         else if(choose.equals("Water")) {
-                            if (vec.size() == 1){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()));
-                            }
-                            else if (vec.size() == 2){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+250,vec.lastElement().getLocation().getY()));
-                            }
-                            else if (vec.size() == 3){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+465,vec.lastElement().getLocation().getY()));
-                            }
-                            else if (vec.size() == 4){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()+111));
-                            }
-                            else if (vec.size() == 5){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+250,vec.lastElement().getLocation().getY()+111));
-                            }
-                            else if (vec.size() == 6){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+465,vec.lastElement().getLocation().getY()+111));
-                            }
-                            else if (vec.size() == 7){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()+227));
-                            }
-                            else if (vec.size() == 8){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+250,vec.lastElement().getLocation().getY()+227));
-                            }
-                            else if (vec.size() == 9){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+465,vec.lastElement().getLocation().getY()+227));
-                            }
+                            pointer(250,465);
+
                         }
                         else if(choose.equals("Terrestrial") && (vec.size() > 9)){
                             JOptionPane.showMessageDialog(new JDialog(), "There is no room for Terrestrial animals",
@@ -332,35 +310,13 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                             return;
                         }
                         else if(choose.equals("Terrestrial")) {
-                            if (vec.size() == 1){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()));
-                            }
-                            else if (vec.size() == 2){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+250,vec.lastElement().getLocation().getY()));
-                            }
-                            else if (vec.size() == 3){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+510,vec.lastElement().getLocation().getY()));
-                            }
-                            else if (vec.size() == 4){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()+111));
-                            }
-                            else if (vec.size() == 5){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+250,vec.lastElement().getLocation().getY()+111));
-                            }
-                            else if (vec.size() == 6){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+510,vec.lastElement().getLocation().getY()+111));
-                            }
-                            else if (vec.size() == 7){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(),vec.lastElement().getLocation().getY()+227));
-                            }
-                            else if (vec.size() == 8){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+250,vec.lastElement().getLocation().getY()+227));
-                            }
-                            else if (vec.size() == 9){
-                                vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX()+510,vec.lastElement().getLocation().getY()+227));
-                            }
+                            pointer(250,510);
+
                         }
                     }
+                    courier_setup_arr[0][courier_counter] = vec.lastElement();
+                    courier_tournament.set_threads(courier_setup_arr, vec.lastElement(), courier_counter);
+                    ++courier_counter;
                 }
                 repaint();
                 //System.out.println(vec.toString());

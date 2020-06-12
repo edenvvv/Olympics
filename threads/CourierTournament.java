@@ -7,8 +7,9 @@ import mobility.Point;
 import java.util.Vector;
 
 public class CourierTournament extends Tournament {
-    private Vector<Thread> courier_threads = new Vector<>();
+    public static Vector<Thread> courier_threads = new Vector<>();
     public static Vector<Point> Locations = new Vector<>();
+    public static Vector<Animal> animal_arr = new Vector<>();
     private Thread thread;
     private int max = 30;
     private Boolean start_Flag;
@@ -34,6 +35,7 @@ public class CourierTournament extends Tournament {
     }
 
     public void set_threads(Animal[][] setup_arr,Animal animal, int i){
+        animal_arr.add(animal);
         setup_arr[0][i] = animal;
         Locations.add(i,animal.getLocation());
         AnimalThread temp = new AnimalThread(animal, start_Flag , finish_Flag, this);
