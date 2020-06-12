@@ -2,17 +2,21 @@ package threads;
 
 import animals.Animal;
 import animals.AnimalThread;
+import mobility.Point;
 
 import java.util.Vector;
 
 public class CourierTournament extends Tournament {
     private Vector<Thread> courier_threads = new Vector<>();
+    public static Vector<Point> Locations = new Vector<>();
+    private Thread thread;
     private int max = 30;
     private Boolean start_Flag;
     private Boolean finish_Flag;
 
     public CourierTournament(Animal[][] setup_arr){
         super(setup_arr);
+        this.thread = new Thread();
         this.start_Flag = false;
         this.finish_Flag = false;
     }
@@ -31,8 +35,10 @@ public class CourierTournament extends Tournament {
 
     public void set_threads(Animal[][] setup_arr,Animal animal, int i){
         setup_arr[0][i] = animal;
-        AnimalThread temp = new AnimalThread(animal, start_Flag , finish_Flag);
+        Locations.add(i,animal.getLocation());
+        AnimalThread temp = new AnimalThread(animal, start_Flag , finish_Flag, this);
         Thread temp_thread = new Thread(temp);
+        this.thread = temp_thread;
         courier_threads.set(i,temp_thread);
         courier_threads.get(i).start();
     }
@@ -48,4 +54,13 @@ public class CourierTournament extends Tournament {
             courier_threads.get(i).stop();
         }
     }
+
+    public void suspend_threads(){
+        this.thread.suspend();
+    }
+
+    public void resume_threads(){
+        this.thread.resume();
+    }
+
 }

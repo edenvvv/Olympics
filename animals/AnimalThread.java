@@ -1,10 +1,12 @@
 package animals;
 
+import threads.CourierTournament;
 import threads.RegularTournament;
 
 import javax.swing.*;
 
 import static graphics.CompetitionPanel.*;
+import static threads.CourierTournament.Locations;
 
 
 public class AnimalThread implements Runnable {
@@ -14,6 +16,7 @@ public class AnimalThread implements Runnable {
     private Boolean startFlag;
     private Boolean finishFlag;
     static Boolean winner = false;
+    private CourierTournament courier;
 
 
     static int sleep;
@@ -32,6 +35,15 @@ public class AnimalThread implements Runnable {
         this.neededDistance = 8;
         this.startFlag = startFlag;
         this.finishFlag = finishFlag;
+        sleep = 888;
+    }
+
+    public AnimalThread(Animal participant, Boolean startFlag, Boolean finishFlag, CourierTournament courier) {
+        this.participant = participant;
+        this.neededDistance = 8;
+        this.startFlag = startFlag;
+        this.finishFlag = finishFlag;
+        this.courier = courier;
         sleep = 888;
     }
 
@@ -61,9 +73,21 @@ public class AnimalThread implements Runnable {
     @Override
     public void run() {
 
-        if(start_courier){
-            System.out.println("blob");
-        }
+        if(start_courier) {
+            synchronized (this) {
+                while (Locations.size() <= 9) {
+                    System.out.println(Locations.size());
+                    this.courier.suspend_threads();
+                    System.out.println("blob");
+
+                    // ????????
+                    this.courier.resume_threads();
+                    System.out.println(this.toString());
+                    this.participant.eat(50); // The animal moves
+                }
+
+                }
+            }
 
 
 

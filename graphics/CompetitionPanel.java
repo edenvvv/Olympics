@@ -21,8 +21,6 @@ import java.util.Vector;
  * @author Eliran Dagan id: 208061580
  */
 public class CompetitionPanel extends JPanel implements ActionListener {
-    public static Boolean start_regular = false;
-    public static Boolean start_courier = false;
 
     private BufferedImage img = null;
     private BufferedImage animal_img = null;
@@ -32,6 +30,8 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     private int setup_counter;
     private final int setup_max_size = 30;
 
+    public static Boolean start_regular = false;
+    public static Boolean start_courier = false;
     private Animal[][] courier_setup_arr;
     private int courier_counter;
 
@@ -366,7 +366,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                 //System.out.println(vec.toString());
             }
             catch (Exception x){
-                JOptionPane.showMessageDialog(new JDialog(), "The type of animal should match the type of animal selected in the competition " + x.getMessage(),
+                JOptionPane.showMessageDialog(new JDialog(), "The type of animal should match the type of animal selected in the competition (" + x.getMessage() + ")",
                     "Error",JOptionPane.ERROR_MESSAGE);
                 System.exit(1);
             }
