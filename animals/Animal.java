@@ -52,10 +52,13 @@ public abstract class Animal extends Mobile implements IAnimal, ILocatable, IDra
      * @throws IOException
      */
     public void loadImages(String nm) throws IOException {
-        img1 = ImageIO.read(new File(IDrawable.PICTURE_PATH + nm));
-        img2 = ImageIO.read(new File(IDrawable.PICTURE_PATH + nm));
-        img3 = ImageIO.read(new File(IDrawable.PICTURE_PATH + nm));
-        img4 = ImageIO.read(new File(IDrawable.PICTURE_PATH + nm));
+        try {
+            img1 = ImageIO.read(new File(IDrawable.PICTURE_PATH + nm));
+            img2 = ImageIO.read(new File(IDrawable.PICTURE_PATH + nm));
+            img3 = ImageIO.read(new File(IDrawable.PICTURE_PATH + nm));
+            img4 = ImageIO.read(new File(IDrawable.PICTURE_PATH + nm));
+        }
+        catch (Exception e){}
     }
 
 

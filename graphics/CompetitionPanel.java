@@ -29,8 +29,8 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     private BufferedImage img = null;
     private BufferedImage animal_img = null;
     private String choose;
-    private JFrame my_frame;
-    static Integer competition_num = 0;
+    public static JFrame my_frame;
+    public static Integer competition_num = 0;
     private int Tournament_choose;
     private Animal[][] regular_setup_arr;
     private int setup_counter;
@@ -54,7 +54,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
 
     private JPanel buttonPanel;
-    private int competition_type = -1;
+    private int competition_type;
     private Vector<Animal> vec= new Vector<>();
 
     /**
@@ -76,6 +76,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         buttonPanel.setLayout(new GridLayout());
 
         this.my_frame = frame;
+        this.competition_type = 0;
 
         this.competition_button = new JButton("Competition");
         JButton add_animal_button = new JButton("Add Animal");
@@ -111,6 +112,12 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         for(int i=0; i < courier_setup_arr.length; ++i) {
             courier_setup_arr[i] = new Animal[9];
         }
+
+
+        courier_tournament = new CourierTournament(courier_setup_arr);
+
+        regular_tournament = new RegularTournament(regular_setup_arr);
+
 
     }
 
@@ -172,8 +179,8 @@ public class CompetitionPanel extends JPanel implements ActionListener {
      * @return
      */
     public static int pop_up(Object[] obg,int size,String mas,String title){
-        return JOptionPane.showOptionDialog(new JDialog(), "What kind of competition would you like?",
-                "CompetitionDialog",
+        return JOptionPane.showOptionDialog(new JDialog(), mas,
+                title,
                 JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.QUESTION_MESSAGE,
                 null,
@@ -214,7 +221,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
             if(this.Tournament_choose == 0){
                 start_regular = true;
                 regular_tournament = new RegularTournament(regular_setup_arr);
-                regular_tournament.init_threads();
+
 
             }
             else if(this.Tournament_choose == 1){
@@ -223,7 +230,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                 this.eat_button.setEnabled(false);
                 this.clear_button.setEnabled(false);
                 courier_tournament = new CourierTournament(courier_setup_arr);
-                courier_tournament.init_threads();
+
             }
 
             Object[] options = {"Air", "Water", "Terrestrial"};
