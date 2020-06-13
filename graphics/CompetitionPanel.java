@@ -23,6 +23,7 @@ import static animals.AnimalThread.print_mas;
  * @author Eliran Dagan id: 208061580
  */
 public class CompetitionPanel extends JPanel implements ActionListener {
+    private boolean regular;
 
     private BufferedImage img = null;
     private BufferedImage animal_img = null;
@@ -34,8 +35,8 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
     private boolean clear_op = true;
 
-    private Boolean start_regular = false;
-    private Boolean start_courier = false;
+    private boolean start_regular = false;
+    private boolean start_courier = false;
 
     private Animal[][] courier_setup_arr;
     private int courier_counter;
@@ -57,7 +58,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     /**
      * Default Ctor, for the competition panel (GUI patr)
      */
-    public CompetitionPanel()
+    public CompetitionPanel(boolean regular)
     {
         super(new BorderLayout());
 
@@ -68,6 +69,8 @@ public class CompetitionPanel extends JPanel implements ActionListener {
             JOptionPane.showMessageDialog(new JDialog(), "Cannot open background file");
             System.exit(1);
         }
+
+        this.regular = regular;
 
         this.buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout());
@@ -106,6 +109,10 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         for(int i=0; i < courier_setup_arr.length; ++i) {
             courier_setup_arr[i] = new Animal[9];
         }
+
+        regular_tournament = new RegularTournament(regular_setup_arr);
+
+        courier_tournament = new CourierTournament(courier_setup_arr);
 
     }
 
@@ -192,8 +199,24 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         if(choose_button.equals("Competition"))
         {
             //vec.clear();
+
+            if (this.regular){
+                start_regular = true;
+                this.Tournament_choose = 0;
+                //regular_tournament = new RegularTournament(regular_setup_arr);
+
+            }
+            else {
+                print_mas("The competition is between two groups so it's start when there are 6 participants (animals)", "notification");
+                start_courier = true;
+                this.eat_button.setEnabled(false);
+                this.clear_button.setEnabled(false);
+                this.Tournament_choose = 1;
+                //courier_tournament = new CourierTournament(courier_setup_arr);
+            }
             this.competition_button.setEnabled(false);
-            Object[] tournament = {"Regular Tournament", "Courier Tournament"};
+
+            /*Object[] tournament = {"Regular Tournament", "Courier Tournament"};
             this.Tournament_choose = pop_up(tournament,tournament.length-1,"What kind of Tournament?", "CompetitionDialog");
             if(Tournament_choose == -1){
                 this.competition_button.setEnabled(true);
@@ -212,7 +235,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                 this.clear_button.setEnabled(false);
                 courier_tournament = new CourierTournament(courier_setup_arr);
                 courier_tournament.init_threads();
-            }
+            } */
 
             Object[] options = {"Air", "Water", "Terrestrial"};
             this.competition_type = pop_up(options,options.length-1,"What kind of competition?", "CompetitionDialog");

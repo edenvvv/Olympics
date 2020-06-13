@@ -9,18 +9,18 @@ import java.awt.event.ActionListener;
  * @author Eden dadon id:207279183
  * @author Eliran Dagan id: 208061580
  */
-public class CompetitionFrame extends JFrame implements ActionListener, Runnable
-{
+public class CompetitionFrame extends JFrame implements ActionListener, Runnable {
+
     private JMenu jmenuFile, jmenuHelp;
     private JMenuItem jmenuitemExit, jmenuitemAbout;
     private CompetitionPanel pan;
-
+    private boolean regular;
+    private String competition_name;
     /**
      * Default Ctor, for the competition frame (GUI part)
      */
-    public CompetitionFrame ()
-    {
-        super("Competition");
+    public CompetitionFrame (boolean regular, String competition_name) {
+        super(competition_name);
         setPreferredSize(new Dimension(800, 600));
         this.jmenuFile = new JMenu("File");
         this.jmenuitemExit = new JMenuItem("Exit");
@@ -33,12 +33,18 @@ public class CompetitionFrame extends JFrame implements ActionListener, Runnable
         mb.add(this.jmenuHelp);
         setJMenuBar(mb);
 
-        this.pan = new CompetitionPanel();
+        this.regular = regular;
+        this.pan = new CompetitionPanel(regular);
         this.add(pan);
 
         jmenuitemAbout.addActionListener(this);
         jmenuitemExit.addActionListener(this);
 
+    }
+
+    public CompetitionFrame (boolean choice) {
+        super("competition");
+        this.regular = choice;
     }
 
     public CompetitionPanel get_Fpan(){
@@ -49,30 +55,35 @@ public class CompetitionFrame extends JFrame implements ActionListener, Runnable
      * main method to start the GUI frame
      * @param args
      */
-    public static void main(String args[])
-    {
-        try{
-            CompetitionFrame temp = new CompetitionFrame();
-            Thread temp_thread = new Thread(temp);
-            temp_thread.start();
-
-            CompetitionFrame temp1 = new CompetitionFrame();
-            Thread temp_thread1 = new Thread(temp);
-            temp_thread1.start();
-        }
-        catch (Exception e){
+    public static void main(String args[]) {
+        try {
+            start_frame(true);
+            start_frame(false);
+        }catch (Exception e){
             System.out.println("Hi, Try again");
         }
 
     }
 
-    public static void frame()
-    {
-        CompetitionFrame com_frame = new CompetitionFrame();
+    public void frame() {
+        this.regular = !this.regular;
+        if (regular){
+            competition_name = "Regular Tournament";
+        }
+        else {
+            competition_name = "Courier Tournament";
+        }
+        CompetitionFrame com_frame = new CompetitionFrame(regular, competition_name);
         com_frame.setVisible(true);
         com_frame.setResizable(false);
         com_frame.pack();
         com_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public static void start_frame(boolean choice) {
+        CompetitionFrame temp = new CompetitionFrame(choice);
+        Thread temp_thread = new Thread(temp);
+        temp_thread.start();
     }
 
     /**
@@ -80,8 +91,7 @@ public class CompetitionFrame extends JFrame implements ActionListener, Runnable
      *
      * @param e the event to be processed
      */
-    public void actionPerformed(ActionEvent e)
-    {
+    public void actionPerformed(ActionEvent e) {
         if(e.getSource() == jmenuitemAbout){
             JOptionPane.showMessageDialog(null, "Home Work 2\n GUI");
         }else if(e.getSource() == jmenuitemExit){

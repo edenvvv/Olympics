@@ -125,7 +125,7 @@ public class AnimalThread implements Runnable {
                         System.exit(0);
                     }
 
-                    if (animal_arr.get(animali2).get_max_distance() + 30 <= animal_arr.get(animali2).getLocation().getX()) {
+                    else if (animal_arr.get(animali2).get_max_distance() + 30 <= animal_arr.get(animali2).getLocation().getX()) {
                         print_mas("the winner is : team 2!","WINNER!");
                         System.exit(0);
                     }
