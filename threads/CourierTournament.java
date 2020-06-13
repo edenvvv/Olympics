@@ -42,7 +42,7 @@ public class CourierTournament extends Tournament {
         Thread temp_thread = new Thread(temp);
         this.thread = temp_thread;
         animal_arr.add(temp.get_animal());
-        courier_threads.add(i,temp_thread);
+        courier_threads.set(i,temp_thread);
         courier_threads.get(i).start();
     }
 

@@ -22,12 +22,9 @@ public class AddAnimalDialog extends JDialog {
 
     boolean choose_animal_type() throws Exception {
         if (choice == -1){
-            try {
-                JOptionPane.showMessageDialog(new JDialog(), "The type of animal should match the type of animal selected in the competition",
-                        "Error",JOptionPane.ERROR_MESSAGE);
-                System.exit(1);
-            }
-            catch (Exception e){}
+            JOptionPane.showMessageDialog(new JDialog(), "The type of animal should match the type of animal selected in the competition",
+                    "Error",JOptionPane.ERROR_MESSAGE);
+            System.exit(1);
         }
         Object[] options = {"Air", "Water", "Terrestrial"};
         int competition_type = pop_up(options,options.length-1,"What kind of competition?", "CompetitionDialog");

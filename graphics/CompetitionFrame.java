@@ -4,9 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import static graphics.CompetitionPanel.competition_num;
-
 /**
  * Class that describes an competition attributes
  * @author Eden dadon id:207279183
@@ -36,7 +33,7 @@ public class CompetitionFrame extends JFrame implements ActionListener
         mb.add(this.jmenuHelp);
         setJMenuBar(mb);
 
-        this.pan = new CompetitionPanel(this);
+        this.pan = new CompetitionPanel();
         this.add(pan);
 
         jmenuitemAbout.addActionListener(this);
@@ -55,24 +52,16 @@ public class CompetitionFrame extends JFrame implements ActionListener
     public static void main(String args[])
     {
         try{
-            frame();
-            frame();
-            frame();
+            CompetitionFrame com_frame = new CompetitionFrame();
+            com_frame.setVisible(true);
+            com_frame.setResizable(false);
+            com_frame.pack();
+            com_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
         catch (Exception e){
             System.out.println("Hi, Try again");
         }
 
-    }
-
-
-    public static void frame()
-    {
-        CompetitionFrame com_frame = new CompetitionFrame();
-        com_frame.setVisible(true);
-        com_frame.setResizable(false);
-        com_frame.pack();
-        com_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     /**

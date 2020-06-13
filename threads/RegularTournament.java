@@ -43,7 +43,7 @@ public class RegularTournament extends Tournament {
         setup_arr[i][0] = animal;
         AnimalThread temp = new AnimalThread(animal, start_Flag , finish_Flag);
         Thread temp_thread = new Thread(temp);
-        regular_threads.add(i,temp_thread);
+        regular_threads.set(i,temp_thread);
         regular_threads.get(i).start();
     }
 
