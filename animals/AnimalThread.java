@@ -18,6 +18,7 @@ public class AnimalThread implements Runnable {
     private CourierTournament courier;
     private int animali1 = 0;
     private int animali2 = 3;
+    private JFrame my_frame;
 
     private Boolean start_courier;
     private Boolean start_regular;
@@ -34,13 +35,14 @@ public class AnimalThread implements Runnable {
         sleep = 888;
     }
 
-    public AnimalThread(Animal participant, Boolean startFlag, Boolean finishFlag, Boolean start_courier, Boolean start_regular) {
+    public AnimalThread(Animal participant, Boolean startFlag, Boolean finishFlag, Boolean start_courier, Boolean start_regular, JFrame my_frame) {
         this.participant = participant;
         this.neededDistance = 8;
         this.startFlag = startFlag;
         this.finishFlag = finishFlag;
         this.start_courier = start_courier;
         this.start_regular = start_regular;
+        this.my_frame = my_frame;
         sleep = 888;
     }
 
@@ -122,12 +124,12 @@ public class AnimalThread implements Runnable {
                     }
                     if (animal_arr.get(animali1).get_max_distance() + 30 <= animal_arr.get(animali1).getLocation().getX()) {
                         print_mas("the winner is : team 1!","WINNER!");
-                        System.exit(0);
+                        exit_frame(this.my_frame);
                     }
 
                     else if (animal_arr.get(animali2).get_max_distance() + 30 <= animal_arr.get(animali2).getLocation().getX()) {
                         print_mas("the winner is : team 2!","WINNER!");
-                        System.exit(0);
+                        exit_frame(this.my_frame);
                     }
                 }
             }
@@ -181,7 +183,7 @@ public class AnimalThread implements Runnable {
                         String mas = "the winner is :" + this.participant.get_name() + " the " + type;
                         print_mas(mas,"WINNER!");
 
-                        System.exit(0);
+                        exit_frame(this.my_frame);
                     }
                 }
             }

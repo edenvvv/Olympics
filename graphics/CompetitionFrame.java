@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import static graphics.CompetitionPanel.exit_frame;
+
 /**
  * Class that describes an competition attributes
  * @author Eden dadon id:207279183
@@ -95,7 +98,7 @@ public class CompetitionFrame extends JFrame implements ActionListener, Runnable
         if(e.getSource() == jmenuitemAbout){
             JOptionPane.showMessageDialog(null, "Home Work 2\n GUI");
         }else if(e.getSource() == jmenuitemExit){
-            System.exit(0);
+            exit_frame(this);
         }
     }
 

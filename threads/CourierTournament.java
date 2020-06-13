@@ -4,6 +4,7 @@ import animals.Animal;
 import animals.AnimalThread;
 import mobility.Point;
 
+import javax.swing.*;
 import java.util.Vector;
 
 public class CourierTournament extends Tournament {
@@ -32,11 +33,11 @@ public class CourierTournament extends Tournament {
         }
     }
 
-    public void set_threads(Animal[][] setup_arr,Animal animal, int i, Boolean start_courier, Boolean start_regular){
+    public void set_threads(Animal[][] setup_arr,Animal animal, int i, Boolean start_courier, Boolean start_regular, JFrame my_frame){
 
         setup_arr[0][i] = animal;
         Locations.add(i,animal.getLocation());
-        AnimalThread temp = new AnimalThread(animal, start_Flag , finish_Flag, start_courier, start_regular);
+        AnimalThread temp = new AnimalThread(animal, start_Flag , finish_Flag, start_courier, start_regular, my_frame);
         Thread temp_thread = new Thread(temp);
         this.thread = temp_thread;
         animal_arr.add(temp.get_animal());

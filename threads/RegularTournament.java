@@ -3,6 +3,7 @@ package threads;
 import animals.Animal;
 import animals.AnimalThread;
 
+import javax.swing.*;
 import java.util.Vector;
 
 public class RegularTournament extends Tournament {
@@ -37,9 +38,9 @@ public class RegularTournament extends Tournament {
         regular_threads.lastElement().start();
     }
 
-    public void set_threads(Animal[][] setup_arr,Animal animal, int i, Boolean start_courier, Boolean start_regular){
+    public void set_threads(Animal[][] setup_arr, Animal animal, int i, Boolean start_courier, Boolean start_regular, JFrame my_frame){
         setup_arr[i][0] = animal;
-        AnimalThread temp = new AnimalThread(animal, start_Flag , finish_Flag, start_courier, start_regular);
+        AnimalThread temp = new AnimalThread(animal, start_Flag , finish_Flag, start_courier, start_regular, my_frame);
         Thread temp_thread = new Thread(temp);
         regular_threads.add(i,temp_thread);
         regular_threads.get(i).start();

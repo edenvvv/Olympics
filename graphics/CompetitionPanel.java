@@ -45,7 +45,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     private CourierTournament courier_tournament;
 
     public static Boolean start_flag = false;
-    static Integer competition_num = 2;
+    public static Integer competition_num = 2;
     private JFrame my_frame;
 
     private JButton competition_button;
@@ -69,7 +69,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
             img = ImageIO.read(new File(IDrawable.PICTURE_PATH + "competitionBackground.png"));
         } catch (IOException e) {
             JOptionPane.showMessageDialog(new JDialog(), "Cannot open background file");
-            System.exit(1);
+            exit_frame(this.my_frame);
         }
 
         this.regular = regular;
@@ -185,6 +185,18 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                 obg,
                 obg[size]);
     }
+
+    public static void exit_frame(JFrame my_frame){
+        if (competition_num > 1){
+            my_frame.dispose();
+            --competition_num;
+        }
+        else {
+            System.exit(0);
+        }
+    }
+
+
     /**
      * Invoked when an action occurs.
      *
@@ -196,13 +208,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
 
         if(choose_button.equals("Exit")) {
-            if (competition_num > 1){
-                my_frame.dispose();
-                --competition_num;
-            }
-            else {
-                System.exit(0);
-            }
+            exit_frame(this.my_frame);
         }
 
 
@@ -224,7 +230,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                 this.Tournament_choose = 1;
                 //courier_tournament = new CourierTournament(courier_setup_arr);
             }
-            this.competition_button.setEnabled(false);
+
 
             /*Object[] tournament = {"Regular Tournament", "Courier Tournament"};
             this.Tournament_choose = pop_up(tournament,tournament.length-1,"What kind of Tournament?", "CompetitionDialog");
@@ -249,6 +255,13 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
             Object[] options = {"Air", "Water", "Terrestrial"};
             this.competition_type = pop_up(options,options.length-1,"What kind of competition?", "CompetitionDialog");
+            if(this.competition_type == -1){
+                this.competition_button.setEnabled(true);
+                return;
+            }
+            else {
+                this.competition_button.setEnabled(false);
+            }
         }
 
         if(choose_button.equals("Add Animal"))
@@ -295,12 +308,12 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                             vec.lastElement().setLocation(new Point(vec.lastElement().getLocation().getX(), vec.lastElement().getLocation().getY() + 111));
                         }
                     }
-                    choose = animal.choose_animal(this);
+                    choose = animal.choose_animal(this, this.my_frame);
                     if (choose.equals(" ")){
                         return;
                     }
                     regular_setup_arr[setup_counter][0] = vec.lastElement();
-                    regular_tournament.set_threads(regular_setup_arr, vec.lastElement(), setup_counter, start_courier, start_regular);
+                    regular_tournament.set_threads(regular_setup_arr, vec.lastElement(), setup_counter, start_courier, start_regular, this.my_frame);
                     ++setup_counter;
                 }
 
@@ -313,7 +326,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                                 "Error",JOptionPane.ERROR_MESSAGE);
                         return;
                     }
-                    choose = animal.choose_animal(this);
+                    choose = animal.choose_animal(this, this.my_frame);
                     if (choose.equals(" ")){
                         return;
                     }
@@ -349,7 +362,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                         }
                     }
                     courier_setup_arr[0][courier_counter] = vec.lastElement();
-                    courier_tournament.set_threads(courier_setup_arr, vec.lastElement(), courier_counter, start_courier, start_regular);
+                    courier_tournament.set_threads(courier_setup_arr, vec.lastElement(), courier_counter, start_courier, start_regular, this.my_frame);
                     ++courier_counter;
                 }
                 repaint();
@@ -358,7 +371,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
             catch (Exception x){
                 JOptionPane.showMessageDialog(new JDialog(), "The type of animal should match the type of animal selected in the competition (" + x.getMessage() + ")",
                     "Error",JOptionPane.ERROR_MESSAGE);
-                System.exit(1);
+                exit_frame(this.my_frame);
             }
         }
         if(choose_button.equals("Clear"))
@@ -426,20 +439,16 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     }
 
     public void eat_one(int i){
-        if(i == 0)
-        {
+        if(i == 0) {
             eat_all(1);
         }
-        else if(i == 1)
-        {
+        else if(i == 1) {
             eat_all(2);
         }
-        else if(i == 2)
-        {
+        else if(i == 2) {
             eat_all(5);
         }
-        else if(i == 3)
-        {
+        else if(i == 3) {
             eat_all(10);
         }
     }

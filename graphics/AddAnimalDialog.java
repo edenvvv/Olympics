@@ -7,6 +7,7 @@ import javax.swing.*;
 
 import java.util.Vector;
 
+import static graphics.CompetitionPanel.exit_frame;
 import static graphics.CompetitionPanel.pop_up;
 
 
@@ -20,11 +21,11 @@ public class AddAnimalDialog extends JDialog {
         this.vector = vector;
     }
 
-    boolean choose_animal_type() throws Exception {
+    boolean choose_animal_type(JFrame my_frame) throws Exception {
         if (choice == -1){
             JOptionPane.showMessageDialog(new JDialog(), "The type of animal should match the type of animal selected in the competition",
                     "Error",JOptionPane.ERROR_MESSAGE);
-            System.exit(1);
+            exit_frame(my_frame);
         }
         Object[] options = {"Air", "Water", "Terrestrial"};
         int competition_type = pop_up(options,options.length-1,"What kind of competition?", "CompetitionDialog");
@@ -38,9 +39,9 @@ public class AddAnimalDialog extends JDialog {
 
     }
 
-    public String choose_animal(CompetitionPanel pan) throws Exception {
+    public String choose_animal(CompetitionPanel pan, JFrame my_frame) throws Exception {
         int competition_type = -1;
-        if(choose_animal_type()){
+        if(choose_animal_type(my_frame)){
             if(this.choice == 0){
                 Object[] options = {"Eagle", "Pigeon"};
                 competition_type = pop_up(options,options.length-1,"What animal do you want?", "CompetitionDialog");
