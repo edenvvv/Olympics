@@ -34,7 +34,7 @@ public class CompetitionFrame extends JFrame implements ActionListener, Runnable
         setJMenuBar(mb);
 
         this.regular = regular;
-        this.pan = new CompetitionPanel(regular);
+        this.pan = new CompetitionPanel(regular, this);
         this.add(pan);
 
         jmenuitemAbout.addActionListener(this);

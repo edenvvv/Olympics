@@ -45,6 +45,8 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     private CourierTournament courier_tournament;
 
     public static Boolean start_flag = false;
+    static Integer competition_num = 2;
+    private JFrame my_frame;
 
     private JButton competition_button;
     private JButton clear_button;
@@ -58,7 +60,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     /**
      * Default Ctor, for the competition panel (GUI patr)
      */
-    public CompetitionPanel(boolean regular)
+    public CompetitionPanel(boolean regular, JFrame frame)
     {
         super(new BorderLayout());
 
@@ -71,6 +73,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         }
 
         this.regular = regular;
+        this.my_frame = frame;
 
         this.buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout());
@@ -191,10 +194,17 @@ public class CompetitionPanel extends JPanel implements ActionListener {
     {
         String choose_button = e.getActionCommand();
 
-        if(choose_button.equals("Exit"))
-        {
-            System.exit(0);
+
+        if(choose_button.equals("Exit")) {
+            if (competition_num > 1){
+                my_frame.dispose();
+                --competition_num;
+            }
+            else {
+                System.exit(0);
+            }
         }
+
 
         if(choose_button.equals("Competition"))
         {
