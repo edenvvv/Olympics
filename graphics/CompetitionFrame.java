@@ -56,6 +56,8 @@ public class CompetitionFrame extends JFrame implements ActionListener
     {
         try{
             frame();
+            frame();
+            frame();
         }
         catch (Exception e){
             System.out.println("Hi, Try again");

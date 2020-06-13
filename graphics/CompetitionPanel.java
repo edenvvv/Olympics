@@ -114,9 +114,9 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         }
 
 
-        courier_tournament = new CourierTournament(courier_setup_arr);
+        /*courier_tournament = new CourierTournament(courier_setup_arr);
 
-        regular_tournament = new RegularTournament(regular_setup_arr);
+        regular_tournament = new RegularTournament(regular_setup_arr);*/
 
 
     }
@@ -209,9 +209,9 @@ public class CompetitionPanel extends JPanel implements ActionListener {
         if(choose_button.equals("Competition"))
         {
             //vec.clear();
-            if (competition_num != 0){
+            /*if (competition_num != 0){
                 frame();
-            }
+            }*/
             ++competition_num;
             Object[] tournament = {"Regular Tournament", "Courier Tournament"};
             this.Tournament_choose = pop_up(tournament,tournament.length-1,"What kind of Tournament?", "CompetitionDialog");
