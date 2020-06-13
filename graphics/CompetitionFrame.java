@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
  * @author Eden dadon id:207279183
  * @author Eliran Dagan id: 208061580
  */
-public class CompetitionFrame extends JFrame implements ActionListener
+public class CompetitionFrame extends JFrame implements ActionListener, Runnable
 {
     private JMenu jmenuFile, jmenuHelp;
     private JMenuItem jmenuitemExit, jmenuitemAbout;
@@ -52,16 +52,27 @@ public class CompetitionFrame extends JFrame implements ActionListener
     public static void main(String args[])
     {
         try{
-            CompetitionFrame com_frame = new CompetitionFrame();
-            com_frame.setVisible(true);
-            com_frame.setResizable(false);
-            com_frame.pack();
-            com_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            CompetitionFrame temp = new CompetitionFrame();
+            Thread temp_thread = new Thread(temp);
+            temp_thread.start();
+
+            CompetitionFrame temp1 = new CompetitionFrame();
+            Thread temp_thread1 = new Thread(temp);
+            temp_thread1.start();
         }
         catch (Exception e){
             System.out.println("Hi, Try again");
         }
 
+    }
+
+    public static void frame()
+    {
+        CompetitionFrame com_frame = new CompetitionFrame();
+        com_frame.setVisible(true);
+        com_frame.setResizable(false);
+        com_frame.pack();
+        com_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     /**
@@ -79,4 +90,26 @@ public class CompetitionFrame extends JFrame implements ActionListener
     }
 
 
+    /**
+     * When an object implementing interface <code>Runnable</code> is used
+     * to create a thread, starting the thread causes the object's
+     * <code>run</code> method to be called in that separately executing
+     * thread.
+     * <p>
+     * The general contract of the method <code>run</code> is that it may
+     * take any action whatsoever.
+     *
+     * @see Thread#run()
+     */
+    @Override
+    public void run() {
+        synchronized (this){
+            try{
+                frame();
+            }
+            catch (Exception e){
+                System.out.println("Hi, Try again");
+            }
+        }
+    }
 }

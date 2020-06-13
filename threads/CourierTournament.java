@@ -28,17 +28,15 @@ public class CourierTournament extends Tournament {
 
         for (int i=0; i < setup_arr.length; ++i){
             Boolean finishFlag = false;
-            AnimalThread temp = new AnimalThread(setup_arr[i][0], startFlag , finishFlag);
-            Thread temp_thread = new Thread(temp);
             Referee temp_referee = new Referee(String.valueOf(i+1),scores,finishFlag);
         }
     }
 
-    public void set_threads(Animal[][] setup_arr,Animal animal, int i){
+    public void set_threads(Animal[][] setup_arr,Animal animal, int i, Boolean start_courier, Boolean start_regular){
 
         setup_arr[0][i] = animal;
         Locations.add(i,animal.getLocation());
-        AnimalThread temp = new AnimalThread(animal, start_Flag , finish_Flag, this);
+        AnimalThread temp = new AnimalThread(animal, start_Flag , finish_Flag, start_courier, start_regular);
         Thread temp_thread = new Thread(temp);
         this.thread = temp_thread;
         animal_arr.add(temp.get_animal());

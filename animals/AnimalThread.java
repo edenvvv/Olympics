@@ -19,6 +19,9 @@ public class AnimalThread implements Runnable {
     private int animali1 = 0;
     private int animali2 = 3;
 
+    private Boolean start_courier;
+    private Boolean start_regular;
+
 
     static int sleep;
 
@@ -31,11 +34,13 @@ public class AnimalThread implements Runnable {
         sleep = 888;
     }
 
-    public AnimalThread(Animal participant, Boolean startFlag, Boolean finishFlag) {
+    public AnimalThread(Animal participant, Boolean startFlag, Boolean finishFlag, Boolean start_courier, Boolean start_regular) {
         this.participant = participant;
         this.neededDistance = 8;
         this.startFlag = startFlag;
         this.finishFlag = finishFlag;
+        this.start_courier = start_courier;
+        this.start_regular = start_regular;
         sleep = 888;
     }
 
@@ -131,7 +136,7 @@ public class AnimalThread implements Runnable {
 
 
 
-        if(start_regular){
+        else if(start_regular){
             synchronized (this.participant) {
                 synchronized(start_flag){
                     if (!start_flag){

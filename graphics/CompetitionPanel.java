@@ -34,8 +34,9 @@ public class CompetitionPanel extends JPanel implements ActionListener {
 
     private boolean clear_op = true;
 
-    public static Boolean start_regular = false;
-    public static Boolean start_courier = false;
+    private Boolean start_regular = false;
+    private Boolean start_courier = false;
+
     private Animal[][] courier_setup_arr;
     private int courier_counter;
 
@@ -266,7 +267,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                         return;
                     }
                     regular_setup_arr[setup_counter][0] = vec.lastElement();
-                    regular_tournament.set_threads(regular_setup_arr, vec.lastElement(), setup_counter);
+                    regular_tournament.set_threads(regular_setup_arr, vec.lastElement(), setup_counter, start_courier, start_regular);
                     ++setup_counter;
                 }
 
@@ -315,7 +316,7 @@ public class CompetitionPanel extends JPanel implements ActionListener {
                         }
                     }
                     courier_setup_arr[0][courier_counter] = vec.lastElement();
-                    courier_tournament.set_threads(courier_setup_arr, vec.lastElement(), courier_counter);
+                    courier_tournament.set_threads(courier_setup_arr, vec.lastElement(), courier_counter, start_courier, start_regular);
                     ++courier_counter;
                 }
                 repaint();
