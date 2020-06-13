@@ -125,11 +125,13 @@ public class AnimalThread implements Runnable {
                     if (animal_arr.get(animali1).get_max_distance() + 30 <= animal_arr.get(animali1).getLocation().getX()) {
                         print_mas("the winner is : team 1!","WINNER!");
                         exit_frame(this.my_frame);
+                        break;
                     }
 
                     else if (animal_arr.get(animali2).get_max_distance() + 30 <= animal_arr.get(animali2).getLocation().getX()) {
                         print_mas("the winner is : team 2!","WINNER!");
                         exit_frame(this.my_frame);
+                        break;
                     }
                 }
             }
@@ -152,7 +154,7 @@ public class AnimalThread implements Runnable {
                     }
                 }
                 while (!winner) {
-                    System.out.println(this.participant.getLocation());
+                    //System.out.println(this.participant.getLocation());
                     try {
                         Thread.sleep(sleep);
                     } catch (InterruptedException e) {

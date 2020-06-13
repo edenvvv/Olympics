@@ -80,7 +80,9 @@ public class CompetitionFrame extends JFrame implements ActionListener, Runnable
         com_frame.setVisible(true);
         com_frame.setResizable(false);
         com_frame.pack();
-        com_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        if (regular){
+            com_frame.setLocationRelativeTo(null);
+        }
     }
 
     public static void start_frame(boolean choice) {
